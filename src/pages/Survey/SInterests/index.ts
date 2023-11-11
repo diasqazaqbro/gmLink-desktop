@@ -1,0 +1,1 @@
+export { SInterests } from './ui/SInerests'

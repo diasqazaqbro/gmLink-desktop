@@ -1,15 +1,20 @@
 // import { type ReactElement } from "react";
 import { createBrowserRouter } from "react-router-dom";
 // import { selectIsAuthorized } from "@/entities/session";
-// import { CartPage } from "@/pages/cart";
-// import { CategoryPage } from "@/pages/category";
-// import { LoginPage } from "@/pages/login";
 import { MainPage } from "../pages/Main";
-// import { ProductPage } from "@/pages/product";
-// import { WishlistPage } from "@/pages/wishlist";
 // import { useAppSelector } from "../shared/model";
 import { BaseLayout } from "./Layouts/BaseLayout";
 import { LayoutWithNavbar } from "./Layouts/LayoutWithNavbar";
+import { Loader } from "../pages/Loader";
+import { Notification } from "../pages/Notification";
+import { Registration } from "../pages/Registration";
+import { SingEmail } from "../pages/Registration/SingEmail";
+import { SingPhone } from "../pages/Registration/SingPhone";
+import { SName } from "../pages/Survey/SName";
+import { SGengder } from "../pages/Survey/SGender";
+import { SInterests } from "../pages/Survey/SInterests";
+import { SDob } from "../pages/Survey/SDob";
+import { SFillingOutProfile } from "../pages/Survey/SFillingOutProfile";
 
 // type GuestGuardProps = {
 //   children: ReactElement;
@@ -34,45 +39,53 @@ import { LayoutWithNavbar } from "./Layouts/LayoutWithNavbar";
 
 //   return children;
 // }
-
 export const appRouter = () =>
   createBrowserRouter([
     {
       element: BaseLayout,
       errorElement: <div>error</div>,
       children: [
-        // {
-        //   path: "/login",
-        //   element: (
-        //     <AuthGuard>
-        //       <LoginPage />
-        //     </AuthGuard>
-        //   ),
-        // },
-        // {
-        //   path: "/user/wishlist",
-        //   element: (
-        //     <GuestGuard>
-        //       <WishlistPage />
-        //     </GuestGuard>
-        //   ),
-        // },
-        // {
-        //   path: "/user/cart",
-        //   element: (
-        //     <GuestGuard>
-        //       <CartPage />
-        //     </GuestGuard>
-        //   ),
-        // },
-        // {
-        //   path: "/category/:categoryId",
-        //   element: <CategoryPage />,
-        // },
-        // {
-        //   path: "/product/:productId",
-        //   element: <ProductPage />,
-        // },
+        {
+          path: "/loader",
+          element: <Loader/>
+        },
+        {
+          path: "/notification",
+          element: <Notification/>
+        },
+        {
+          path: "/registration",
+          element: <Registration/>
+        },
+        {
+          path: "/registration/sing-email",
+          element: <SingEmail/>
+        },
+        {
+          path: "/registration/sign-phone",
+          element: <SingPhone/>
+        },
+        {
+          path: "/survey/name",
+          element: <SName/>
+        },
+        {
+          path: "/survey/gender",
+          element: <SGengder/>
+        },
+        {
+          path: "/survey/interests",
+          element: <SInterests/>
+        },
+        {
+          path: "/survey/dob",
+          element: <SDob/>
+        },
+        {
+          path: "/survey/filling-out-profile",
+          element: <SFillingOutProfile/>
+        }
+        
       ],
     },
     {

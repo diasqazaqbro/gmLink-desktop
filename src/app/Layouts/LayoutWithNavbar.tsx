@@ -9,13 +9,4 @@ import { Layout } from "../../shared/ui";
  * (2) Avoid cross-import using slot (render prop) pattern
  * Pass widgets as props to layout
  */
-export const LayoutWithNavbar = (
-  <Layout
-    announcementSlot={
-      <span>
-        An open source frontend application built with React ⚛️ and
-        Feature-Sliced Design 🍰.
-      </span>
-    }
-  />
-);
+export const LayoutWithNavbar = <Layout />;

@@ -1,0 +1,1 @@
+export { SingPhone } from './ui/SingPhone'
