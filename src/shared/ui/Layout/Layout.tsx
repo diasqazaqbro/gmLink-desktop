@@ -1,21 +1,15 @@
-import { type ReactNode } from 'react'
-import { Outlet, ScrollRestoration } from 'react-router-dom'
-import sass from './Layout.module.sass'
+import { Outlet, ScrollRestoration } from "react-router-dom";
+import sass from "./Layout.module.sass";
+import Iphone from "./assets/iphone13.png";
 
-type Props = {
-  announcementSlot?: ReactNode
-}
-
-export function Layout(props: Props) {
+export function Layout() {
   return (
-    <div className={sass.root}>
-      {props.announcementSlot}
-      <div className={sass.container}>
-        <div className={sass.content}>
-          <Outlet />
-        </div>
+    <div className={sass.layout}>
+      <div className={sass.content}>
+        <Outlet />
       </div>
+      <img className={sass.img} src={Iphone} alt="iphone" />
       <ScrollRestoration />
     </div>
-  )
+  );
 }
