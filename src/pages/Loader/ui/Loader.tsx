@@ -1,3 +1,5 @@
+import sass from './Loader.module.sass'
+
 export function Loader() {
-  return <>loader</>;
+  return <div className={sass.loader}>loader</div>;
 }

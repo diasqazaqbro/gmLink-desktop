@@ -1,0 +1,21 @@
+.layout {
+  position: relative;
+  margin: 0 auto;
+  width: 400px;
+}
+
+.layout .img {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.layout .content {
+  position: absolute;
+  top: 58px;
+  left: 53px;
+  width: 391px;
+  height: 841px;
+  border-radius: 50px;
+  border: 1px solid red;
+}
