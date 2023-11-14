@@ -2,7 +2,7 @@
 import { createBrowserRouter } from "react-router-dom";
 // import { selectIsAuthorized } from "@/entities/session";
 import { MainPage } from "../pages/Main";
-// import { useAppSelector } from "../shared/model";
+// import { useAppSelector } from ".   ./shared/model";
 import { BaseLayout } from "./Layouts/BaseLayout";
 import { LayoutWithNavbar } from "./Layouts/LayoutWithNavbar";
 import { Loader } from "../pages/Loader";
