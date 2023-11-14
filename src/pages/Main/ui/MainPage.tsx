@@ -1,55 +1,59 @@
-import './MainPage.css'
-// import sass from './MainPage.module.sass'
+import sass from './MainPage.module.sass';
 
 export function MainPage() {
   return (
     <>
-    <div className='black__rotate'>
-      <div className='black__rotate--text'>
-        <h1><img src="/src/pages/Main/ui/assets/Logo.svg" alt="" />GMLINK</h1>
+    <div className={sass.br}>
+      <div className={sass.brText}>
+        <h1>
+          <img src="/src/pages/Main/ui/assets/Logo.svg" alt="GMLINK Logo" />
+          GMLINK
+        </h1>
         <h5>Don’t have an account ? </h5>
       </div>
     </div>
-    <div className='join'>
-      <button>Join</button>
-    </div>
-      <div className="container">
-        <div className='main__page--inner'>
-          <div className='mP--img'>
-            <img src="/src/pages/Main/ui/assets/mP--people.svg" alt="people" />
+      <div className={sass.join}>
+        <button>Join</button>
+      </div>
+      <div className={sass.container}>
+        <div className={sass.mpInner}>
+          <div className={sass.mpImg}>
+            <img src="/src/pages/Main/ui/assets/mP--people.svg" alt="People" />
           </div>
-          <div className="mP--btns">
-            <button className='mP--btn number'>Sign in Number</button>
-            <button className='mP--btn email'>Sign in Email</button>
+          <div className={sass.mpBtns}>
+            <button className={sass.mpBtn}>Sign in Number</button>
+            <button className={sass.mpBtn}>Sign in Email</button>
           </div>
-          <ul className='mP--links'>
-            <li className='mP--link'>
+          <ul className={sass.mpLinks}>
+            <li className={sass.mpLink}>
               <a href="">
-                <img src="/src/pages/Main/ui/assets/Group 5.svg" alt="" className='discord' />
+                <img src="/src/pages/Main/ui/assets/Group 5.svg" alt="Discord" className={sass.discord} />
               </a>
             </li>
-            <li className='mP--link'>
+            <li className={sass.mpLink}>
               <a href="">
-                <img src="/src/pages/Main/ui/assets/Group 6.svg" alt="" />
+                <img src="/src/pages/Main/ui/assets/Group 6.svg" alt="Group 6" />
               </a>
             </li>
-            <li className='mP--link google__link'>
+            <li className={sass.gLink}>
               <a href="">
-                <img src="/src/pages/Main/ui/assets/Frame.svg" alt="" />
+                <img src="/src/pages/Main/ui/assets/Frame.svg" alt="Frame" />
               </a>
             </li>
-            <li className='mP--link'>
+            <li className={sass.mpLink}>
               <a href="">
-                <img src="/src/pages/Main/ui/assets/Group 8.svg" alt="" className='dots'/>
+                <img src="/src/pages/Main/ui/assets/Group 8.svg" alt="Dots" className={sass.dots} />
               </a>
             </li>
           </ul>
-          <div className='black__rotateInContact'></div>
-          <div className="contact">
-            <a href="" className='contactUs'>Contact Us</a>
+          <div className={sass.brInContact}></div>
+          <div className={sass.contact}>
+            <a href="" className={sass.contactUs}>Contact Us</a>
           </div>
         </div>
       </div>
-    </>
-  )
+      </>
+  );
 }
+
+

@@ -21,7 +21,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.black__rotate {
+.br {
   width: 100%;
   height: 25%;
   transform: skewY(-12deg);
