@@ -1,0 +1,125 @@
+// -- Google Fonts --
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Cinzel:wght@500&family=Kanit:wght@100;200;300;400;500;600;700;800;900&family=Manrope:wght@200;300;400;500;600;700;800&family=Montserrat:wght@400;500&family=Noto+Serif:wght@300&family=Open+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&family=Roboto+Mono:wght@500&family=Roboto+Slab:wght@300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Mono+One&family=Ysabeau+Infant:wght@200;300&display=swap')
+
+// -- Global --
+
+.container
+    position: absolute
+    top: 50%
+    left: 49%
+    margin-right: -50%
+    transform: translate(-50%, -50%)
+
+// -- Main --
+
+.spInner
+    padding: 0 40px 0 40px
+
+.whiteBlock
+    position: absolute
+    z-index: -100
+    top: 10px
+
+.spBadges
+    display: flex
+    justify-content: space-between
+
+.arrow
+    padding-left: 25.69px
+
+.help
+    padding-right: 15.5px
+
+.spTitle
+    color: var(--color-white)
+    text-align: center
+    font-family: Asap
+    font-size: 27px
+    font-style: normal
+    font-weight: 500
+    line-height: normal
+    width: 295px
+    margin-top: 44.88px
+
+.spDraw
+    margin-top: 66px
+    margin-bottom: 54px
+
+.spAuth
+    display: flex
+    flex-direction: column
+
+.enterData
+    display: flex
+    justify-content: space-between
+    border-radius: 10px
+    border: 1px solid var(--color-primary)
+    background: var(--color-second)
+    outline: none
+    width: 295px
+    height: 40px
+    padding: 9.5px 0 9.5px 10.32px
+    color: rgba(255, 255, 255, 0.50)
+    font-family: Roboto flex
+    font-size: 15px
+    font-style: normal
+    font-weight: 400
+    line-height: normal
+    margin-bottom: 25px
+
+.enterEmail
+    background: transparent
+    outline: none
+    border: none
+    width: 100%
+    font-family: Roboto flex
+    border-radius: 5px
+    font-size: 15px
+    font-style: normal
+    font-weight: 400
+    line-height: normal
+    color: rgba(255, 255, 255, 0.50)
+    &:focus
+        outline: none
+
+.clearData
+    border: none
+    outline: none
+    background-color: #2F2D2D
+    cursor: pointer
+    margin-right: 11.5px
+    margin-top: 2px
+
+.spBtn
+    border-radius: 100px
+    background: rgba(85, 113, 255, 0.50)
+    color: rgba(255, 255, 255, 0.50)
+    outline: none
+    border: none
+    cursor: pointer
+    text-align: center
+    font-family: Asap
+    font-size: 20px
+    font-style: normal
+    font-weight: 400
+    line-height: normal
+    width: 295px
+    height: 40px
+    flex-shrink: 0
+    transition: all 0.5s ease
+    &:hover
+        background: var(--color-second)
+        color: var(--color-white)
+
+.spContact
+    text-decoration: none
+    color: var(--color-primary)
+    display: flex
+    align-items: center
+    justify-content: center 
+    font-family: Asap
+    font-size: 16px
+    font-style: normal
+    font-weight: 500
+    line-height: normal
+    margin-top: 100px
