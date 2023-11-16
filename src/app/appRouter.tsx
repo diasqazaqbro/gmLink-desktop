@@ -4,7 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { MainPage } from "../pages/Main";
 // import { useAppSelector } from ".   ./shared/model";
 import { BaseLayout } from "./Layouts/BaseLayout";
-import { LayoutWithNavbar } from "./Layouts/LayoutWithNavbar";
+// import { LayoutWithNavbar } from "./Layouts/LayoutWithNavbar";
 import { Loader } from "../pages/Loader";
 import { Notification } from "../pages/Notification";
 import { Registration } from "../pages/Registration";
@@ -50,8 +50,8 @@ export const appRouter = () =>
           element: <Loader/>
         },
         {
-          path: "/notification",
-          element: <Notification/>
+          path: "/main",
+          element: <MainPage/>
         },
         {
           path: "/registration",
@@ -84,18 +84,19 @@ export const appRouter = () =>
         {
           path: "/survey/filling-out-profile",
           element: <SFillingOutProfile/>
-        }
+        },
+        {
+          path: "/",
+          element: <Notification/>,
+        },
         
       ],
     },
-    {
-      element: LayoutWithNavbar,
-      errorElement: <div>error</div>,
-      children: [
-        {
-          path: "/",
-          element: <MainPage />,
-        },
-      ],
-    },
+    // {
+    //   element: BaseLayout,
+    //   errorElement: <div>error</div>,
+    //   children: [
+        
+    //   ],
+    // },
   ]);

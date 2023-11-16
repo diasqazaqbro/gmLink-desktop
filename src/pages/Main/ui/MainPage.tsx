@@ -1,6 +1,7 @@
 import sass from './MainPage.module.sass';
 
 export function MainPage() {
+  
   return (
     <>
     <div className={sass.br}>
