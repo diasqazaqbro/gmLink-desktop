@@ -1,6 +1,9 @@
 import sass from './MainPage.module.sass';
+import { SingPhone } from '../../Registration/SingPhone/ui/SingPhone'
+import { SingEmail } from '../../Registration/SingEmail/ui/SingEmail'
 
 export function MainPage() {
+
   return (
     <>
     <div className={sass.br}>
@@ -21,8 +24,8 @@ export function MainPage() {
             <img src="/src/pages/Main/ui/assets/mP--people.svg" alt="People" />
           </div>
           <div className={sass.mpBtns}>
-            <button className={sass.mpBtn}>Sign in Number</button>
-            <button className={sass.mpBtn}>Sign in Email</button>
+            <button onClick={handleJoinButtonClick} className={sass.mpBtn}>Sign in Number</button>
+            <button onClick={handleButton} className={sass.mpBtn}>Sign in Email</button>
           </div>
           <ul className={sass.mpLinks}>
             <li className={sass.mpLink}>

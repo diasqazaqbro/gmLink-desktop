@@ -1,11 +1,13 @@
 import sass from './SGender.module.sass'
+import Arrow from './assets/arrow_back_ios.svg'
+import Help from './assets/help.svg'
 
 export function SGengder() {
   return <>
     <div className={sass.container}>
       <div className={sass.sgBadges}>
-        <a href="" className={sass.arrow}><img src="./assets/arrow_back_ios.svg" alt="arrow" /></a>
-        <a href="" className={sass.help} ><img src="./assets/help.svg" alt="help" /></a>
+        <a href="" className={sass.arrow}><img src={Arrow} alt="arrow" /></a>
+        <a href="" className={sass.help} ><img src={Help} alt="help" /></a>
       </div>
       <div className={sass.sgInner}>
         <div className={sass.sgText}>

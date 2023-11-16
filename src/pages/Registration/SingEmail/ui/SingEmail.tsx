@@ -1,19 +1,23 @@
 import sass from './SingEmail.module.sass'
+import Arrow from './assets/arrow_back_ios.svg'
+import Help from './assets/help.svg'
+import Main from './assets/enter__email-main.svg'
+import WhiteBlock from './assets/white.svg'
 
 export function SingEmail() {
   return <>
     <div className={sass.container}>
       <div className={sass.whiteBlock}>
-        <img src="./assets/white.svg" alt="" />
+        <img src={WhiteBlock} alt="" />
       </div>
       <div className={sass.seBadges}>
-        <a href="" className={sass.arrow}><img src="./assets/arrow_back_ios.svg" alt="arrow" /></a>
-        <a href="" className={sass.help}><img src="./assets/help.svg" alt="" /></a>
+        <a href="" className={sass.arrow}><img src={Arrow} alt="arrow" /></a>
+        <a href="" className={sass.help}><img src={Help} alt="" /></a>
       </div>
       <div className={sass.seInner}>
         <h1 className={sass.seTitle}>Please enter your Email</h1>
         <div className={sass.seDraw}>
-          <img src="./assets/enter__email-main.svg" alt="" />
+          <img src={Main} alt="" />
         </div>
         <form action="" className={sass.seAuth}>
         <div className={sass.enterData}>
@@ -27,7 +31,7 @@ export function SingEmail() {
         </div>
         <button className={sass.seBtn}>Next</button>
         </form>
-        <a href="" className='seContact'>Contact Us</a>
+        <a href="" className={sass.seContact}>Contact Us</a>
       </div>
     </div>
   </>;

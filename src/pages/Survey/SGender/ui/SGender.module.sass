@@ -9,7 +9,7 @@
     top: 50%
     left: 49%
     margin-right: -50%
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -48%)
 
 // -- Main --
 
@@ -58,6 +58,9 @@
         cursor: pointer
         outline: none
         border: none
+        &:hover
+            background: var(--color-primary)
+            color: var(--color-white)
         &.male
             margin-right: 38.75px
             color: var(--color-second)
@@ -94,12 +97,21 @@
 
 .other
     color: var(--color-primary)
+    border-radius: 100px
+    background: var(--color-white)
+    outline: none
+    border: none
+    width: 153px
+    height: 45px
     text-align: center
     font-family: Asap
     font-size: 27px
     font-style: normal
     font-weight: 500
     line-height: normal
+    &:hover
+        background: var(--color-primary)
+        color: var(--color-white)
 
 .sgInput
     display: flex
@@ -141,7 +153,7 @@
 
 .nextBtn
     border-radius: 100px
-    background: gba(85, 113, 255, 0.50)
+    background: rgba(85, 113, 255, 0.50)
     color: rgba(255, 255, 255, 0.50)
     outline: none
     border: none

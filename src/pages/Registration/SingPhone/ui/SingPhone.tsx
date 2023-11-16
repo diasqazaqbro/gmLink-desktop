@@ -1,18 +1,23 @@
 import sass from './SingPhone.module.sass'
+import Arrow from './assets/arrow_back_ios.svg'
+import Help from './assets/help.svg'
+import Main from './assets/enter__email-main.svg'
+import WhiteBlock from './assets/white.svg'
+
 export function SingPhone() {
   return <>
     <div className={sass.container}>
       <div className={sass.whiteBlock}>
-        <img src="./assets/white.svg" alt="" />
+        <img src={WhiteBlock} alt="" />
       </div>
       <div className={sass.spBadges}>
-        <a href="" className={sass.arrow}><img src="./assets/arrow_back_ios.svg" alt="arrow" /></a>
-        <a href="" className={sass.help}><img src="./assets/help.svg" alt="" /></a>
+        <a href="" className={sass.arrow}><img src={Arrow} alt="arrow" /></a>
+        <a href="" className={sass.help}><img src={Help} alt="" /></a>
       </div>
       <div className={sass.spInner}>
         <h1 className={sass.spTitle}>Please enter your Email</h1>
         <div className={sass.spDraw}>
-          <img src="./assets/enter__email-main.svg" alt="" />
+          <img src={Main} alt="" />
         </div>
         <form action="" className={sass.spAuth}>
         <div className={sass.enterData}>
