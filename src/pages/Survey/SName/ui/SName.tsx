@@ -5,6 +5,7 @@ import Main from './assets/main.svg'
 
 export function SName() {
   return <>
+  <div className={sass.background}>
     <div className={sass.container}>
       <div className={sass.snBadges}>
         <a href="" className={sass.arrow}><img src={Arrow} alt="" /></a>
@@ -36,6 +37,7 @@ export function SName() {
             <a href="">Contact Us</a>
           </div>
       </div>
+    </div>
     </div>
   </>;
 }

@@ -6,6 +6,7 @@ import WhiteBlock from './assets/white.svg'
 
 export function SingPhone() {
   return <>
+  <div className={sass.background}>
     <div className={sass.container}>
       <div className={sass.whiteBlock}>
         <img src={WhiteBlock} alt="" />
@@ -21,7 +22,7 @@ export function SingPhone() {
         </div>
         <form action="" className={sass.spAuth}>
         <div className={sass.enterData}>
-          <input   name="search_query"  aria-label="Search" role="combobox" aria-haspopup="false" aria-autocomplete="list" dir="ltr" type="number" id="Input" value="" className={sass.enterEmail} placeholder="Enter your number" />
+          <input   name="search_query"  aria-label="Search" role="combobox" aria-haspopup="false" aria-autocomplete="list" dir="ltr" type="email" id="Input" value="" className={sass.enterEmail} placeholder="Enter your number" />
           <button className={sass.clearData}>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
               <circle cx="8.99999" cy="8.49999" r="8.49999" fill="#D9D9D9"/>
@@ -33,6 +34,7 @@ export function SingPhone() {
         </form>
         <a href="" className={sass.spContact}>Contact Us</a>
       </div>
+    </div>
     </div>
   </>;
 }

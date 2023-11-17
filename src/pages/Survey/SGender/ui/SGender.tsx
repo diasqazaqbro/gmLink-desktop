@@ -4,6 +4,7 @@ import Help from './assets/help.svg'
 
 export function SGengder() {
   return <>
+  <div className={sass.background}>
     <div className={sass.container}>
       <div className={sass.sgBadges}>
         <a href="" className={sass.arrow}><img src={Arrow} alt="arrow" /></a>
@@ -38,6 +39,7 @@ export function SGengder() {
             <a href="">Contact Us</a>
           </div>
       </div>
+    </div>
     </div>
   </>;
 }

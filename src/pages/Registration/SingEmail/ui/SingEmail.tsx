@@ -6,6 +6,7 @@ import WhiteBlock from './assets/white.svg'
 
 export function SingEmail() {
   return <>
+  <div className={sass.background}>
     <div className={sass.container}>
       <div className={sass.whiteBlock}>
         <img src={WhiteBlock} alt="" />
@@ -33,6 +34,7 @@ export function SingEmail() {
         </form>
         <a href="" className={sass.seContact}>Contact Us</a>
       </div>
+    </div>
     </div>
   </>;
 }

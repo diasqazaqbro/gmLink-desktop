@@ -6,6 +6,7 @@ import Main from './assets/Main.svg'
 
 export function SFillingOutProfile() {
   return <>
+  <div className={sass.background}>
   <div className={sass.container}>
     <div className={sass.white}>
       <img src={White} alt="" />
@@ -30,6 +31,7 @@ export function SFillingOutProfile() {
           <a href="">Contact Us</a>
         </div>
       </div>
+    </div>
     </div>
   </>;
 }
