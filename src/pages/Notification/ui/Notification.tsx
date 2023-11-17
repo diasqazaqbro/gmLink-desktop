@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { Link, Routes, Route, useNavigate } from 'react-router-dom'
 import sass from "./Notification.module.sass";
 import { Loader } from "../../Loader";
+import { MainPage } from "../../Main/ui/MainPage";
 
 
 export const Notification: React.FC = () => {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate()
+
+  const useNavigateToMain = () => {
+    navigate('/Main')
+  }
 
   useEffect(() => {
     setTimeout(() => {
@@ -70,12 +77,15 @@ export const Notification: React.FC = () => {
               This will allow you to immediately find out about new likes and
               messages.
             </p>
-            <button className={sass.tnBtn}>Next</button>
+            <button onClick={useNavigateToMain} className={sass.tnBtn}>Next</button>
           </div>
         </div>
       ) : (
         <Loader/>
       )}
+      <Routes>
+        <Route path='/Main' element={<MainPage />}/>
+      </Routes>
     </div>
   );
 };

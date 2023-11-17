@@ -1,6 +1,19 @@
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import { SingEmail } from '../../Registration/SingEmail';
+import { SingPhone } from '../../Registration/SingPhone';
 import sass from './MainPage.module.sass';
 
 export function MainPage() {
+
+  const navigate = useNavigate()
+
+  const navigateToSe = () => {
+    navigate('/registration/sing-email')
+  }
+
+  const navigateToSp = () => {
+    navigate('/registration/sign-phone')
+  }
   
   return (
     <>
@@ -22,8 +35,8 @@ export function MainPage() {
             <img src="/src/pages/Main/ui/assets/mP--people.svg" alt="People" />
           </div>
           <div className={sass.mpBtns}>
-            <button className={sass.mpBtn}>Sign in Number</button>
-            <button className={sass.mpBtn}>Sign in Email</button>
+            <button onClick={navigateToSp} className={sass.mpBtn}>Sign in Number</button>
+            <button onClick={navigateToSe} className={sass.mpBtn}>Sign in Email</button>
           </div>
           <ul className={sass.mpLinks}>
             <li className={sass.mpLink}>
@@ -53,6 +66,10 @@ export function MainPage() {
           </div>
         </div>
       </div>
+      <Routes>
+        <Route path='/registration/sign-phone' element={<SingPhone/>}/>
+        <Route path='/registration/sing-email' element={<SingEmail/>}/>
+      </Routes>
       </>
   );
 }
