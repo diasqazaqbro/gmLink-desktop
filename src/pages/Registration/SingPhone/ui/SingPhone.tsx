@@ -21,7 +21,7 @@ export function SingPhone() {
   };
 
   const isPhoneValid = () => {
-    return phone.replace(/\D/g, '').length >= 10;
+    return phone.replace(/\D/g, '').length >= 10; 
   };
 
   return <>
