@@ -1,14 +1,22 @@
+import { Link, Routes, Route, useNavigate } from 'react-router-dom'
 import sass from './SName.module.sass'
 import Arrow from './assets/arrow_back_ios.svg'
 import Help from './assets/help.svg'
 import Main from './assets/main.svg'
+import { SGengder } from '../../SGender'
 
 export function SName() {
+
+  const navigate = useNavigate()
+
+  const navigateToSg = () => {
+    navigate('/survey/gender')
+  }
   return <>
   <div className={sass.background}>
     <div className={sass.container}>
       <div className={sass.snBadges}>
-        <a href="" className={sass.arrow}><img src={Arrow} alt="" /></a>
+        <Link to='/registration/sing-email'  className={sass.arrow}><img src={Arrow} alt="" /></Link>
         <a href="" className={sass.help}><img src={Help} alt="" /></a>
       </div>
       <div className={sass.snInner}>
@@ -31,7 +39,7 @@ export function SName() {
                 </svg>
               </a>
             </div>
-            <button className={sass.nextBtn}>Next</button>
+            <button  onClick={navigateToSg} className={sass.nextBtn}>Next</button>
           </form>
           <div className={sass.contact}>
             <a href="">Contact Us</a>
@@ -39,5 +47,8 @@ export function SName() {
       </div>
     </div>
     </div>
+    <Routes>
+      <Route path='/survey/gender' element={<SGengder/>}/>
+    </Routes>
   </>;
 }

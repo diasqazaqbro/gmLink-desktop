@@ -1,13 +1,22 @@
+import { Link, Routes, Route, useNavigate } from 'react-router-dom'
 import sass from './SGender.module.sass'
 import Arrow from './assets/arrow_back_ios.svg'
 import Help from './assets/help.svg'
+import { SInterests } from '../../SInterests'
 
 export function SGengder() {
+
+  const navigate = useNavigate()
+
+  const navigateToSg = () => {
+    navigate('/survey/interests')
+  }
+
   return <>
   <div className={sass.background}>
     <div className={sass.container}>
       <div className={sass.sgBadges}>
-        <a href="" className={sass.arrow}><img src={Arrow} alt="arrow" /></a>
+        <Link to='/survey/name' className={sass.arrow}><img src={Arrow} alt="arrow" /></Link>
         <a href="" className={sass.help} ><img src={Help} alt="help" /></a>
       </div>
       <div className={sass.sgInner}>
@@ -33,7 +42,7 @@ export function SGengder() {
                 </svg>
               </a>
             </div>
-            <button className={sass.nextBtn}>Next</button>
+            <button onClick={navigateToSg} className={sass.nextBtn}>Next</button>
           </form>
           <div className={sass.sgContact}>
             <a href="">Contact Us</a>
@@ -41,5 +50,8 @@ export function SGengder() {
       </div>
     </div>
     </div>
+    <Routes>
+      <Route path='/survey/interests' element={<SInterests/>}/>
+    </Routes>
   </>;
 }

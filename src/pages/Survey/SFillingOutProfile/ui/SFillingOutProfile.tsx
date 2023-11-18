@@ -1,3 +1,4 @@
+import { Link, Routes, Route, useNavigate } from 'react-router-dom'
 import sass from './SFillingOutProfile.module.sass'
 import Arrow from './assets/arrow_back_ios.svg'
 import Help from './assets/help.svg'
@@ -5,6 +6,12 @@ import White from './assets/White.svg'
 import Main from './assets/Main.svg'
 
 export function SFillingOutProfile() {
+
+  const navigate = useNavigate()
+
+  const navigateToMg = () => {
+    navigate('/Menu/MGamepad')
+  }
   return <>
   <div className={sass.background}>
   <div className={sass.container}>
@@ -12,7 +19,7 @@ export function SFillingOutProfile() {
       <img src={White} alt="" />
     </div>
       <div className={sass.sfBadges}>
-        <a href="" className={sass.arrow}><img src={Arrow} alt="" /></a>
+        <Link to='/survey/dob' className={sass.arrow}><img src={Arrow} alt="" /></Link>
         <a href="" className={sass.help}><img src={Help} alt="" /></a>
       </div>
       <div className={sass.sfInner}>
@@ -24,7 +31,7 @@ export function SFillingOutProfile() {
           <img src={Main} alt="" />
         </div>
         <div className={sass.sfBtn}>
-          <button>Next</button>
+          <button onClick={navigateToMg}>Next</button>
           <a href="">Skip</a>
         </div>
         <div className={sass.contact}>
@@ -33,5 +40,8 @@ export function SFillingOutProfile() {
       </div>
     </div>
     </div>
+    <Routes>
+      <Route/>
+    </Routes>
   </>;
 }

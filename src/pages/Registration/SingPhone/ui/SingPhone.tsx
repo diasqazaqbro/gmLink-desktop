@@ -31,7 +31,7 @@ export function SingPhone() {
         </div>
         <form action="" className={sass.spAuth}>
         <div className={sass.enterData}>
-          <input   name="search_query"  aria-label="Search" role="combobox" aria-haspopup="false" aria-autocomplete="list" dir="ltr" type="tel" id="Input" className={sass.enterEmail} placeholder="Enter your number" />
+          <input   name="search_query"  aria-label="Search" autoComplete="off" role="combobox" aria-haspopup="false" aria-autocomplete="list" dir="ltr" type="tel" id="Input" className={sass.enterEmail} placeholder="Enter your number" />
           <button className={sass.clearData}>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
               <circle cx="8.99999" cy="8.49999" r="8.49999" fill="#D9D9D9"/>

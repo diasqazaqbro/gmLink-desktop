@@ -15,6 +15,8 @@ import { SGengder } from "../pages/Survey/SGender";
 import { SInterests } from "../pages/Survey/SInterests";
 import { SDob } from "../pages/Survey/SDob";
 import { SFillingOutProfile } from "../pages/Survey/SFillingOutProfile";
+import { MGamepad } from "../pages/Menu/MGamepad";
+import { MHome } from "../pages/Menu/MHome";
 
 // type GuestGuardProps = {
 //   children: ReactElement;
@@ -84,6 +86,14 @@ export const appRouter = () =>
         {
           path: "/survey/filling-out-profile",
           element: <SFillingOutProfile/>
+        },
+        {
+          path: "/Menu/MGamepad",
+          element: <MGamepad/>
+        },
+        {
+          path: "/menu/mhome",
+          element: <MHome/>
         },
         {
           path: "/",

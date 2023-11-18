@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import sass from './Registration.module.sass'
 import Logo from './assets/Logo.svg'
 import Discord from './assets/Discord.svg'
@@ -24,7 +25,7 @@ export function Registration() {
       <div className={sass.regInner}>
         <div className={sass.regBox}>
           <div className={sass.boxEnd}>
-            <a href="">
+            <Link to='/main'>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="26" viewBox="0 0 18 26" fill="none">
                 <mask id="mask0_0_132" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="26">
                 <rect y="0.230103" width="17.7946" height="25" fill="#D9D9D9"/>
@@ -33,7 +34,7 @@ export function Registration() {
                 <path d="M10.4167 23.1468L0 12.7301L10.4167 2.31342L12.2656 4.16238L3.69792 12.7301L12.2656 21.2978L10.4167 23.1468Z" fill="white"/>
                 </g>
               </svg>
-            </a>
+            </Link>
           </div>
           <div className={sass.regCards}>
             <button className={sass.regCard}>

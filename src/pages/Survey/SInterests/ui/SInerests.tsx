@@ -1,16 +1,25 @@
+import { Link, Routes, Route, useNavigate } from 'react-router-dom'
 import sass from './SInterests.module.sass'
 import Arrow from './assets/arrow_back_ios.svg'
 import Help from './assets/help.svg'
 import Cup from './assets/uI_cup.svg'
 import Heart from './assets/uI_heart.svg'
 import Massages from './assets/uI_massages.svg'
+import { SDob } from '../../SDob'
 
 export function SInterests() {
+
+  const navigate = useNavigate()
+
+  const navigateToSdob = () => {
+    navigate('/survey/dob')
+  }
+
   return <>
     <div className={sass.background}>
       <div className={sass.container}>
         <div className={sass.siBadges}>
-          <a href="" className={sass.arrow}><img src={Arrow} alt="" /></a>
+          <Link to='/survey/gender' className={sass.arrow}><img src={Arrow} alt="" /></Link>
           <a href="" className={sass.help}><img src={Help} alt="" /></a>
         </div>
         <div className={sass.siInner}>
@@ -63,7 +72,7 @@ export function SInterests() {
             </div>
           </div>
           <div className={sass.siBtn}>
-            <button>Next</button>
+            <button onClick={navigateToSdob}>Next</button>
           </div>
           <div className={sass.contact}>
             <a href="">Contact Us</a>
@@ -71,5 +80,8 @@ export function SInterests() {
         </div>
       </div>
     </div>
+    <Routes>
+      <Route path='/survey/dob' element={<SDob/>}/>
+    </Routes>
   </>;
 }

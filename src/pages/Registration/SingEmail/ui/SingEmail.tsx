@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Link, Routes, Route, useNavigate } from 'react-router-dom'
 import sass from './SingEmail.module.sass'
 import Arrow from './assets/arrow_back_ios.svg'
 import Help from './assets/help.svg'
@@ -13,6 +13,7 @@ export function SingEmail() {
   const navigateToSname = () => {
     navigate('/survey/name')
   }
+  
   return <>
   <div className={sass.background}>
     <div className={sass.container}>
@@ -20,7 +21,7 @@ export function SingEmail() {
         <img src={WhiteBlock} alt="" />
       </div>
       <div className={sass.seBadges}>
-        <a href="" className={sass.arrow}><img src={Arrow} alt="arrow" /></a>
+        <Link to='/main' className={sass.arrow}><img src={Arrow} alt="arrow" /></Link>
         <a href="" className={sass.help}><img src={Help} alt="" /></a>
       </div>
       <div className={sass.seInner}>
@@ -30,7 +31,7 @@ export function SingEmail() {
         </div>
         <form action="" className={sass.seAuth}>
         <div className={sass.enterData}>
-          <input   name="search_query"  aria-label="Search" role="combobox" aria-haspopup="false" aria-autocomplete="list" dir="ltr" type="email" id="Input"  className={sass.enterEmail} placeholder="Enter your email" />
+          <input   name="search_query"  aria-label="Search" role="combobox" aria-haspopup="false" aria-autocomplete="list" autoComplete="off" dir="ltr" type="email" id="Input"  className={sass.enterEmail} placeholder="Enter your email" />
           <button className={sass.clearData}>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
               <circle cx="8.99999" cy="8.49999" r="8.49999" fill="#D9D9D9"/>

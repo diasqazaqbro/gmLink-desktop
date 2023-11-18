@@ -2,6 +2,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import { SingEmail } from '../../Registration/SingEmail';
 import { SingPhone } from '../../Registration/SingPhone';
 import sass from './MainPage.module.sass';
+import { Registration } from '../../Registration';
 
 export function MainPage() {
 
@@ -13,6 +14,10 @@ export function MainPage() {
 
   const navigateToSp = () => {
     navigate('/registration/sign-phone')
+  }
+
+  const navigateToRegistration = () => {
+    navigate('/registration')
   }
   
   return (
@@ -55,7 +60,7 @@ export function MainPage() {
               </a>
             </li>
             <li className={sass.mpLink}>
-              <a href="">
+              <a onClick={navigateToRegistration} href="">
                 <img src="/src/pages/Main/ui/assets/Group 8.svg" alt="Dots" className={sass.dots} />
               </a>
             </li>
@@ -69,6 +74,7 @@ export function MainPage() {
       <Routes>
         <Route path='/registration/sign-phone' element={<SingPhone/>}/>
         <Route path='/registration/sing-email' element={<SingEmail/>}/>
+        <Route path='/registration' element={<Registration/>}/>
       </Routes>
       </>
   );
