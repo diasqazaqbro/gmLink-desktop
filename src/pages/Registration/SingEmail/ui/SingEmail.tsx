@@ -68,7 +68,7 @@ export function SingEmail() {
             </svg>
           </button>
         </div>
-        <button onClick={navigateToSname} disabled={!isEmailValid()} className={sass.seBtn}>Next</button>
+        <button onClick={navigateToSname} disabled={!isEmailValid()} className={`${sass.seBtn} ${isEmailValid() ? sass.active : ''}`}>Next</button>
         </form>
         <a href="" className={sass.seContact}>Contact Us</a>
       </div>
