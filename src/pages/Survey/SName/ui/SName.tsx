@@ -1,3 +1,4 @@
+import { useState, ChangeEvent, FormEvent } from 'react'
 import { Link, Routes, Route, useNavigate } from 'react-router-dom'
 import sass from './SName.module.sass'
 import Arrow from './assets/arrow_back_ios.svg'
@@ -7,11 +8,22 @@ import { SGengder } from '../../SGender'
 
 export function SName() {
 
+  const [name, setName] = useState('')
+
+  const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value)
+  }
+
+  const isNameValid = () => {
+    return name.trim() !== ''
+  }
+
   const navigate = useNavigate()
 
   const navigateToSg = () => {
     navigate('/survey/gender')
   }
+
   return <>
   <div className={sass.background}>
     <div className={sass.container}>
@@ -29,9 +41,23 @@ export function SName() {
         <div className={sass.snMain}>
           <img src={Main} alt="" />
         </div>
-        <form action="" className={sass.snInput}>
+        <form 
+          action="" 
+          className={sass.snInput}
+          onSubmit={(event: FormEvent<HTMLFormElement>) => {
+            event.preventDefault();
+            if (isNameValid()) {
+              navigateToSg();
+            }
+          }}
+          >
             <div className={sass.snEt}>
-              <input type="text" placeholder="Enter if other"/>
+              <input 
+                type="text" 
+                autoComplete='off'
+                placeholder="Enter if other"
+                onChange={handleNameChange}
+                />
               <a href="" className={sass.snClear}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
                   <circle cx="8.54296" cy="8.49999" r="8.49999" fill="#D9D9D9"/>
@@ -39,7 +65,7 @@ export function SName() {
                 </svg>
               </a>
             </div>
-            <button  onClick={navigateToSg} className={sass.nextBtn}>Next</button>
+            <button  className={`${sass.nextBtn} ${isNameValid() ? sass.active : ''}`}>Next</button>
           </form>
           <div className={sass.contact}>
             <a href="">Contact Us</a>
