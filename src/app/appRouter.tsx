@@ -17,6 +17,8 @@ import { SDob } from "../pages/Survey/SDob";
 import { SFillingOutProfile } from "../pages/Survey/SFillingOutProfile";
 import { MGamepad } from "../pages/Menu/MGamepad";
 import { MHome } from "../pages/Menu/MHome";
+import { MProfile } from "../pages/Menu/MProfile";
+import { MChat } from "../pages/Menu/MChat";
 
 // type GuestGuardProps = {
 //   children: ReactElement;
@@ -94,6 +96,14 @@ export const appRouter = () =>
         {
           path: "/menu/mhome",
           element: <MHome/>
+        },
+        {
+          path: "/menu/mprofile",
+          element: <MProfile/>
+        },
+        {
+          path: '/menu/mchat',
+          element: <MChat/>
         },
         {
           path: "/",
