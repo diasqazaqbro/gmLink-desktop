@@ -11,7 +11,7 @@ import { Registration } from "../pages/Registration";
 import { SingEmail } from "../pages/Registration/SingEmail";
 import { SingPhone } from "../pages/Registration/SingPhone";
 import { SName } from "../pages/Survey/SName";
-import { SGengder } from "../pages/Survey/SGender";
+import { SGender } from "../pages/Survey/SGender";
 import { SInterests } from "../pages/Survey/SInterests";
 import { SDob } from "../pages/Survey/SDob";
 import { SFillingOutProfile } from "../pages/Survey/SFillingOutProfile";
@@ -76,7 +76,7 @@ export const appRouter = () =>
         },
         {
           path: "/survey/gender",
-          element: <SGengder/>
+          element: <SGender/>
         },
         {
           path: "/survey/interests",

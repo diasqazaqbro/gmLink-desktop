@@ -1,1 +1,1 @@
-export { SGengder } from './ui/SGender'
+export { SGender } from './ui/SGender'

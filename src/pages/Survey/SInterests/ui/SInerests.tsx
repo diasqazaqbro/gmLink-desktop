@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link, Routes, Route, useNavigate } from 'react-router-dom'
 import sass from './SInterests.module.sass'
 import Arrow from './assets/arrow_back_ios.svg'
@@ -6,9 +7,11 @@ import Cup from './assets/uI_cup.svg'
 import Heart from './assets/uI_heart.svg'
 import Massages from './assets/uI_massages.svg'
 import { SDob } from '../../SDob'
+import { Modal } from '../../../Modal'
 
 export function SInterests() {
 
+  const [modalActive, setModalActive] = useState(false)
   const navigate = useNavigate()
 
   const navigateToSdob = () => {
@@ -20,7 +23,7 @@ export function SInterests() {
       <div className={sass.container}>
         <div className={sass.siBadges}>
           <Link to='/survey/gender' className={sass.arrow}><img src={Arrow} alt="" /></Link>
-          <a href="" className={sass.help}><img src={Help} alt="" /></a>
+          <button className={sass.help}><img src={Help} alt="" onClick={() => setModalActive(true)} /></button>
         </div>
         <div className={sass.siInner}>
           <div className={sass.siText}>
@@ -79,6 +82,9 @@ export function SInterests() {
           </div>
         </div>
       </div>
+      <Modal active={modalActive} setActive={setModalActive}>
+      <p>Hello, Dias</p>
+    </Modal>
     </div>
     <Routes>
       <Route path='/survey/dob' element={<SDob/>}/>

@@ -1,14 +1,16 @@
 import { useState, ChangeEvent, FormEvent } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Link, Routes, Route, useNavigate } from 'react-router-dom'
 import sass from './SingPhone.module.sass'
 import Arrow from './assets/arrow_back_ios.svg'
 import Help from './assets/help.svg'
 import Main from './assets/enter__email-main.svg'
 import WhiteBlock from './assets/white.svg'
 import { SName } from '../../../Survey/SName'
+import { Modal } from '../../../Modal'
 
 export function SingPhone() {
 
+  const [modalActive, setModalActive] = useState(false)
   const navigate = useNavigate()
   const [phone, setPhone] = useState('')
 
@@ -31,8 +33,8 @@ export function SingPhone() {
         <img src={WhiteBlock} alt="" />
       </div>
       <div className={sass.spBadges}>
-        <a href="" className={sass.arrow}><img src={Arrow} alt="arrow" /></a>
-        <a href="" className={sass.help}><img src={Help} alt="" /></a>
+        <Link to='/main' className={sass.arrow}><img src={Arrow} alt="arrow" /></Link>
+        <button className={sass.help}><img src={Help} alt="" onClick={() => setModalActive(true)}/></button>
       </div>
       <div className={sass.spInner}>
         <h1 className={sass.spTitle}>Please enter your Phone</h1>
@@ -74,6 +76,9 @@ export function SingPhone() {
         <a href="" className={sass.spContact}>Contact Us</a>
       </div>
     </div>
+    <Modal active={modalActive} setActive={setModalActive}>
+      <p>Hello, Dias</p>
+    </Modal>
     </div>
     <Routes>
       <Route path='/survey/name' element={<SName/>}/>

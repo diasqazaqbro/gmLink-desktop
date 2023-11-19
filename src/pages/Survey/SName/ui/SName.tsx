@@ -4,10 +4,12 @@ import sass from './SName.module.sass'
 import Arrow from './assets/arrow_back_ios.svg'
 import Help from './assets/help.svg'
 import Main from './assets/main.svg'
-import { SGengder } from '../../SGender'
+import { SGender } from '../../SGender'
+import { Modal } from '../../../Modal'
 
 export function SName() {
 
+  const [modalActive, setModalActive] = useState(false)
   const [name, setName] = useState('')
 
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +31,7 @@ export function SName() {
     <div className={sass.container}>
       <div className={sass.snBadges}>
         <Link to='/registration/sing-email'  className={sass.arrow}><img src={Arrow} alt="" /></Link>
-        <a href="" className={sass.help}><img src={Help} alt="" /></a>
+        <Link to="" className={sass.help}><img src={Help} alt="" onClick={() => setModalActive(true)}/></Link>
       </div>
       <div className={sass.snInner}>
         <div className={sass.snText}>
@@ -72,9 +74,12 @@ export function SName() {
           </div>
       </div>
     </div>
+    <Modal active={modalActive} setActive={setModalActive}>
+      <p>Hello, Dias</p>
+    </Modal>
     </div>
     <Routes>
-      <Route path='/survey/gender' element={<SGengder/>}/>
+      <Route path='/survey/gender' element={<SGender/>}/>
     </Routes>
   </>;
 }

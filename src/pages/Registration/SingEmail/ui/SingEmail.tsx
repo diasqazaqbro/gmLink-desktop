@@ -6,9 +6,11 @@ import Help from './assets/help.svg'
 import Main from './assets/enter__email-main.svg'
 import WhiteBlock from './assets/white.svg'
 import { SName } from '../../../Survey/SName'
+import { Modal } from '../../../Modal'
 
 export function SingEmail() {
 
+  const [modalActive, setModalActive] = useState(false)
   const [email, setEmail] = useState('')
   const navigate = useNavigate()
 
@@ -28,7 +30,7 @@ export function SingEmail() {
     if (isEmailValid()) {
       navigateToSname();
     }
-  };  
+  }
 
   return <>
   <div className={sass.background}>
@@ -38,7 +40,9 @@ export function SingEmail() {
       </div>
       <div className={sass.seBadges}>
         <Link to='/main' className={sass.arrow}><img src={Arrow} alt="arrow" /></Link>
-        <a href="" className={sass.help}><img src={Help} alt="" /></a>
+        <button className={sass.help} onClick={() => setModalActive(true)}>
+          <img src={Help} alt="" />
+        </button>
       </div>
       <div className={sass.seInner}>
         <h1 className={sass.seTitle}>Please enter your Email</h1>
@@ -73,6 +77,9 @@ export function SingEmail() {
         <a href="" className={sass.seContact}>Contact Us</a>
       </div>
     </div>
+    <Modal active={modalActive} setActive={setModalActive}>
+      <p>Hello, Dias</p>
+    </Modal>
     </div>
     <Routes>
       <Route path='/survey/name' element={<SName/>}/>
