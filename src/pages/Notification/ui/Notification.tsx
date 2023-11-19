@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import sass from "./Notification.module.sass";
 import { Loader } from "../../Loader";
 import { MainPage } from "../../Main/ui/MainPage";
