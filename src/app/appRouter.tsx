@@ -19,6 +19,7 @@ import { MGamepad } from "../pages/Menu/MGamepad";
 import { MHome } from "../pages/Menu/MHome";
 import { MProfile } from "../pages/Menu/MProfile";
 import { MChat } from "../pages/Menu/MChat";
+import { MInsideChat } from "../pages/Menu/MChat/MInsideChat";
 
 // type GuestGuardProps = {
 //   children: ReactElement;
@@ -104,6 +105,10 @@ export const appRouter = () =>
         {
           path: '/menu/mchat',
           element: <MChat/>
+        },
+        {
+          path: "/menu/mchating",
+          element: <MInsideChat/>
         },
         {
           path: "/",

@@ -1,0 +1,1 @@
+export { MInsideChat } from './ui/MInsideChat'

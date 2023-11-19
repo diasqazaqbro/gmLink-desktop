@@ -1,9 +1,9 @@
 import {Link} from 'react-router-dom'
 import sass from './MProfile.module.sass'
-import Chat from './assets/chat-round-svgrepo-com.svg'
-import Gamepad from './assets/gamepad-svgrepo-com.svg'
-import Home from './assets/home-svgrepo-com.svg'
-import Profile from './assets/profile-circle-svgrepo-com.svg'
+import Chat from './assets/ci_users.svg'
+import Gamepad from './assets/ci_puzzle.svg'
+import Home from './assets/ci_house-01.svg'
+import Profile from './assets/ci_user-square.svg'
 
 export function MProfile() {
     return <>

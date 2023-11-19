@@ -1,14 +1,21 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import sass from './MChat.module.sass'
 import Logo from './assets/Logo.svg'
 import circle1 from './assets/circle1.svg'
-import Chat from './assets/chat-round-svgrepo-com.svg'
-import Gamepad from './assets/gamepad-svgrepo-com.svg'
-import Home from './assets/home-svgrepo-com.svg'
-import Profile from './assets/profile-circle-svgrepo-com.svg'
+import Chat from './assets/ci_users.svg'
+import Gamepad from './assets/ci_puzzle.svg'
+import Home from './assets/ci_house-01.svg'
+import Profile from './assets/ci_user-square.svg'
 import Heart from './assets/heart.svg'
 
 export function MChat() {
+
+    const navigate = useNavigate()
+
+    const navigateToChat = () => {
+        navigate('/menu/mchating')
+    }
+
     return <>
     <div className={sass.background}>
             <div className={sass.mcInner}>
@@ -50,19 +57,19 @@ export function MChat() {
                     </div>
                     <div className={sass.massage}>
                         <h1>Messages</h1>
-                        <button className={sass.massages}>
+                        <button onClick={navigateToChat} className={sass.massages}>
                             <div className={sass.circle}></div>
                         </button>
-                        <button className={sass.massages}>
+                        <button onClick={navigateToChat} className={sass.massages}>
                             <div className={sass.circle}></div>
                         </button>
-                        <button className={sass.massages}>
+                        <button onClick={navigateToChat} className={sass.massages}>
                             <div className={sass.circle}></div>
                         </button>
-                        <button className={sass.massages}>
+                        <button onClick={navigateToChat} className={sass.massages}>
                             <div className={sass.circle}></div>
                         </button>
-                        <button className={sass.massages}>
+                        <button onClick={navigateToChat} className={sass.massages}>
                             <div className={sass.circle}></div>
                         </button>
                     </div>
