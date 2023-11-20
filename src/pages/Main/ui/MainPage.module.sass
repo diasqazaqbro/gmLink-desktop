@@ -8,6 +8,7 @@
     left: 50%
     margin-right: -50%
     transform: translate(-50%, -50%)
+    z-index: 100
 
 // -- Main -- 
 
@@ -18,7 +19,7 @@
     background: var(--color-second)
     position: absolute
     top: -33px
-    z-index: -1
+    z-index: 1
 
 .brText
     h1
@@ -79,6 +80,8 @@
     align-items: center
     margin-top: 70px
     margin-bottom: 30px
+    position: relative
+    z-index: 100
     .mpBtn
         margin-bottom: 10px
         outline: none
@@ -129,6 +132,8 @@ ul
         font-style: normal
         font-weight: 500
         line-height: normal
+        position: relative
+        z-index: 3
 
 .brInContact
     background: var(--color-second)
