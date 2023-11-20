@@ -1,5 +1,5 @@
 // Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Cinzel:wght@500&family=Kanit:wght@100;200;300;400;500;600;700;800;900&family=Manrope:wght@200;300;400;500;600;700;800&family=Montserrat:wght@400;500&family=Noto+Serif:wght@300&family=Open+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&family=Roboto+Mono:wght@500&family=Roboto+Slab:wght@300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Mono+One&family=Ysabeau+Infant:wght@200;300&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Cinzel:wght@500&family=Kanit:wght@100;200;300;400;500;600;700;800;900&family=Manrope:wght@200;300;400;500;600;700;800&family=Montserrat:wght@400;500&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Noto+Serif:wght@300&family=Open+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&family=Roboto+Mono:wght@500&family=Roboto+Slab:wght@300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Mono+One&family=Ysabeau+Infant:wght@200;300&display=swap')
 
 // -- Global --
 
@@ -12,70 +12,308 @@
 // -- Main --
 
 .inner
-    padding: 31.5px 14px 0 17px
+    padding: 25.5px 14px 0 14px
 
 .profile
     border-radius: 20px
-    width: 347px
-    background: #000
-    padding: 25.97px 0 0 25px
+    background: #252A40
+    width: 350px
+    padding: 0 14px 0 14px
 
-.info 
+.header_logo
     display: flex
-    .circle
-        width: 100px
-        height: 100px
-        background: #D9D9D9
-        border-radius: 50%
-        margin-right: 38px
-        margin-bottom: 32.48px
+    justify-content: space-between
+    padding: 10px 10px 0 10px
+    img
+        position: relative
+        top: 5px
+        left: -5px
+    a
+        position: relative
+        top: 10px
+        left: 0px
 
-.info_text
-    h1
+.header_info
+    .facts
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        padding-top: 5px
+        img
+            display: flex
+            justify-content: center
+            align-items: center
+            margin-bottom: 10px
+            width: 95px
+            height: 95px
+        h1
+            font-family: Asap 
+            color: var(--color-white)
+            font-size: 18px
+            font-style: normal 
+            font-weight: 500
+            line-height: normal
+            margin-top: -7px
+            margin-bottom: 16px
+
+.interest
+    border-radius: 50px
+    background: var(--color-primary)
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10)
+    width: 100px
+    position: relative
+    top: -25px
+    h2
         color: var(--color-white)
         text-align: center
+        padding: 5px
         font-family: Asap
-        font-size: 24px
+        font-size: 15px
+        font-style: normal
+        font-weight: 400
+        line-height: normal
+
+.main_info
+    margin-top: -10px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center 
+    margin-bottom: 20px
+    ul
+        display: flex
+        gap: 40px
+        margin-bottom: 0
+        margin-bottom: 13px
+        li
+            a
+                text-decoration: none
+                color: var(--color-white)
+                font-family: Open sans
+                font-size: 12px
+                font-style: normal
+                font-weight: 400
+                line-height: normal
+                &:hover
+                    color: var(--color-primary)
+
+.about_user
+    width: 326px
+    border-radius: 10px
+    background: #3D3F54
+
+.title
+    padding-top: 25px
+    padding-left: 19px
+    h1
+        color: rgba(255, 255, 255, 0.82)
+        font-family: Asap
+        font-size: 15px
         font-style: normal
         font-weight: 500
         line-height: normal
-        margin-bottom: 22px
+    .line
         margin-top: 2px
-    .cause
-        width: 111.867px
-        height: 35px   
-        border-radius: 10px
-        background: var(--color-white)
-        padding: 7px 10.43px
-        h2
-            color: #000
+        width: 45px
+        height: 0.3px
+        background: var(--color-primary)
+
+.information
+    margin-top: 19px
+    padding: 0 20px 0 20px
+    h1
+        color: #D9D9D9
+        font-family: Asap
+        font-size: 14px
+        font-style: normal
+        font-weight: 400
+        line-height: 142.023%
+        letter-spacing: 0.05px
+        margin-bottom: 15px
+    p
+        color: #D9D9D9
+        font-family: Asap
+        font-size: 14px
+        font-style: normal
+        font-weight: 400
+        line-height: 142.023%
+        letter-spacing: 0.05px
+        margin-bottom: 20px
+
+.links
+    display: flex
+    gap: 26px
+    margin-bottom: 0
+    margin-bottom: 40px
+
+.footer_info
+    display: flex
+    gap: 13px
+
+.box
+    border-radius: 10px
+    background: var(--color-white)
+    width: 110px
+    height: 91px
+    padding: 0 7px 0 7px
+    .plus
+        position: relative
+        top: -10px
+        left: 70px
+    .star
+        display: flex
+        justify-content: center
+        align-items: center
+        position: relative
+        top: -15px
+    .sLikes
+        position: relative
+        top: -12px
+        h1
+            color: #848484
             font-family: Asap
-            font-size: 18px
+            font-size: 14px
+            text-align: center
             font-style: normal
             font-weight: 500
             line-height: normal
+            letter-spacing: 0.2px
+            span
+                color: #168DD3
+                text-align: center
+                font-family: Asap
+                font-size: 14px
+                font-style: normal
+                font-weight: 500
+                line-height: normal
+                letter-spacing: 0.2px
+        a
+            color: #158AD0
+            font-family: Mulish
+            font-size: 14px
+            font-style: normal
+            font-weight: 600
+            line-height: normal
+            letter-spacing: 0.2px
+            text-decoration: none
+            display: flex
+            justify-content: center
+            align-items: center
 
-.card
+.box1
+    width: 110px
+    height: 91px
+    border-radius: 10px
+    background: var(--color-white)
+    padding: 0 7px 0 7px
+    .plus
+        position: relative
+        top: -10px
+        left: 70px
+    .gamepad
+        display: flex
+        justify-content: center
+        align-items: center
+        position: relative
+        top: -16px
+    .token
+        position: relative
+        top: -15px
+        h1
+            color: #848484
+            text-align: center
+            font-family: Asap
+            font-size: 14px
+            font-style: normal
+            font-weight: 500
+            line-height: normal
+            letter-spacing: 0.2px
+        a
+            color: #158AD0
+            font-family: Mulish
+            font-size: 14px
+            font-style: normal
+            font-weight: 600
+            line-height: normal
+            letter-spacing: 0.2px
+            text-decoration: none
+            display: flex
+            justify-content: center
+            align-items: center
+
+.box2
+    width: 110px
+    height: 91px
+    border-radius: 10px
+    background: var(--color-white)
+    padding: 0 7px 0 7px
+    .plus
+        position: relative
+        top: -10px
+        left: 70px
+    .group
+        display: flex
+        justify-content: center
+        align-items: center
+        position: relative
+        top: -16px
+    .team
+        position: relative
+        top: -15px
+        h1
+            color: #848484
+            text-align: center
+            font-family: Asap
+            font-size: 14px
+            font-style: normal
+            font-weight: 500
+            line-height: normal
+            letter-spacing: 0.2px
+        a
+            color: #158AD0
+            font-family: Mulish
+            font-size: 14px
+            font-style: normal
+            font-weight: 600
+            line-height: normal
+            letter-spacing: 0.2px
+            text-decoration: none
+            display: flex
+            justify-content: center
+            align-items: center
+
+.toChat
+    margin-top: 15px
     display: flex
-    flex-direction: column
-    align-items: flex-start
-    h1
+    justify-content: center
+    align-items: center
+    padding-bottom: 20px
+    button
+        padding: 17px 110px
+        border-radius: 20px
+        border: none
+        outline: none
+        cursor: pointer
+        font-family: Asap
+        background: var(--color-primary)
         color: var(--color-white)
-        text-align: center
-        font-family: Asap, sans-serif
-        font-size: 18px
+        font-size: 15px
         font-style: normal
         font-weight: 500
         line-height: normal
-        margin-bottom: 25.97px
+        transition: all 0.3s ease
+        &:hover
+            background: var(--color-white)
+            color: var(--color-primary)
 
 .footer 
     display: flex
     justify-content: center
     align-items: center
     gap: 62px
-    width: 98%
-    height: 77px
+    width: 100%
+    height: 70px
     border-radius: 0 0 10px 10px
     background: var(--color-white)
     .cardNav 

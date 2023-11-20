@@ -25,7 +25,7 @@ export function MGamepad() {
 
     return <>
     <div className={sass.background}>
-        <div className={sass.container}>
+        {/* <div className={sass.container}> */}
             <div className={sass.mgInner}>
                 <div className={`${sass.search} ${isSearchActive ? sass.active : ''}`}>
                     <div onClick={handleIconClick} className={sass.icon}></div>
@@ -90,7 +90,7 @@ export function MGamepad() {
                 </Link>
             </div>
         </div>
-        </div>
+        {/* </div> */}
     </div>
     <Routes>
         <Route path='menu/mhome' element={<MHome/>}/>
