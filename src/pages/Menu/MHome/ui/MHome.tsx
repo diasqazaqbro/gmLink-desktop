@@ -9,6 +9,7 @@ export function MHome() {
 
     const isHome = location.pathname === '/menu/mhome'
 
+
     return <>
         <div className={sass.background}>
                 <div className={sass.inner}>
