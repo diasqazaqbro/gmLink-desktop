@@ -142,7 +142,7 @@ export function MProfile() {
                         </div>
                     </div>
                     <div className={sass.toChat}>
-                        <button className={sass.send_message}>Send message</button>
+                        <button className={sass.send_message}>Games</button>
                     </div>
                 </div>
             </div>

@@ -3,6 +3,12 @@ import { SingEmail } from '../../Registration/SingEmail';
 import { SingPhone } from '../../Registration/SingPhone';
 import sass from './MainPage.module.sass';
 import { Registration } from '../../Registration';
+import Logo from './assets/Logo.svg'
+import People from './assets/mP--people.svg'
+import Discord from './assets/Group 5.svg'
+import Dots from './assets/Group 8.svg'
+import Steam from './assets/Group 6.svg'
+import Google from './assets/Frame.svg'
 
 export function MainPage() {
 
@@ -25,7 +31,7 @@ export function MainPage() {
     <div className={sass.br}>
       <div className={sass.brText}>
         <h1>
-          <img src="/src/pages/Main/ui/assets/Logo.svg" alt="GMLINK Logo" />
+          <img src={Logo} alt="GMLINK Logo" />
           GMLINK
         </h1>
         <h5>Don’t have an account ? </h5>
@@ -37,7 +43,7 @@ export function MainPage() {
       <div className={sass.container}>
         <div className={sass.mpInner}>
           <div className={sass.mpImg}>
-            <img src="/src/pages/Main/ui/assets/mP--people.svg" alt="People" />
+            <img src={People} alt="People" />
           </div>
           <div className={sass.mpBtns}>
             <button onClick={navigateToSp} className={sass.mpBtn}>Sign in Number</button>
@@ -46,22 +52,22 @@ export function MainPage() {
           <ul className={sass.mpLinks}>
             <li className={sass.mpLink}>
               <a href="">
-                <img src="/src/pages/Main/ui/assets/Group 5.svg" alt="Discord" className={sass.discord} />
+                <img src={Discord} alt="Discord" className={sass.discord} />
               </a>
             </li>
             <li className={sass.mpLink}>
               <a href="">
-                <img src="/src/pages/Main/ui/assets/Group 6.svg" alt="Group 6" />
+                <img src={Steam} alt="Group 6" />
               </a>
             </li>
             <li className={sass.gLink}>
               <a href="">
-                <img src="/src/pages/Main/ui/assets/Frame.svg" alt="Frame" />
+                <img src={Google} alt="Frame" />
               </a>
             </li>
             <li className={sass.mpLink}>
               <a onClick={navigateToRegistration} href="">
-                <img src="/src/pages/Main/ui/assets/Group 8.svg" alt="Dots" className={sass.dots} />
+                <img src={Dots} alt="Dots" className={sass.dots} />
               </a>
             </li>
           </ul>
