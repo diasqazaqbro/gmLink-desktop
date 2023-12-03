@@ -1,10 +1,36 @@
 import { Link } from 'react-router-dom'
+import {SetStateAction, useState} from 'react'
+import Picker from '@emoji-mart/react'
+import data from '@emoji-mart/data'
 import sass from './MInsideChat.module.sass'
 import Back from './assets/arrow_back_ios.svg'
 import get from './assets/get.svg'
 import sent from './assets/sent.svg'
+import emojiPicker from './assets/emojiPicker.svg'
 
 export function MInsideChat() { 
+    const [isPickerVisible, setPickerVisible] = useState(false)
+    const [currentEmoji, setCurrentEmoji] = useState(false)
+    const [message, setMessage] = useState('')
+    
+
+    const handleEmojiPickerClick = (e: { preventDefault: () => void }) => {
+        e.preventDefault();
+        setPickerVisible(!isPickerVisible);
+    }
+
+    const onEmojiClick = (emoji: any) => {
+        setMessage(prevInput => prevInput + emoji.native)
+        setCurrentEmoji(false)
+    }
+
+    const addEmoji = (e) => {
+        const sym = e.unified.split('_')
+        const codeArray = []
+        sym.forEach((el) => codeArray.push('0x' + el))
+        let emoji = String.fromCodePoint(...codeArray)
+        setMessage(message + emoji)
+    }
 
     return <>
         <div className={sass.background}>
@@ -59,10 +85,41 @@ export function MInsideChat() {
             <div className={sass.footer}>
                 <div className={sass.textbar}>
                     <div className={sass.text_sending}>
-                        <input type="text" autoComplete='off' placeholder='Message'/>
-                        <button >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="31" viewBox="0 0 35 31" fill="none">
-                                <path d="M14.8494 17.2504L21.7329 11.1929M28.7727 7.49794L22.963 24.1154C22.4417 25.6054 22.1817 26.3504 21.7315 26.5967C21.5398 26.7022 21.3222 26.7659 21.0968 26.7824C20.8715 26.7989 20.6449 26.7678 20.436 26.6917C19.946 26.5129 19.5496 25.8167 18.757 24.4217L15.0781 17.9442C15.002 17.7945 14.9102 17.6514 14.8039 17.5167C14.73 17.432 14.6441 17.356 14.5482 17.2904C14.4001 17.2002 14.2427 17.1224 14.0781 17.0579L6.70163 13.8104C5.11783 13.1129 4.32521 12.7642 4.12209 12.3342C4.03544 12.1502 4.00003 11.9506 4.01881 11.752C4.03759 11.5535 4.11001 11.3618 4.23004 11.1929C4.50987 10.7979 5.35646 10.5679 7.04964 10.1092L25.9346 4.99669C27.2656 4.63544 27.9303 4.45544 28.3806 4.60169C28.574 4.66419 28.7497 4.76298 28.8954 4.89119C29.0411 5.01941 29.1533 5.17398 29.2244 5.34419C29.3891 5.73919 29.1846 6.32419 28.7755 7.49419V7.49669L28.7727 7.49794Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        
+                        <div className={sass.send_left}>
+                            
+                            <div className={sass.emoji}>
+                                <div 
+                                    className={sass.emoji_picker} 
+                                    onClick={handleEmojiPickerClick}
+                                >
+                                    <a href="">
+                                        <img 
+                                            src={emojiPicker} alt="" 
+                                            className={sass.emoji_icon}
+                                        />
+                                    </a>
+                                </div>
+                                <span className={isPickerVisible ? `${sass.block}` : `${sass.none}`}>
+                                    <Picker 
+                                        data={data} 
+                                        previewPosition='none' 
+                                        onEmojiSelect={addEmoji}
+                                        onEmojiClick={onEmojiClick}
+                                    />
+                                </span>
+                            </div>
+                            <input 
+                                type="text" 
+                                autoComplete='off' 
+                                placeholder='Message'
+                                value={message}
+                                onChange={e => setMessage(e.target.value)}
+                            />
+                        </div>
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 20 25" fill="none">
+                                <path d="M2.12569 11.3826L7.51629 3.68403C8.40178 2.41942 9.75337 1.55836 11.2737 1.29028C12.7941 1.0222 14.3587 1.36906 15.6233 2.25455C16.8879 3.14004 17.7489 4.49163 18.017 6.01198C18.2851 7.53233 17.9382 9.09693 17.0527 10.3615L8.29033 21.9867C7.9979 22.4041 7.62613 22.7599 7.19623 23.0336C6.76633 23.3073 6.28673 23.4937 5.7848 23.5821C5.28287 23.6705 4.76845 23.6591 4.2709 23.5487C3.77336 23.4383 3.30244 23.2309 2.88503 22.9385C2.46761 22.6461 2.11188 22.2743 1.83815 21.8444C1.56442 21.4145 1.37804 20.9349 1.28966 20.433C1.20128 19.931 1.21262 19.4166 1.32305 18.9191C1.43347 18.4215 1.64082 17.9506 1.93324 17.5332L10.704 5.89603C11.0047 5.48538 11.4549 5.21057 11.9572 5.12855C12.4594 5.04653 12.9738 5.16515 13.3895 5.45882C13.8051 5.7525 14.0888 6.19774 14.1792 6.69857C14.2697 7.1994 14.1598 7.71574 13.8732 8.13628L5.67842 19.8396M10.6948 5.91079L10.7053 5.8958" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
                     </div>
@@ -71,3 +128,4 @@ export function MInsideChat() {
         </div>
     </>
 }
+

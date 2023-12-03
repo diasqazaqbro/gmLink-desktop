@@ -17,6 +17,7 @@ export function SingEmail() {
   const navigateToSname = () => {
     navigate('/survey/name')
   }
+
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };

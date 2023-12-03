@@ -13,6 +13,8 @@
 
 .inner 
     padding: 30px 0 0 0
+    position: relative
+    z-index: 100
 
 // -- Header --
 
@@ -173,6 +175,8 @@
     height: 65px
     border-bottom-right-radius: 42px
     border-bottom-left-radius: 42px
+    position: relative
+    z-index: 100
 
 .textbar
     display: flex
@@ -183,7 +187,7 @@
     margin-top: 10.5px
     padding: 15px
     display: flex
-    justify-content: space-between
+    justify-content: space-around
     align-items: center
     width: 335.227px
     height: 40px
@@ -206,6 +210,41 @@
         border: none
         outline: none
         background: transparent
-        padding-top: 5px
+        padding-top: 3px
         margin-right: -8px
         cursor: pointer
+        position: relative
+
+.send_left
+    display: flex
+    .emoji_picker
+        padding: 6.5px 0 0 0
+        margin-left: -10px
+        margin-right: 12px
+        display: flex
+        align-items: center
+        justify-content: center
+        position: relative
+        left: 0
+    input
+        background: transparent
+        height: 40px
+        border-radius: 20px
+        position: relative
+        left: -15px
+        outline: none
+        border: none
+        font-family: Asap
+        font-style: 24px
+        font-weight: 500
+        padding: 10px
+        width: 245px
+
+.block
+    display: block
+    position: absolute
+    top: -430px
+    left: 0
+
+.none
+    display: none

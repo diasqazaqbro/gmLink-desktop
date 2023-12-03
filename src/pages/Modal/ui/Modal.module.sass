@@ -3,7 +3,7 @@
 
 
 .modal
-    height: 115%
+    height: 100%
     width: 385px
     background-color: rgba(0, 0, 0, 0.4)
     border-radius: 50px
@@ -12,32 +12,25 @@
     display: flex
     justify-content: center
     align-items: center
-    transition: 0.5s
+    transition: all 1s ease
     pointer-events: none
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
     opacity: 0
-    
 
 .active
     opacity: 1
     pointer-events: all
     display: flex
     justify-content: center
-    position: relative
     align-items: center
     background-color: rgba(0, 0, 0, 0.4)
     height: 100%
     width: 100%
     border-radius: 50px
     top: 0%
-    position: relative
+    position: absolute
     z-index: 1000
-
-
-
-.modal__content
-    padding: 20px
-    border-radius: 20px
-    height: 500px
-    width: 300px
-    background: var(--color-primary)
-    transition: 0.4s all
