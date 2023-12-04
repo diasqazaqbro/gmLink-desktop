@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom'
-import {SetStateAction, useState} from 'react'
+import {useLayoutEffect, useState} from 'react'
 import Picker from '@emoji-mart/react'
 import data from '@emoji-mart/data'
 import sass from './MInsideChat.module.sass'
 import Back from './assets/arrow_back_ios.svg'
 import get from './assets/get.svg'
 import sent from './assets/sent.svg'
-import emojiPicker from './assets/emojiPicker.svg'
 
 export function MInsideChat() { 
     const [isPickerVisible, setPickerVisible] = useState(false)
@@ -19,15 +18,17 @@ export function MInsideChat() {
         setPickerVisible(!isPickerVisible);
     }
 
-    const onEmojiClick = (emoji: any) => {
+    useLayoutEffect 
+
+    const onEmojiClick = (emoji) => {
         setMessage(prevInput => prevInput + emoji.native)
         setCurrentEmoji(false)
     }
 
-    const addEmoji = (e) => {
+    const addEmoji = (e: any) => {
         const sym = e.unified.split('_')
-        const codeArray = []
-        sym.forEach((el) => codeArray.push('0x' + el))
+        const codeArray: number[] = []
+        sym.forEach((el) => codeArray.push('0x' + el))  
         let emoji = String.fromCodePoint(...codeArray)
         setMessage(message + emoji)
     }
@@ -90,14 +91,16 @@ export function MInsideChat() {
                             
                             <div className={sass.emoji}>
                                 <div 
-                                    className={sass.emoji_picker} 
+                                    className={`${sass.emoji_picker} ${isPickerVisible ? sass.blueFill : ''}`}
                                     onClick={handleEmojiPickerClick}
                                 >
                                     <a href="">
-                                        <img 
-                                            src={emojiPicker} alt="" 
-                                            className={sass.emoji_icon}
-                                        />
+                                        <svg  xmlns="http://www.w3.org/2000/svg" width="27" height="26" viewBox="0 0 27 26" fill="none">
+                                            <path className={isPickerVisible ? `${sass.blue_stroke}` : ''} d="M13.4238 24.9363C19.9412 24.9363 25.2246 19.6529 25.2246 13.1355C25.2246 6.61811 19.9412 1.33472 13.4238 1.33472C6.90644 1.33472 1.62305 6.61811 1.62305 13.1355C1.62305 19.6529 6.90644 24.9363 13.4238 24.9363Z" stroke="black" stroke-width="2"/>
+                                            <path className={isPickerVisible ? `${sass.blue_stroke}` : ''} d="M8.73535 16.21V16.21C10.836 19.742 15.9722 19.7179 18.1128 16.21V16.21" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                                            <path className={`${sass.blueFill} ${isPickerVisible ? sass.blueFillActive : ''}`} d="M18.6084 9.52171C18.7028 10.8211 18.0764 11.9267 17.2101 11.9897C16.3439 12.0526 15.5642 11.0491 15.4698 9.74971C15.3754 8.45032 16.0019 7.34468 16.8681 7.28175C17.7344 7.21883 18.514 8.22233 18.6084 9.52171Z" fill="black"/>
+                                            <path className={`${sass.blueFill} ${isPickerVisible ? sass.blueFillActive : ''}`} d="M9.63834 11.9823C10.5054 12.0401 11.2786 11.0327 11.3654 9.7321C11.4521 8.43151 10.8196 7.33029 9.95252 7.27245C9.08546 7.21461 8.31224 8.22206 8.22548 9.52265C8.13872 10.8232 8.77128 11.9245 9.63834 11.9823Z" fill="black"/>
+                                        </svg>
                                     </a>
                                 </div>
                                 <span className={isPickerVisible ? `${sass.block}` : `${sass.none}`}>
