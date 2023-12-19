@@ -1,16 +1,20 @@
-import { useState } from 'react'
-import { Link, Routes, Route, useNavigate } from 'react-router-dom'
+import { FormEvent, useState } from 'react'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import sass from './SFillingOutProfile.module.sass'
-import Arrow from './assets/arrow_back_ios.svg'
-import Help from './assets/help.svg'
 import White from './assets/White.svg'
 import Main from './assets/Main.svg'
-import { Modal } from '../../../Modal'
+import { Modal } from '../../../../shared/ui/Modal'
+import { Badges } from '../../../../shared/ui/Badges/Badges'
 
 export function SFillingOutProfile() {
 
   const [modalActive, setModalActive] = useState(false)
   const navigate = useNavigate()
+
+  const toogleModal = (e: FormEvent) => {
+    setModalActive(!modalActive)
+    e.preventDefault()
+  }
 
   const navigateToMg = () => {
     navigate('/Menu/MGamepad')
@@ -21,10 +25,10 @@ export function SFillingOutProfile() {
     <div className={sass.white}>
       <img src={White} alt="" />
     </div>
-      <div className={sass.sfBadges}>
-        <Link to='/survey/dob' className={sass.arrow}><img src={Arrow} alt="" /></Link>
-        <button onClick={() => setModalActive(true)} className={sass.help}><img src={Help} alt="" /></button>
-      </div>
+      <Badges 
+        routePath='/registraion/data-of-birth' 
+        toogleModal={toogleModal}
+      />
       <div className={sass.sfInner}>
         <div className={sass.sfText}>
           <h1>Complete your profile by answering a few simple questions about yourself.</h1>

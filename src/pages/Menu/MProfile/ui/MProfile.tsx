@@ -5,7 +5,7 @@ import cup from './assets/svg/cup.svg'
 import message from './assets/svg/message.svg'
 import heart from './assets/svg/heart.svg'
 import dots from './assets/svg/dots.svg'
-import { Modal } from '../../../Modal'
+import { Modal } from '../../../../shared/ui/Modal'
 
 
 export function MProfile() {

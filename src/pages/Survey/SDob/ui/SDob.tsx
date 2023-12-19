@@ -1,27 +1,32 @@
+import { FormEvent } from 'react'
 import { useState } from 'react'
 import { Link, Routes, Route, useNavigate } from 'react-router-dom'
 import sass from './SDob.module.sass'
-import Arrow from './assets/arrow_back_ios.svg'
-import Help from './assets/help.svg'
 import { SFillingOutProfile } from '../../SFillingOutProfile'
-import { Modal } from '../../../Modal'
+import { Modal } from '../../../../shared/ui/Modal'
+import { Badges } from '../../../../shared/ui/Badges/Badges'
 
 export function SDob() {
 
   const [modalActive, setModalActive] = useState(false)
   const navigate = useNavigate()
 
-  const navigateToSfop = () => {
-    navigate('/survey/filling-out-profile')
+  const toogleModal = (e: FormEvent<HTMLFormElement>) => {
+    setModalActive(!modalActive)
+    e.preventDefault()
+  }
+
+  const navigateTo = () => {
+    navigate('/registration/filling-out-profile')
   }
 
   return <>
     <div className={sass.background}>
       <div className={sass.container}>
-        <div className={sass.sdBadges}>
-          <Link to='/survey/interests' className={sass.arrow}><img src={Arrow} alt="" /></Link>
-          <button onClick={() => setModalActive(true)} className={sass.help}><img src={Help} alt="" /></button>
-        </div>
+        <Badges 
+          routePath='/registration/interests'
+          toogleModal={toogleModal}
+        />
         <div className={sass.sdInner}>
           <div className={sass.sdText}>
             <h1>Nice to meet you, Artem.
@@ -39,7 +44,7 @@ export function SDob() {
           </div>
           <div className={sass.sbBtn}>
             <h3>This is data is protected.</h3>
-            <button onClick={navigateToSfop}>Next</button>
+            <button onClick={navigateTo}>Next</button>
             <Link to='/survey/filling-out-profile'>Skip</Link>
           </div>
           <div className={sass.contact}>

@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import { Link, Routes, Route, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import sass from './SGender.module.sass'
 import Arrow from './assets/arrow_back_ios.svg'
 import Help from './assets/help.svg'
-import { SInterests } from '../../SInterests'
-import { Modal } from '../../../Modal'
+import { Modal } from '../../../../shared/ui/Modal'
 
 export function SGender() {
   const [modalActive, setModalActive] = useState(false)
@@ -16,7 +15,7 @@ export function SGender() {
   const [otherInput, setOtherInput] = useState('')
 
   const navigateToSInterests = () => {
-    navigate('/survey/interests')
+    navigate('/registration/interests')
   }
 
   const handleGenderClick = (gender: string) => {
@@ -83,7 +82,7 @@ export function SGender() {
       <div className={sass.background}>
         <div className={sass.container}>
           <div className={sass.sgBadges}>
-            <Link to='/survey/name' className={sass.arrow}>
+            <Link to='/registration/name' className={sass.arrow}>
               <img src={Arrow} alt="arrow" />
             </Link>
             <button onClick={() => setModalActive(true)} className={sass.help}>
@@ -128,9 +127,6 @@ export function SGender() {
           <p>Hello, Dias</p>
         </Modal>
       </div>
-      <Routes>
-        <Route path='/survey/interests' element={<SInterests />} />
-      </Routes>
     </>
   );
 }

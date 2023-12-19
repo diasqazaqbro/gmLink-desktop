@@ -71,23 +71,23 @@ export const appRouter = () =>
           element: <SingPhone/>
         },
         {
-          path: "/survey/name",
+          path: "/registration/name",
           element: <SName/>
         },
         {
-          path: "/survey/gender",
+          path: "/registration/gender",
           element: <SGender/>
         },
         {
-          path: "/survey/interests",
+          path: "/registration/interests",
           element: <SInterests/>
         },
         {
-          path: "/survey/dob",
+          path: "/registration/dob",
           element: <SDob/>
         },
         {
-          path: "/survey/filling-out-profile",
+          path: "/registration/filling-out-profile",
           element: <SFillingOutProfile/>
         },
         {

@@ -1,29 +1,33 @@
-import { useState } from 'react'
-import { Link, Routes, Route, useNavigate } from 'react-router-dom'
+import { FormEvent, useState } from 'react'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import sass from './SInterests.module.sass'
-import Arrow from './assets/arrow_back_ios.svg'
-import Help from './assets/help.svg'
 import Cup from './assets/uI_cup.svg'
 import Heart from './assets/uI_heart.svg'
 import Massages from './assets/uI_massages.svg'
 import { SDob } from '../../SDob'
-import { Modal } from '../../../Modal'
+import { Modal } from '../../../../shared/ui/Modal'
+import { Badges } from '../../../../shared/ui/Badges/Badges'
 
 export function SInterests() {
   const [modalActive, setModalActive] = useState(false)
   const navigate = useNavigate()
 
+  const toogleModal = (e: FormEvent) => {
+    setModalActive(!modalActive)
+    e.preventDefault()
+  }
+
   const navigateToSdob = () => {
-    navigate('/survey/dob')
+    navigate('/registration/dob')
   }
 
   return <>
     <div className={sass.background}>
       <div className={sass.container}>
-        <div className={sass.siBadges}>
-          <Link to='/survey/gender' className={sass.arrow}><img src={Arrow} alt="" /></Link>
-          <button className={sass.help}><img src={Help} alt="" onClick={() => setModalActive(true)} /></button>
-        </div>
+        <Badges 
+          routePath='/registration/gender'
+          toogleModal={toogleModal}
+        />
         <div className={sass.siInner}>
           <div className={sass.siText}>
             <h1>What interests you first?</h1>

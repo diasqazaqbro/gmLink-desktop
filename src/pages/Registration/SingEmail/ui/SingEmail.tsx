@@ -1,12 +1,11 @@
-import { Link, Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useState, ChangeEvent, FormEvent } from 'react'
 import sass from './SingEmail.module.sass'
-import Arrow from './assets/arrow_back_ios.svg'
-import Help from './assets/help.svg'
 import Main from './assets/enter__email-main.svg'
 import WhiteBlock from './assets/white.svg'
 import { SName } from '../../../Survey/SName'
-import { Modal } from '../../../Modal'
+import { Modal } from '../../../../shared/ui/Modal'
+import { Badges } from '../../../../shared/ui/Badges/Badges'
 
 export function SingEmail() {
 
@@ -15,7 +14,12 @@ export function SingEmail() {
   const navigate = useNavigate()
 
   const navigateToSname = () => {
-    navigate('/survey/name')
+    navigate('/registration/name')
+  }
+
+  const toogleModal = (e) => {
+    setModalActive(!modalActive)
+    e.preventDefault()
   }
 
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -39,12 +43,10 @@ export function SingEmail() {
       <div className={sass.whiteBlock}>
         <img src={WhiteBlock} alt="" />
       </div>
-      <div className={sass.seBadges}>
-        <Link to='/main' className={sass.arrow}><img src={Arrow} alt="arrow" /></Link>
-        <button className={sass.help} onClick={() => setModalActive(true)}>
-          <img src={Help} alt="" />
-        </button>
-      </div>
+      <Badges 
+        routePath='/main'
+        toogleModal={toogleModal}
+      />
       <div className={sass.seInner}>
         <h1 className={sass.seTitle}>Please enter your Email</h1>
         <div className={sass.seDraw}>
@@ -53,18 +55,18 @@ export function SingEmail() {
         <form action="" className={sass.seAuth} onSubmit={handleSubmit} >
         <div className={sass.enterData}>
           <input   
-          name="search_query"  
-          aria-label="Search" 
-          role="combobox" 
-          aria-haspopup="false" 
-          aria-autocomplete="list" 
-          autoComplete="off" 
-          dir="ltr" 
-          type="email" 
-          id="Input"  
-          onChange={handleEmailChange}
-          className={sass.enterEmail} 
-          placeholder="Enter your email" 
+            name="search_query"  
+            aria-label="Search" 
+            role="combobox" 
+            aria-haspopup="false" 
+            aria-autocomplete="list" 
+            autoComplete="off" 
+            dir="ltr" 
+            type="email" 
+            id="Input"  
+            onChange={handleEmailChange}
+            className={sass.enterEmail} 
+            placeholder="Enter your email" 
           />
           <button className={sass.clearData} onClick={() => setEmail('')} >
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
