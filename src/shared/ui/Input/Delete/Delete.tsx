@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import sass from './Delete.module.sass'
 
 export const Delete = ({ onClear }) => {

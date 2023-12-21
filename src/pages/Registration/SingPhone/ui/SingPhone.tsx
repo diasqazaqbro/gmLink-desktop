@@ -7,6 +7,7 @@ import { Modal } from '../../../../shared/ui/Modal'
 import { Badges } from '../../../../shared/ui/Badges/Badges'
 import { Button } from '../../../../shared/ui/Button/Button'
 import { Input } from '../../../../shared/ui/Input/Input'
+import { Contact } from '../../../../shared/ui/Contact/Contact'
 
 export function SingPhone() {
 
@@ -50,14 +51,14 @@ export function SingPhone() {
         routePath='/main'
         toogleModal={toogleModal}
       />
-      <div className={sass.spInner}>
-        <h1 className={sass.spTitle}>Please enter your Phone</h1>
-        <div className={sass.spDraw}>
+      <div className={sass.inner}>
+        <h1 className={sass.title}>Please enter your Phone</h1>
+        <div className={sass.draw}>
           <img src={Main} alt="" />
         </div>
         <form 
             action="" 
-            className={sass.spAuth}
+            className={sass.auth}
             onSubmit={(event: FormEvent<HTMLFormElement>) => {
               event.preventDefault()
               if (isValid()) {
@@ -65,11 +66,14 @@ export function SingPhone() {
               }
             }}
           >
-        <Input onChange={handlePhoneChange} value={phone} placeholder='Enter your number' onClear={onClear} >
+        <Input onChange={handlePhoneChange} value={phone} placeholder='Enter your number' onClear={onClear} type='tel' >
           <Button label='Next' onClick={navigateTo} styleLogic={styleLogic} disabled={!isValid()} />
         </Input>
         </form>
-        <a href="" className={sass.spContact}>Contact Us</a>
+        <Contact 
+          label="Contact Us"
+          routePath={undefined}
+        />
       </div>
     </div>
     <Modal active={modalActive} setActive={setModalActive}>

@@ -1,25 +1,38 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group'
+import { useNavigate } from 'react-router-dom'
 import sass from './SGender.module.sass'
-import Arrow from './assets/arrow_back_ios.svg'
-import Help from './assets/help.svg'
 import { Modal } from '../../../../shared/ui/Modal'
+import { Badges } from '../../../../shared/ui/Badges/Badges'
+import { Button } from '../../../../shared/ui/Button/Button'
+import { Enter } from '../../../../shared/ui/Input/Enter/Enter'
+import { Delete } from '../../../../shared/ui/Input/Delete/Delete'
 
 export function SGender() {
   const [modalActive, setModalActive] = useState(false)
   const navigate = useNavigate()
-
+  const [show, setShow] = useState(false)
   const [selectedGender, setSelectedGender] = useState('')
   const [isOtherSelected, setIsOtherSelected] = useState(false)
   const [formVisible, setFormVisible] = useState(false)
   const [otherInput, setOtherInput] = useState('')
 
-  const navigateToSInterests = () => {
+  const navigateTo = () => {
     navigate('/registration/interests')
+  }
+
+  const toogleModal = (e) => {
+    e.preventDefault()
+    setModalActive(!modalActive)
+  }
+
+  const styleLogic = () => {
+    return 
   }
 
   const handleGenderClick = (gender: string) => {
     setSelectedGender(gender)
+    setShow(!show)
 
     if (isOtherSelected) {
       setIsOtherSelected(false)
@@ -33,7 +46,8 @@ export function SGender() {
     setSelectedGender('Other')
   }
 
-  const handleClearClick = () => {
+  const handleClearClick = (e) => {
+    e.preventDefault()
     setOtherInput('')
   }
 
@@ -42,38 +56,47 @@ export function SGender() {
       return (
         <form
           action=''
-          className={`${sass.sgInput} ${formVisible ? sass.formVisible : ''}`}
+          className={`${sass.input} ${formVisible ? sass.formVisible : ''}`}
         >
-          <div className={sass.gcEt}>
-            <input
-              className={sass.gcEnter}
-              type='text'
+          <div className={sass.et}>
+            <Enter 
               placeholder='Enter if other'
               value={otherInput}
               onChange={(e) => setOtherInput(e.target.value)}
             />
             {otherInput && (
-              <a href='' className={sass.gcClear} onClick={handleClearClick}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
-                  <circle cx="8.54296" cy="8.49999" r="8.49999" fill="#D9D9D9" />
-                  <path d="M8.54297 9.71429L4.90011 13.3571L3.68583 12.1429L7.32868 8.5L3.68583 4.85714L4.90011 3.64286L8.54297 7.28571L12.1858 3.64286L13.4001 4.85714L9.75725 8.5L13.4001 12.1429L12.1858 13.3571L8.54297 9.71429Z" fill="#1C1B1F" />
-                </svg>
-              </a>
+              <Delete
+                onClear={handleClearClick}
+              />
             )}
           </div>
-          <button onClick={navigateToSInterests} className={sass.nextBtn}>
-            Next
-          </button>
+          <div className={sass.btn}>
+            <Button 
+              onClick={navigateTo}
+              label='Next' 
+              styleLogic={styleLogic}
+            />
+          </div>
         </form>
-      );
+      )
     } else if (selectedGender === 'Male' || selectedGender === 'Female' || selectedGender === 'Other') {
       return (
-        <button onClick={navigateToSInterests} className={sass.nextBtn2}>
-          Next
-        </button>
-      );
+        <form 
+          className={sass.input}
+        >
+          <div className={sass.btn}>
+            <CSSTransition in={show} timeout={10000000} classNames='alert' unmountOnExit>
+              <Button 
+                onClick={navigateTo}
+                label='Next'
+                styleLogic={styleLogic}
+              />
+            </CSSTransition>
+          </div>
+        </form>
+      )
     } else {
-      return null;
+      return null
     }
   };
 
@@ -81,20 +104,16 @@ export function SGender() {
     <>
       <div className={sass.background}>
         <div className={sass.container}>
-          <div className={sass.sgBadges}>
-            <Link to='/registration/name' className={sass.arrow}>
-              <img src={Arrow} alt="arrow" />
-            </Link>
-            <button onClick={() => setModalActive(true)} className={sass.help}>
-              <img src={Help} alt="help" />
-            </button>
-          </div>
-          <div className={sass.sgInner}>
-            <div className={sass.sgText}>
+          <Badges 
+            routePath='/registration/name'
+            toogleModal={toogleModal}
+          />
+          <div className={sass.inner}>
+            <div className={sass.text}>
               <h1>Your gender...</h1>
               <p>This information is needed to correctly determine the pair for you.</p>
             </div>
-            <div className={sass.sgChoice}>
+            <div className={sass.choice}>
               <button
                 className={`${sass.male} ${selectedGender === 'Male' ? sass.active : ''}`}
                 onClick={() => handleGenderClick('Male')}
@@ -108,7 +127,7 @@ export function SGender() {
                 Female
               </button>
             </div>
-            <div className={sass.sgChoice2}>
+            <div className={sass.choice2}>
               <span>or</span>
               <button
                 className={`${sass.other} ${selectedGender === 'Other' ? sass.active : ''}`}
@@ -128,7 +147,7 @@ export function SGender() {
         </Modal>
       </div>
     </>
-  );
+  )
 }
 
 

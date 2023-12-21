@@ -1,12 +1,13 @@
 import { FormEvent, useState } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import sass from './SInterests.module.sass'
 import Cup from './assets/uI_cup.svg'
 import Heart from './assets/uI_heart.svg'
 import Massages from './assets/uI_massages.svg'
-import { SDob } from '../../SDob'
 import { Modal } from '../../../../shared/ui/Modal'
 import { Badges } from '../../../../shared/ui/Badges/Badges'
+import { Button } from '../../../../shared/ui/Button/Button'
+import { Contact } from '../../../../shared/ui/Contact/Contact'
 
 export function SInterests() {
   const [modalActive, setModalActive] = useState(false)
@@ -17,7 +18,11 @@ export function SInterests() {
     e.preventDefault()
   }
 
-  const navigateToSdob = () => {
+  const styleLogic = () => {
+    return
+  }
+
+  const navigateTo = () => {
     navigate('/registration/dob')
   }
 
@@ -28,13 +33,13 @@ export function SInterests() {
           routePath='/registration/gender'
           toogleModal={toogleModal}
         />
-        <div className={sass.siInner}>
-          <div className={sass.siText}>
+        <div className={sass.inner}>
+          <div className={sass.text}>
             <h1>What interests you first?</h1>
             <p>Tell others what you expect from online dating. You can always change your answer if you change your mind.</p>
           </div>
-          <div className={sass.siCards}>
-            <div className={sass.siCard}>
+          <div className={sass.cards}>
+            <div className={sass.card}>
               <img src={Cup} alt="" className={sass.cup}/>
               <div className={sass.cardText}>
                 <h1>Assemble a team</h1>
@@ -51,7 +56,7 @@ export function SInterests() {
                 
               </div>
             </div>
-            <div className={sass.siCard}>
+            <div className={sass.card}>
             <img src={Massages} alt="" className={sass.massages}/>
               <div className={sass.cardText}>
                 <h1>Just a chatting</h1>
@@ -65,7 +70,7 @@ export function SInterests() {
                 </a>
               </div>
             </div>
-            <div className={sass.siCard}>
+            <div className={sass.card}>
             <img src={Heart} alt="" className={sass.heart} />
               <div className={sass.cardText}>
                 <h1>Find love</h1>
@@ -80,20 +85,21 @@ export function SInterests() {
               </div>
             </div>
           </div>
-          <div className={sass.siBtn}>
-            <button onClick={navigateToSdob}>Next</button>
-          </div>
-          <div className={sass.contact}>
-            <a href="">Contact Us</a>
-          </div>
+          <Button 
+            onClick={navigateTo}
+            styleLogic={styleLogic}
+            label='Next'
+            disabled={false}
+          />
+          <Contact 
+            label="Contact Us"
+            routePath={undefined}
+          />
         </div>
       </div>
       <Modal active={modalActive} setActive={setModalActive}>
       <p>Hello, Dias</p>
     </Modal>
     </div>
-    <Routes>
-      <Route path='/survey/dob' element={<SDob/>}/>
-    </Routes>
   </>;
 }

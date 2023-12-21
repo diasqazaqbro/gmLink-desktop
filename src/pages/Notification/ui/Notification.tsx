@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import sass from "./Notification.module.sass";
 import { Loader } from "../../Loader";
-import { MainPage } from "../../Main/ui/MainPage";
 
 
 export const Notification: React.FC = () => {
@@ -23,8 +22,8 @@ export const Notification: React.FC = () => {
     <div>
       {show === true ? (
         <div className={sass.container}>
-          <div className={sass.tnInner}>
-            <div className={sass.tnCircle}>
+          <div className={sass.inner}>
+            <div className={sass.circle}>
               <div className={sass.logo}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -72,8 +71,8 @@ export const Notification: React.FC = () => {
                 </svg>
               </div>
             </div>
-            <h1 className={sass.tnTitle}>Turn on notifications</h1>
-            <p className={sass.tnSubtitle}>
+            <h1 className={sass.title}>Turn on notifications</h1>
+            <p className={sass.subtitle}>
               This will allow you to immediately find out about new likes and
               messages.
             </p>
@@ -83,9 +82,6 @@ export const Notification: React.FC = () => {
       ) : (
         <Loader/>
       )}
-      <Routes>
-        <Route path='/Main' element={<MainPage />}/>
-      </Routes>
     </div>
   );
 };

@@ -1,10 +1,12 @@
 import { FormEvent, useState } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import sass from './SFillingOutProfile.module.sass'
 import White from './assets/White.svg'
 import Main from './assets/Main.svg'
 import { Modal } from '../../../../shared/ui/Modal'
 import { Badges } from '../../../../shared/ui/Badges/Badges'
+import { Button } from '../../../../shared/ui/Button/Button'
+import { Contact } from '../../../../shared/ui/Contact/Contact'
 
 export function SFillingOutProfile() {
 
@@ -16,42 +18,50 @@ export function SFillingOutProfile() {
     e.preventDefault()
   }
 
-  const navigateToMg = () => {
+  const styleLogic = () => {
+    return
+  }
+
+  const navigateTo = () => {
     navigate('/Menu/MGamepad')
   }
+  
   return <>
   <div className={sass.background}>
   <div className={sass.container}>
     <div className={sass.white}>
-      <img src={White} alt="" />
+      <img src={White} />
     </div>
       <Badges 
-        routePath='/registraion/data-of-birth' 
+        routePath='/registration/dob' 
         toogleModal={toogleModal}
       />
-      <div className={sass.sfInner}>
-        <div className={sass.sfText}>
+      <div className={sass.inner}>
+        <div className={sass.text}>
           <h1>Complete your profile by answering a few simple questions about yourself.</h1>
           <p>Create a profile that will increase your chances of finding your dream partner.</p>
         </div>
-        <div className={sass.sfMain}>
+        <div className={sass.main}>
           <img src={Main} alt="" />
         </div>
-        <div className={sass.sfBtn}>
-          <button onClick={navigateToMg}>Next</button>
+        <div className={sass.btn}>
+          <Button 
+            label='Next'
+            onClick={navigateTo}
+            styleLogic={styleLogic}
+            disabled={false}
+          />
           <a href="">Skip</a>
         </div>
-        <div className={sass.contact}>
-          <a href="">Contact Us</a>
-        </div>
+        <Contact 
+          label="Contact Us"
+          routePath={undefined}
+        />
       </div>
     </div>
     <Modal active={modalActive} setActive={setModalActive}>
       <p>Hello, Dias</p>
     </Modal>
     </div>
-    <Routes>
-      <Route/>
-    </Routes>
   </>;
 }

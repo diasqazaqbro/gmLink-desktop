@@ -1,10 +1,11 @@
 import { FormEvent } from 'react'
 import { useState } from 'react'
-import { Link, Routes, Route, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import sass from './SDob.module.sass'
-import { SFillingOutProfile } from '../../SFillingOutProfile'
 import { Modal } from '../../../../shared/ui/Modal'
 import { Badges } from '../../../../shared/ui/Badges/Badges'
+import { Contact } from '../../../../shared/ui/Contact/Contact'
+import { Button } from '../../../../shared/ui/Button/Button'
 
 export function SDob() {
 
@@ -14,6 +15,10 @@ export function SDob() {
   const toogleModal = (e: FormEvent<HTMLFormElement>) => {
     setModalActive(!modalActive)
     e.preventDefault()
+  }
+
+  const styleLogic = () => {
+    return
   }
 
   const navigateTo = () => {
@@ -27,37 +32,40 @@ export function SDob() {
           routePath='/registration/interests'
           toogleModal={toogleModal}
         />
-        <div className={sass.sdInner}>
-          <div className={sass.sdText}>
+        <div className={sass.inner}>
+          <div className={sass.text}>
             <h1>Nice to meet you, Artem.
             When is your birthday ?</h1>
             <p>Others will only see your age in your profile.</p>
           </div>
-          <div className={sass.sbData}>
+          <div className={sass.data}>
             <span>Day</span>
             <span>Month</span>
             <span>Year</span>
           </div>
-          <div className={sass.sbDob}>
+          <div className={sass.dob}>
             <div className={sass.line}></div>
             <div className={sass.line2}></div>
           </div>
-          <div className={sass.sbBtn}>
+          <div className={sass.btn}>
             <h3>This is data is protected.</h3>
-            <button onClick={navigateTo}>Next</button>
+            <Button 
+              onClick={navigateTo}
+              label='Next'
+              styleLogic={styleLogic}
+              disabled={false}
+            />
             <Link to='/survey/filling-out-profile'>Skip</Link>
           </div>
-          <div className={sass.contact}>
-            <a href="">Contact Us</a>
-          </div>
+          <Contact 
+            label="Contact Us"
+            routePath={undefined}
+          />
         </div>
       </div>
       <Modal active={modalActive} setActive={setModalActive}>
-      <p>Hello, Dias</p>
-    </Modal>
+        <p>Hello, Dias</p>
+      </Modal>
     </div>
-    <Routes>
-      <Route path='/survey/filling-out-profile' element={<SFillingOutProfile/>}/>
-    </Routes>
   </>;
 }

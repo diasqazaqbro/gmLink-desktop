@@ -6,12 +6,12 @@ interface EnterProps {
   onChange: () => void
 }
 
-export const Enter: React.FC<EnterProps> = ({ onChange, value, placeholder }) => {
+export const Enter: React.FC<EnterProps> = ({ onChange, value, placeholder, type }) => {
 
   return (
     <input
       className={sass.enter}
-      type="text" 
+      type={type} 
       autoComplete='off'
       placeholder={placeholder}
       onChange={onChange}
