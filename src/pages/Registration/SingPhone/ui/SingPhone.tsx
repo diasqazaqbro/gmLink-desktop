@@ -66,7 +66,7 @@ export function SingPhone() {
               }
             }}
           >
-        <Input onChange={handlePhoneChange} value={phone} placeholder='Enter your number' onClear={onClear} type='tel' >
+        <Input className={sass.enter} onChange={handlePhoneChange} value={phone} placeholder='Enter your number' onClear={onClear} type='tel' >
           <Button label='Next' onClick={navigateTo} styleLogic={styleLogic} disabled={!isValid()} />
         </Input>
         </form>

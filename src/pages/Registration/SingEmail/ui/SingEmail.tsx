@@ -59,7 +59,7 @@ export function SingEmail() {
           <img src={Main} alt="" />
         </div>
         <form className={sass.auth} onSubmit={handleSubmit} >
-          <Input onChange={handleEmailChange} onClear={() => setEmail('')} placeholder='Enter your email' value={email} type='email' >
+          <Input className={sass.enter} onChange={handleEmailChange} onClear={() => setEmail('')} placeholder='Enter your email' value={email} type='email' >
             <Button label='Next' styleLogic={styleLogic} onClick={navigateTo} disabled={!isValid()}/>
           </Input>
         </form>

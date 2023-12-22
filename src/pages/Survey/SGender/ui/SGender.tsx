@@ -62,6 +62,7 @@ export function SGender() {
             <Enter 
               placeholder='Enter if other'
               value={otherInput}
+              className={sass.enter}
               onChange={(e) => setOtherInput(e.target.value)}
             />
             {otherInput && (

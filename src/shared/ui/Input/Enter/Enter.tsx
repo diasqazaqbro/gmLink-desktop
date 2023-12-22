@@ -1,4 +1,7 @@
-import React from 'react'
+import { FC} from 'react'
+
+import cn from "classnames"
+
 import sass from './Enter.module.sass'
 
 interface EnterProps {
@@ -6,16 +9,16 @@ interface EnterProps {
   onChange: () => void
 }
 
-export const Enter: React.FC<EnterProps> = ({ onChange, value, placeholder, type }) => {
+export const Enter: FC<EnterProps> = ({ onChange, value, placeholder, type, className }) => {
 
   return (
     <input
-      className={sass.enter}
+      className={cn(className, sass.input, "input")}
       type={type} 
       autoComplete='off'
       placeholder={placeholder}
       onChange={onChange}
       value={value}
     />
-  )
+  );
 }

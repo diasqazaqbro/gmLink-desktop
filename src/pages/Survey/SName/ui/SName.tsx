@@ -60,7 +60,7 @@ export function SName() {
                 }
               }}
             >
-              <Input onChange={handleNameChange} onClear={() => setName('')} placeholder='Enter your name' value={name} type='text' >
+              <Input className={sass.enter} onChange={handleNameChange} onClear={() => setName('')} placeholder='Enter your name' value={name} type='text' >
                 <Button label='Next' onClick={navigateTo} styleLogic={styleLogic} disabled={!isValid()} />
               </Input>
             </form>
