@@ -1,0 +1,34 @@
+.container__item 
+  cursor: pointer
+  list-style-type: none
+  display: flex
+  &:hover 
+    transform: scale(1.0)
+
+.card_item 
+  position: relative
+  height: 100%
+  transition: all 0.2 ease-in-out 0s
+
+.card_item__img
+  margin-bottom: 10px
+  display: flex
+  width: 100px
+  height: 100%
+  object-fit: cover
+  border-radius: 10px
+  border: 2px solid var(--color-white)
+  margin-right: 23px
+
+.card_item__description 
+  text-align: center
+  position: relative
+  left: -10px
+  .card_item__name 
+    color: var(--color-white)
+    font-family: Asap
+    font-size: 14px
+    font-style: normal
+    font-weight: 500
+    line-height: normal
+

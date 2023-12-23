@@ -1,10 +1,11 @@
-import { FC ,MouseEventHandler } from 'react';
+import { FC ,MouseEventHandler } from 'react'
 
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-import sass from './GameCard.module.scss'
+import sass from './GameCard.module.sass'
 
 export type CardProps = {
+  /** Айдишка игры **/
   id: string | number;
   /** URL изображение **/
   image: string;
@@ -24,8 +25,7 @@ export const GameCard: FC<CardProps>  = (props) => {
       <div className={sass.card_item}>
         <Link to={routePath} className={sass.card_item__img} >
           <img 
-            src={image} 
-            alt={altText} 
+            src={image}
           />
         </Link>
         <div className={sass.card_item__description}>

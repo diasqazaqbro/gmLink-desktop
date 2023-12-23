@@ -1,63 +1,38 @@
 import { useState } from 'react'
 import { Link, Routes, Route, useLocation } from 'react-router-dom'
+import Dota from '../../../../../public/images/dota2_social 2.png'
 import { MHome } from '../../MHome'
 import Chat from './assets/ci_users.svg'
 import Home from './assets/ci_house-01.svg'
 import Profile from './assets/ci_user-square.svg'
 import sass from './MGamepad.module.sass'
+import { SearchBar } from '../../../../features/search/ui/Search'
+import help from '../../../../../public/images/help.svg'
+import { GameCard } from '../../../../shared/ui/Game-card/GameCard'
+import { Filter } from '../../../../features/filter'
+
 
 export function MGamepad() {
+    const [gameList, setGameList] = useState([])
     const location = useLocation()
 
     const isGamepad = location.pathname === '/Menu/MGamepad'
 
-    const [isSearchActive, setIsSearchActive] = useState(false)
-
-    const handleIconClick = () => {
-        setIsSearchActive(!isSearchActive)
-    }
-
-    const [searchValue, setSearchValue] = useState('')
-
-    const handleClearClick = () => {
-        setSearchValue('')
-    }
-
     return <>
-    <div className={sass.background}>
-        {/* <div className={sass.container}> */}
-            <div className={sass.mgInner}>
-                <div className={`${sass.search} ${isSearchActive ? sass.active : ''}`}>
-                    <div onClick={handleIconClick} className={sass.icon}></div>
-                    <div className={sass.input}>
-                        <input 
-                        type="text" 
-                        value={searchValue}
-                        onChange={(e) => setSearchValue(e.target.value)}
-                        />
-                    </div>
-                    <span className={sass.clear} onClick={handleClearClick}></span>
+        <div className={sass.background}>
+            <div className={sass.header} >
+                <SearchBar />
+                <a href=""><img src={help} alt="" /></a>
+            </div>
+            <div className={sass.inner}>
+                <div className={sass.inner__header}>
+                    <h1>Your game</h1>
+                    <Filter />
                 </div>
-                <div className={sass.cards_header}>
-                    <div className={sass.card1}></div>
-                    <div className={sass.card2}></div>
-                    <div className={sass.card3}></div>
-                </div>
-                <div className={sass.cards_main}>
-                    <div className={sass.card1}></div>
-                    <div className={sass.card2}></div>
-                    <div className={sass.card3}></div>
-                </div>
-                <div className={sass.cards_main2}>
-                    <h1>WAY ETO CHO TO</h1>
-                    <div className={sass.card}></div>
-                </div>
-                <div className={sass.cards_foot}>
-                    <h1>TOP PROFILE</h1>
-                    <div className={sass.cards_footer}>
-                        <div className={sass.card1}></div>
-                        <div className={sass.card2}></div>
-                    </div>
+                <div className={sass.cards}>
+                    <GameCard id={''} image={Dota} name='Dota 2' routePath={''} />
+                    <GameCard id={''} image={Dota} name='Dota 2' routePath={''} />
+                    <GameCard id={''} image={Dota} name='Dota 2' routePath={''} />
                 </div>
             </div>
             <div className={sass.footer}>
@@ -90,10 +65,6 @@ export function MGamepad() {
                 </Link>
             </div>
         </div>
-        {/* </div> */}
     </div>
-    <Routes>
-        <Route path='menu/mhome' element={<MHome/>}/>
-    </Routes>
     </>
 }

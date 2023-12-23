@@ -1,23 +1,58 @@
-import sass from './Search.module.scss'
-import Loupe from '../../../../public/images/loupe.svg'
-import { FC } from 'react'
-import { Enter } from '../../../shared/ui/Input/Enter/Enter';
+import SearchIcon from '@mui/icons-material/Search'
+import InputBase from '@mui/material/InputBase'
+import { styled } from '@mui/material/styles';
 
-export type SearchProps = {
-  id: number;
-}
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: '20px',
+  backgroundColor: '#5571FF',
+  '&:hover': {
+    backgroundColor: '#5571FF',
+  },
+  marginRight: theme.spacing(2),
+  marginLeft: 0,
+  width: '100%',
+  [theme.breakpoints.up('sm')]: { 
+  },
+}))
 
-export const Search: FC<SearchProps> = (props) => {
-  const { id } = props
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: '100%',
+  color: 'white',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}))
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: 'white',
+  '& .MuiInputBase-input': {
+    fontSize: '20px',
+    padding: '5px 10px 6px 0',
+    fontFamily: 'Asap',
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: '20ch',
+    },
+  },
+}))
+
+export const SearchBar = () => {
   
   return (
-    <div className={sass.root}>
-      <Loupe 
-        className={sass.loupe} 
+    <Search>
+      <SearchIconWrapper>
+        <SearchIcon />
+      </SearchIconWrapper>
+      <StyledInputBase
+        placeholder="Search…"
+        inputProps={{ 'aria-label': 'search' }}
       />
-      <Enter 
-        className={sass.enter}
-      />
-    </div>
+    </Search>    
   )
 }
