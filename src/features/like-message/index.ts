@@ -1,0 +1,1 @@
+export { LikeMessage } from './ui/likeMessage'

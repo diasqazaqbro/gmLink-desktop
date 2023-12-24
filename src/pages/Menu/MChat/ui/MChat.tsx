@@ -1,11 +1,12 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import sass from './MChat.module.sass'
-import Logo from './assets/Logo.svg'
-import circle1 from './assets/circle1.svg'
 import Gamepad from './assets/ci_puzzle.svg'
 import Home from './assets/ci_house-01.svg'
 import Profile from './assets/ci_user-square.svg'
-import Heart from './assets/heart.svg'
+import { ScrollingCarousel } from '@trendyol-js/react-carousel';
+import { MainHeader } from '../../../../widgets/mainHeader/ui/mainHeader'
+import { UserHistory } from '../../../../features/user-history'
+import { Filter } from '../../../../features/filter'
 
 export function MChat() {
 
@@ -19,61 +20,20 @@ export function MChat() {
 
     return <>
     <div className={sass.background}>
-            <div className={sass.mcInner}>
-                <div className={sass.mcBox}>
-                    <div className={sass.header_top}>
-                        <h1>Chat</h1>
-                        <div className={sass.logo}>
-                            <img src={Logo} alt="" />
-                        </div>
-                    </div>
-                    <div className={sass.header_bottom}>
-                        <h1>Recent Likes</h1>
-                        <div className={sass.profile_likes}>
-                            <div className={sass.avatar}>
-                                <img src={circle1} alt="" />
-                                <div className={sass.heart}>
-                                    <h5><img src={Heart} alt="" className={sass.heart_logo} /> 1</h5>
-                                </div>
-                            </div>
-                            <div className={sass.avatar}>
-                                <img src={circle1} alt="" />
-                                <div className={sass.heart}>
-                                    <h5><img src={Heart} alt="" className={sass.heart_logo} /> 1</h5>
-                                </div>
-                            </div>
-                            <div className={sass.avatar}>
-                                <img src={circle1} alt="" />
-                                <div className={sass.heart}>
-                                    <h5><img src={Heart} alt="" className={sass.heart_logo} /> 1</h5>
-                                </div>
-                            </div>
-                            <div className={sass.avatar}>
-                                <img src={circle1} alt="" />
-                                <div className={sass.heart}>
-                                    <h5><img src={Heart} alt="" className={sass.heart_logo} /> 1</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={sass.massage}>
-                        <h1>Messages</h1>
-                        <button onClick={navigateToChat} className={sass.massages}>
-                            <div className={sass.circle}></div>
-                        </button>
-                        <button onClick={navigateToChat} className={sass.massages}>
-                            <div className={sass.circle}></div>
-                        </button>
-                        <button onClick={navigateToChat} className={sass.massages}>
-                            <div className={sass.circle}></div>
-                        </button>
-                        <button onClick={navigateToChat} className={sass.massages}>
-                            <div className={sass.circle}></div>
-                        </button>
-                        <button onClick={navigateToChat} className={sass.massages}>
-                            <div className={sass.circle}></div>
-                        </button>
-                    </div>
+        <MainHeader />
+            <div className={sass.inner}>
+                <div className={sass.inner__header}>
+                    <h1>Chat</h1>
+
+                </div>
+                <div className={sass.stories}>
+                    <ScrollingCarousel>
+                        <UserHistory />
+                    </ScrollingCarousel>
+                </div>
+                <div className={sass.inner__title}>
+                    <h1>Messages</h1>
+                    <Filter />
                 </div>
             </div>
             <div className={sass.footer}>

@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { Link, Routes, Route, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Dota from '../../../../../public/images/dota2_social 2.png'
-import { MHome } from '../../MHome'
 import Chat from './assets/ci_users.svg'
 import Home from './assets/ci_house-01.svg'
 import Profile from './assets/ci_user-square.svg'
