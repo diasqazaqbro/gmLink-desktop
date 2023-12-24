@@ -7,9 +7,9 @@ export type PropsStories = {
   onClick?: MouseEventHandler; 
 }
 
-export const UserHistory: FC<PropsStories> = (props) => {
-  const { image, onClick } = props
-  const [isCreditsPopUpOpen, setCreditsPopUpOpen] = useState(false);
+export const UserHistory: FC<PropsStories> = () => {
+  // const { image, onClick } = props
+  // const [isCreditsPopUpOpen, setCreditsPopUpOpen] = useState(false);
 
   return categoryItems.map((categoryItem) => {
     return (
