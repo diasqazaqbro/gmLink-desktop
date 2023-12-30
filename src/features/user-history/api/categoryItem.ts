@@ -1,39 +1,33 @@
 const categoryItems = [
   {
-    name: '',
+    name: 'Pidor',
     image: '../../../../public/Logo.svg'
   },
   {
-    name: '',
+    name: 'Pidoras',
     image: '../../../../public/images/dota2_social 2.png'
   },
   {
-    name: '',
+    name: 'Pirdoras123',
     image: '../../../../public/images/search.svg'
   },
   {
-    name: "Entertainment",
-    iconName: "live_tv",
+    name: "Ya gay",
   },
   {
-    name: "Science",
-    iconName: "poll",
+    name: "AHAHAHHA",
   },
   {
     name: "Fitness",
-    iconName: "fitness_center",
   },
   {
     name: "Education",
-    iconName: "school",
   },
   {
     name: "Gaming",
-    iconName: "videogame_asset",
   },
   {
     name: "Social",
-    iconName: "comment",
   },
 ];
 

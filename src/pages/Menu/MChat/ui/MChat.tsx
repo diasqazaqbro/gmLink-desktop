@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import sass from './MChat.module.sass'
 import { ScrollingCarousel } from '@trendyol-js/react-carousel';
 import { MainHeader } from '../../../../widgets/mainHeader/ui/mainHeader'
@@ -7,11 +6,6 @@ import { Filter } from '../../../../features/filter'
 import { Navigation } from '../../../../widgets/footerNavigation'
 
 export function MChat() {
-    const navigate = useNavigate()
-
-    const navigateToChat = () => {
-        navigate('/menu/mchating')
-    }
 
     return <>
     <div className={sass.background}>

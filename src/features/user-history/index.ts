@@ -1,1 +1,1 @@
-export { UserHistory } from './ui/userHisotry'
+export { UserHistory } from './ui/userStories'

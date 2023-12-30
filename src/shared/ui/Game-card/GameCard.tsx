@@ -26,6 +26,12 @@ export const GameCard: FC<CardProps>  = (props) => {
         <Link to={routePath} className={sass.card_item__img} >
           <img 
             src={image}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              borderRadius: '10px'
+            }}
           />
         </Link>
         <div className={sass.card_item__description}>
