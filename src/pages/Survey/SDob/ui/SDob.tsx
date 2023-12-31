@@ -17,9 +17,9 @@ export function SDob() {
     e.preventDefault()
   }
 
-  const styleLogic = () => {
-    return
-  }
+  // const styleLogic = () => {
+  //   return
+  // }
 
   const navigateTo = () => {
     navigate('/registration/filling-out-profile')
@@ -52,7 +52,7 @@ export function SDob() {
             <Button 
               onClick={navigateTo}
               label='Next'
-              styleLogic={styleLogic}
+              className={sass.next}
               disabled={false}
             />
             <Link to='/survey/filling-out-profile'>Skip</Link>

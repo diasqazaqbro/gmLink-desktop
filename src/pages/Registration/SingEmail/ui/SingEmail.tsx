@@ -33,7 +33,7 @@ export function SingEmail() {
   }
 
   const styleLogic = () => {
-    return isValid()
+    return isValid() ? sass.active : ''
   }
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -60,7 +60,7 @@ export function SingEmail() {
         </div>
         <form className={sass.auth} onSubmit={handleSubmit} >
           <Input className={sass.enter} onChange={handleEmailChange} onClear={() => setEmail('')} placeholder='Enter your email' value={email} type='email' >
-            <Button label='Next' styleLogic={styleLogic} onClick={navigateTo} disabled={!isValid()}/>
+            <Button label='Next' className={`${sass.next} ${styleLogic()}`} onClick={navigateTo} disabled={!isValid()}/>
           </Input>
         </form>
       </div>

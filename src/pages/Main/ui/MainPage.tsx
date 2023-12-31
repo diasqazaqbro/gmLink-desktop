@@ -1,8 +1,5 @@
-import { Routes, Route, useNavigate } from 'react-router-dom'
-import { SingEmail } from '../../Registration/SingEmail';
-import { SingPhone } from '../../Registration/SingPhone';
+import { useNavigate } from 'react-router-dom'
 import sass from './MainPage.module.sass';
-import { Registration } from '../../Registration';
 import Logo from './assets/Logo.svg'
 import People from './assets/mP--people.svg'
 import Discord from './assets/Group 5.svg'
@@ -34,7 +31,7 @@ export function MainPage() {
           <img src={Logo} alt="GMLINK Logo" />
           GMLINK
         </h1>
-        <h5>Don’t have an account ? </h5>
+        <h5 >Don’t have an account ? </h5>
       </div>
     </div>
       <div className={sass.join}>
@@ -77,11 +74,6 @@ export function MainPage() {
           </div>
         </div>
       </div>
-      <Routes>
-        <Route path='/registration/sign-phone' element={<SingPhone/>}/>
-        <Route path='/registration/sing-email' element={<SingEmail/>}/>
-        <Route path='/registration' element={<Registration/>}/>
-      </Routes>
       </>
   );
 }

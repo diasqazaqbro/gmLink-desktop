@@ -18,9 +18,9 @@ export function SFillingOutProfile() {
     e.preventDefault()
   }
 
-  const styleLogic = () => {
-    return
-  }
+  // const styleLogic = () => {
+  //   return
+  // }
 
   const navigateTo = () => {
     navigate('/Menu/MGamepad')
@@ -48,7 +48,7 @@ export function SFillingOutProfile() {
           <Button 
             label='Next'
             onClick={navigateTo}
-            styleLogic={styleLogic}
+            className={sass.next}
             disabled={false}
           />
           <a href="">Skip</a>

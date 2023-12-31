@@ -15,7 +15,7 @@ export function MChat() {
                     <h1>Chat</h1>
                 </div>
                 <div className={sass.stories}>
-                    <ScrollingCarousel>
+                    <ScrollingCarousel >
                         <UserHistory />
                     </ScrollingCarousel>
                 </div>

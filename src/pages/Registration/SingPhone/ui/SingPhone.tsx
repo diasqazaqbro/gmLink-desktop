@@ -24,7 +24,7 @@ export function SingPhone() {
   }
 
   const styleLogic = () => {
-    return isValid()
+    return isValid() ? sass.active : ''
   }
 
   const onClear = () => {
@@ -37,9 +37,9 @@ export function SingPhone() {
   }
 
   const handlePhoneChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const input = event.target.value.replace(/\D/g, '');
-    setPhone(input);
-  };
+    const input = event.target.value.replace(/\D/g, '')
+    setPhone(input)
+  }
   
   return <>
   <div className={sass.background}>
@@ -67,7 +67,7 @@ export function SingPhone() {
             }}
           >
         <Input className={sass.enter} onChange={handlePhoneChange} value={phone} placeholder='Enter your number' onClear={onClear} type='tel' >
-          <Button label='Next' onClick={navigateTo} styleLogic={styleLogic} disabled={!isValid()} />
+          <Button label='Next' className={`${sass.next} ${styleLogic()}`} onClick={navigateTo} styleLogic={styleLogic} disabled={!isValid()} />
         </Input>
         </form>
         <Contact 
@@ -77,7 +77,7 @@ export function SingPhone() {
       </div>
     </div>
     <Modal active={modalActive} setActive={setModalActive}>
-      <p>Hello, Dias</p>
+      <p >Hello, Dias</p>
     </Modal>
     </div>
   </>

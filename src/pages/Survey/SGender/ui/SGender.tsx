@@ -74,9 +74,8 @@ export function SGender() {
           <div className={sass.btn}>
             <Button 
               onClick={navigateTo}
-              label='Next' 
-              styleLogic={styleLogic}
-            />
+              label='Next'
+              className={`${sass.next} ${styleLogic()}`} />
           </div>
         </form>
       )
@@ -90,7 +89,7 @@ export function SGender() {
               <Button 
                 onClick={navigateTo}
                 label='Next'
-                styleLogic={styleLogic}
+                className={`${sass.next} ${styleLogic()}`}
               />
             </CSSTransition>
           </div>

@@ -1,4 +1,5 @@
-import { FC, MouseEventHandler, useState } from 'react';
+import { FC, MouseEventHandler } from 'react';
+import { Avatar, Stack } from '@mui/material';
 import sass from './userStories.module.sass'
 import categoryItems from '../api/categoryItem'
 
@@ -29,13 +30,19 @@ export const UserHistory: FC<PropsStories> = () => {
     return (
       <>
         <div className={sass.container__stories}>
-            <button className={sass.category_outer_circle}>
-              <div className={sass.category_inner_circle}>
-                <img src={categoryItem.image} className={sass.category_avatar}/>
-              </div>
-            </button>
-            <div className={sass.category_name}>{categoryItem.name}</div>  
-          </div>
+          <button className={sass.category_outer_circle}>
+            <div className={sass.category_inner_circle}>
+            <Stack >
+              <Avatar
+                alt="Remy Sharp"
+                src={categoryItem.image}
+                sx={{ width: '100%', height: 58 }}
+              />
+            </Stack>
+            </div>
+          </button>
+          <div className={sass.category_name}>{categoryItem.name}</div>  
+        </div>
       </>
     )
   })

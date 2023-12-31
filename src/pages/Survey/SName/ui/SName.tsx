@@ -23,7 +23,7 @@ export function SName() {
   }
 
   const styleLogic = () => {
-    return isValid()
+    return isValid() ? sass.active : ''
   }
 
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -61,7 +61,7 @@ export function SName() {
               }}
             >
               <Input className={sass.enter} onChange={handleNameChange} onClear={() => setName('')} placeholder='Enter your name' value={name} type='text' >
-                <Button label='Next' onClick={navigateTo} styleLogic={styleLogic} disabled={!isValid()} />
+                <Button label='Next' onClick={navigateTo} className={`${sass.next} ${styleLogic()}`} disabled={!isValid()} />
               </Input>
             </form>
             <Contact 

@@ -18,9 +18,9 @@ export function SInterests() {
     e.preventDefault()
   }
 
-  const styleLogic = () => {
-    return
-  }
+  // const styleLogic = () => {
+  //   return
+  // }
 
   const navigateTo = () => {
     navigate('/registration/dob')
@@ -87,7 +87,7 @@ export function SInterests() {
           </div>
           <Button 
             onClick={navigateTo}
-            styleLogic={styleLogic}
+            className={sass.next}
             label='Next'
             disabled={false}
           />

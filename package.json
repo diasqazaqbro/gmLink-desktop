@@ -17,6 +17,7 @@
     "@mui/icons-material": "^5.15.1",
     "@mui/material": "^5.15.1",
     "@reduxjs/toolkit": "^1.9.7",
+    "@stylexjs/stylex": "^0.4.1",
     "@trendyol-js/react-carousel": "^3.0.2",
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",
