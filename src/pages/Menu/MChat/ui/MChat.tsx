@@ -5,6 +5,8 @@ import { UserHistory } from '../../../../features/user-history'
 import { Filter } from '../../../../features/filter'
 import { Navigation } from '../../../../widgets/footerNavigation'
 
+// должен быть анекдот
+
 export function MChat() {
 
     return <>
