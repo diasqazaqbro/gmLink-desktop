@@ -1,6 +1,4 @@
-import { FC ,MouseEventHandler } from 'react'
-
-import { Link } from 'react-router-dom'
+import { FC ,MouseEventHandler, useState } from 'react'
 
 import sass from './GameCard.module.sass'
 
@@ -18,12 +16,17 @@ export type CardProps = {
 }
 
 export const GameCard: FC<CardProps>  = (props) => {
-  const { image, onClick, id, routePath, name } = props
+  const [active, setActive] = useState(false)
+  const { image, onClick, id, name } = props
+
+  const handleFavorites = () => {
+    setActive(!active)
+  }
 
   return (
     <li className={sass.container__item} onClick={onClick}>
       <div className={sass.card_item}>
-        <Link to={routePath} className={sass.card_item__img} >
+        <button onClick={handleFavorites} className={`${sass.card_item__img} ${active ? sass.active : ''}`} >
           <img 
             src={image}
             style={{
@@ -33,7 +36,7 @@ export const GameCard: FC<CardProps>  = (props) => {
               borderRadius: '10px'
             }}
           />
-        </Link>
+        </button>
         <div className={sass.card_item__description}>
           {name && <h1 className={sass.card_item__name}>{name}</h1>}
         </div>

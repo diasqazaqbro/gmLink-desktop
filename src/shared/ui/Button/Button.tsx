@@ -7,7 +7,6 @@ import sass from './Button.module.sass'
 interface ButtonProps {
   onClick: () => void
   label: string
-  styleLogic: () => boolean
   disabled?: boolean,
   className?: string
 }
