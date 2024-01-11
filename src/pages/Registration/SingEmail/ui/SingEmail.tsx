@@ -16,7 +16,7 @@ export function SingEmail() {
   const navigate = useNavigate()
 
   const navigateTo = () => {
-    navigate('/registration/name')
+    navigate(`/verification/email/${email}`)
   }
 
   const toogleModal = (e) => {

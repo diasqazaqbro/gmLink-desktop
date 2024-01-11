@@ -9,29 +9,25 @@ import { Button } from '../../../../shared/ui/Button/Button'
 import { Input } from '../../../../shared/ui/Input/Input'
 import { Contact } from '../../../../shared/ui/Contact/Contact'
 
-export function SingPhone() {
-
+export function SingPhone () {
   const [modalActive, setModalActive] = useState(false)
   const navigate = useNavigate()
   const [phone, setPhone] = useState('')
 
   const navigateTo = () => {
-    navigate('/registration/name')
+    // navigate(`/verification/phone/${phone}`)
+    navigate(`/verification/phone/${phone}`)
   }
 
   const isValid = () => {
     return phone.replace(/\D/g, '').length >= 11
   }
 
-  const styleLogic = () => {
-    return isValid() ? sass.active : ''
-  }
-
   const onClear = () => {
     setPhone('')
   }
 
-  const toogleModal = (e) => {
+  const toogleModal = (e:React.MouseEvent<HTMLAnchorElement>) => {
     setModalActive(!modalActive)
     e.preventDefault()
   }
@@ -67,7 +63,7 @@ export function SingPhone() {
             }}
           >
         <Input className={sass.enter} onChange={handlePhoneChange} value={phone} placeholder='Enter your number' onClear={onClear} type='tel' >
-          <Button label='Next' className={`${sass.next} ${styleLogic()}`} onClick={navigateTo} styleLogic={styleLogic} disabled={!isValid()} />
+          <Button label='Next' className={`${sass.next} ${isValid() ? sass.active : ''}`} onClick={navigateTo} disabled={!isValid()} />
         </Input>
         </form>
         <Contact 

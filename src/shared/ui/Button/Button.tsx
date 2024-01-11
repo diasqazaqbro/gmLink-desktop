@@ -1,17 +1,18 @@
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 
 import cn from "classnames"
 
 import sass from './Button.module.sass'
 
-interface ButtonProps {
-  onClick: () => void
-  label: string
-  disabled?: boolean,
-  className?: string
+export type ButtonProps = {
+  onClick?: MouseEventHandler;
+  label: string;
+  disabled?: boolean;
+  className?: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({ onClick, label, disabled, className }) => {
+export const Button: React.FC<ButtonProps> = (props) => {
+  const { onClick, label, disabled, className } = props
 
   return (
     <button

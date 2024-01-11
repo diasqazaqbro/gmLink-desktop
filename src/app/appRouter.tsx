@@ -20,6 +20,8 @@ import { MHome } from "../pages/Menu/MHome";
 import { MProfile } from "../pages/Menu/MProfile";
 import { MChat } from "../pages/Menu/MChat";
 import { MInsideChat } from "../pages/Menu/MChat/MInsideChat";
+import { VPhone } from "../pages/Verification/ui/Phone";
+import { VEmail } from "../pages/Verification/ui/Email/ui/VEmail";
 
 // type GuestGuardProps = {
 //   children: ReactElement;
@@ -68,7 +70,15 @@ export const appRouter = () =>
         },
         {
           path: "/registration/sign-phone",
-          element: <SingPhone/>
+          element: <SingPhone />
+        },
+        {
+          path: "/verification/phone/:phoneNumber",
+          element: <VPhone />
+        },
+        {
+          path: "/verification/email/:email",
+          element: <VEmail />
         },
         {
           path: "/registration/name",
