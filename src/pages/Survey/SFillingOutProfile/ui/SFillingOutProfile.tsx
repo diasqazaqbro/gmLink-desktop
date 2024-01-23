@@ -34,7 +34,7 @@ export function SFillingOutProfile() {
     </div>
       <Badges 
         routePath='/registration/dob' 
-        toogleModal={toogleModal}
+        onClick={toogleModal}
       />
       <div className={sass.inner}>
         <div className={sass.text}>

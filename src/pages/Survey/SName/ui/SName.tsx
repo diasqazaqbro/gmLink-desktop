@@ -17,9 +17,9 @@ export function SName() {
     return name.trim() !== ''
   }
 
-  const toogleModal = (e: FormEvent<HTMLFormElement>) => {
-    setModalActive(!modalActive)
-    e.preventDefault()
+  const toogleModal = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    setModalActive(!modalActive);
+    e.preventDefault();
   }
 
   const styleLogic = () => {
@@ -40,7 +40,7 @@ export function SName() {
         <div className={sass.container}>
           <Badges 
             routePath='/registration/sing-email' 
-            toogleModal={toogleModal}
+            onClick={toogleModal}
           />
           <div className={sass.inner}>
             <div className={sass.text}>

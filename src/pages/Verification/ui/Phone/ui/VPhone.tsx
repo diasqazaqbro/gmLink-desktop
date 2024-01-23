@@ -4,11 +4,13 @@ import { PinCode } from '../../../../../features/pin-code'
 import { Badges } from '../../../../../shared/ui/Badges/Badges'
 import { Contact } from '../../../../../shared/ui/Contact/Contact'
 import sass from './VPhone.module.sass'
+import { Modal } from '../../../../../shared/ui/Modal'
 
 export const VPhone = () => {
   const { phoneNumber } = useParams<{ phoneNumber: string }>();
   const [timer, setTimer] = useState(60)
   const [showResend, setShowResend] = useState(false);
+  const [modalActive, setModalActive] = useState(false);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -28,12 +30,18 @@ export const VPhone = () => {
     setShowResend(false);
   };
 
+  const toogleModal = (e:React.MouseEvent<HTMLAnchorElement>) => {
+    setModalActive(!modalActive);
+    e.preventDefault();
+  }
+
   return (
     <>
       <div className={sass.background}>
         <div className={sass.container}>
           <Badges 
             routePath='/registration/sign-phone'
+            onClick={toogleModal}
           />
           <div className={sass.inner}>
             <div className={sass.text}>
@@ -56,6 +64,9 @@ export const VPhone = () => {
           </div>
         </div>
       </div>
+      <Modal active={modalActive} setActive={setModalActive}>
+        <p className={sass.modal__inner}>ПОШЕЛ НАХУЙ ДАНИК</p>
+      </Modal>
     </>
   )
 }

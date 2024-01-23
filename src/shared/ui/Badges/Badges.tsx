@@ -6,11 +6,11 @@ import help  from './assets/help.svg'
 
 export type BadgesProps = {
   routePath: string;
-  toogleModal?: MouseEventHandler
+  onClick?: MouseEventHandler;
 }
 
 export const Badges: FC<BadgesProps> = (props) => {
-  const { routePath, toogleModal } = props
+  const { routePath, onClick } = props
 
   return (
     <>
@@ -18,7 +18,7 @@ export const Badges: FC<BadgesProps> = (props) => {
         <Link to={routePath} className={sass.arrow}>
           <img src={arrow} alt="arrow" />
         </Link>
-        <a onClick={toogleModal} href="" className={sass.help}>
+        <a onClick={onClick} className={sass.help}>
           <img src={help} alt="help" />
         </a>
       </div>

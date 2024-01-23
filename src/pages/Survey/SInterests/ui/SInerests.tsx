@@ -31,7 +31,7 @@ export function SInterests() {
       <div className={sass.container}>
         <Badges 
           routePath='/registration/gender'
-          toogleModal={toogleModal}
+          onClick={toogleModal}
         />
         <div className={sass.inner}>
           <div className={sass.text}>

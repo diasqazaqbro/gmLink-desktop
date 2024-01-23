@@ -45,7 +45,7 @@ export function SingPhone () {
       </div>
       <Badges 
         routePath='/main'
-        toogleModal={toogleModal}
+        onClick={toogleModal}
       />
       <div className={sass.inner}>
         <h1 className={sass.title}>Please enter your Phone</h1>

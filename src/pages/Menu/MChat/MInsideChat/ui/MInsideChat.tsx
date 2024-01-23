@@ -20,7 +20,7 @@ export function MInsideChat() {
 
     useLayoutEffect 
 
-    const onEmojiClick = (emoji) => {
+    const onEmojiClick = (emoji: boolean) => {
         setMessage(prevInput => prevInput + emoji.native)
         setCurrentEmoji(false)
     }

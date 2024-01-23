@@ -22,6 +22,7 @@ import { MChat } from "../pages/Menu/MChat";
 import { MInsideChat } from "../pages/Menu/MChat/MInsideChat";
 import { VPhone } from "../pages/Verification/ui/Phone";
 import { VEmail } from "../pages/Verification/ui/Email/ui/VEmail";
+import { Login } from "../pages/Login";
 
 // type GuestGuardProps = {
 //   children: ReactElement;
@@ -55,6 +56,10 @@ export const appRouter = () =>
         {
           path: "/loader",
           element: <Loader/>
+        },
+        {
+          path: "/login",
+          element: <Login />
         },
         {
           path: "/main",

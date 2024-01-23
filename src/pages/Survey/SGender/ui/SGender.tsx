@@ -106,7 +106,7 @@ export function SGender() {
         <div className={sass.container}>
           <Badges 
             routePath='/registration/name'
-            toogleModal={toogleModal}
+            onClick={toogleModal}
           />
           <div className={sass.inner}>
             <div className={sass.text}>
