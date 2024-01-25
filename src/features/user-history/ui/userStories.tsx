@@ -1,14 +1,14 @@
-import { FC, MouseEventHandler } from 'react';
+// import { FC, MouseEventHandler } from 'react';
 import { Avatar, Stack } from '@mui/material';
 import sass from './userStories.module.sass'
 import categoryItems from '../api/categoryItem'
 
-export type PropsStories = {
-  image: string;
-  onClick?: MouseEventHandler; 
-}
+// interface PropsStories {
+//   image?: string;
+//   onClick?: MouseEventHandler; 
+// }
 
-export const UserHistory: FC<PropsStories> = () => {
+export const UserHistory = () => {
   // const { image, onClick } = props
   // const [isCreditsPopUpOpen, setCreditsPopUpOpen] = useState(false);
 

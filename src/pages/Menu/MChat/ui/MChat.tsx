@@ -18,7 +18,7 @@ export function MChat() {
                 </div>
                 <div className={sass.stories}>
                     <ScrollingCarousel >
-                        <UserHistory />
+                        {[<UserHistory key={1} />]}
                     </ScrollingCarousel>
                 </div>
                 <div className={sass.inner__title}>
