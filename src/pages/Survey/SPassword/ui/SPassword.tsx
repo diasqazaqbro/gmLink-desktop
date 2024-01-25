@@ -24,23 +24,17 @@ export const SPassword = () => {
   const [showDivBlock, setShowDivBlock] = useState(false);
   const navigate = useNavigate()
 
-  const navigateTo = () => {
-    navigate(`/registration/name`)
-  }
-
   const similarPassword = () => {
     return formik.values.password.length > 7 && formik.values.password === password2;
   }
-
   const passwordCheck = () => {
     if (!similarPassword()) {
       setShowDivBlock(true);
     } else {
       setShowDivBlock(!showDivBlock);
-      navigateTo();
+      navigate(`/registration/name`)
     }
   };
-
   const handlePasswordChange = (e: unknown) => {
     formik.handleChange(e);
     setShowDivBlock(false);
@@ -63,14 +57,7 @@ export const SPassword = () => {
                 <Input id='password' name='password' onBlur={formik.handleBlur} onChange={handlePasswordChange} onClear={() => setPassword2('')} placeholder='Create a password' value={formik.values.password} type='password' className={`${sass.input}`} />
                 {formik.errors.password && formik.touched.password ? <div className={sass.error}>{formik.errors.password}</div> : null}
               </div>
-                <Input 
-                  type='password'
-                  value={password2}
-                  onChange={e => setPassword2(e.target.value)}
-                  onClear={() => setPassword2('')} 
-                  placeholder='Repeat password' 
-                  className={sass.input} 
-                />
+                <Input type='password' value={password2} onChange={e => setPassword2(e.target.value)} onClear={() => setPassword2('')} placeholder='Repeat password' className={sass.input} />
             </div>
             <div className={sass.inner_btn}>
               <Button label='Confirm' onClick={passwordCheck} className={`${similarPassword() ? sass.active_btn : ''} ${sass.buton}`}/>

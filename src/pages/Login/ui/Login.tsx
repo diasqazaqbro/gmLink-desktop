@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { LoginForm } from '../../../features/authentication/login'
 import { Button } from '../../../shared/ui/Button/Button'
-import { Logo } from '../../../shared/ui/Icon/Icon'
+import { Apple, Facebook, Google, Logo } from '../../../shared/ui/Icon/Icon'
 import sass from './Login.module.sass'
 
 export const Login = () => {
@@ -21,6 +21,14 @@ export const Login = () => {
           <Link to={''} className={sass.frg}>
             Forget your password ?
           </Link>
+          <div className={sass.other_sign}>
+            <div className={sass.liner}></div> <h1>or sign up with</h1> <div className={sass.liner}></div>
+          </div>
+          <ul className={sass.sign_links}>
+            <li><a href="Google.com"><Facebook /></a></li>
+            <li><a href=""><Google /></a></li>
+            <li><a href="" className={sass.apple} ><Apple /></a></li>
+          </ul>
         </div>
       </div>
     </div>

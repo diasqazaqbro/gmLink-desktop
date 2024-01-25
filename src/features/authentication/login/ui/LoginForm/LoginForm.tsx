@@ -21,20 +21,16 @@ export const LoginForm = () => {
     onSubmit: values => console.log(JSON.stringify(values, null, 2))
   })
 
-  const onClear = () => {
-    setInput(input)
-  }
-
   return (
     <>
       <form className={sass.form} onSubmit={formik.handleSubmit}>
         <div className={sass.email}>
-          <label htmlFor="text">Email or Number <span>*</span></label>
-          <Input className={sass.input_data} onClear={onClear} onChange={e => setInput(e.target.value)} placeholder='Email or Number phone' value={input} type='text' />
+          <label htmlFor="text">Email or Number</label>
+          <Input className={sass.input_data} onClear={() => setInput('')} onChange={e => setInput(e.target.value)} placeholder='Email or Number phone' value={input} type='text' />
         </div>
         {formik.errors.text && formik.touched.text ? <div className={sass.error}>{formik.errors.text}</div> : null}
         <div className={sass.password}>
-          <label htmlFor="password">Password <span>*</span></label>
+          <label htmlFor="password">Password</label>
           <div className={sass.input_password}>
             <Password 
               type='password'
