@@ -8,7 +8,6 @@ import Steam from './assets/Group 6.svg'
 import Google from './assets/Frame.svg'
 
 export function MainPage() {
-
   const navigate = useNavigate()
 
   const navigateToSe = () => {

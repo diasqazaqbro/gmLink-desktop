@@ -18,7 +18,7 @@ interface InputProps {
 
 export const Input: React.FC<InputProps> = ({ onChange, onClear, children, value, placeholder, type, className, id, name, onBlur }) => {
   const enterProps = { onChange, placeholder, type, className, value, id, name, onBlur };
-  const deleteProps = { onClear, className };
+  const deleteProps = { onClear };
 
   return (
     <>
