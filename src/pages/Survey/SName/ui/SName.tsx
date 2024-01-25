@@ -66,7 +66,7 @@ export function SName() {
             </form>
             <Contact 
               label='Contact Us'
-              routePath={undefined}
+              routePath={''}
             />
           </div>
         </div>

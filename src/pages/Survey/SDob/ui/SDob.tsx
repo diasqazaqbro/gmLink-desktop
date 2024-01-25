@@ -54,7 +54,7 @@ export function SDob() {
           </div>
           <Contact 
             label="Contact Us"
-            routePath={undefined}
+            routePath={''}
           />
         </div>
       </div>

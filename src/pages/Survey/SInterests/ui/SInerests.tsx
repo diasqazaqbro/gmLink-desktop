@@ -89,7 +89,7 @@ export function SInterests() {
           />
           <Contact 
             label="Contact Us"
-            routePath={undefined}
+            routePath={''}
           />
         </div>
       </div>

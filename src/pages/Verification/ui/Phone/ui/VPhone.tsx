@@ -59,7 +59,7 @@ export const VPhone = () => {
               <a href="">Didn’t receive code?</a>
             </div>
             <div className={sass.contact}>
-              <Contact label='Contact Us' routePath={undefined} />
+              <Contact label='Contact Us' routePath={''} />
             </div>
           </div>
         </div>
