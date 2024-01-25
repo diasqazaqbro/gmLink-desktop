@@ -31,7 +31,7 @@ export function SName() {
   }
 
   const navigateTo = () => {
-    navigate('/registration/gender');
+    navigate('/registration/password');
   }
 
   return (
@@ -77,9 +77,3 @@ export function SName() {
     </>
   )
 }
-
-
-
-
-
-

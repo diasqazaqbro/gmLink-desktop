@@ -32,7 +32,7 @@ export const SPassword = () => {
       setShowDivBlock(true);
     } else {
       setShowDivBlock(!showDivBlock);
-      navigate(`/registration/name`)
+      navigate(`/registration/gender`)
     }
   };
   const handlePasswordChange = (e: unknown) => {

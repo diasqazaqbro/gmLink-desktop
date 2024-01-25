@@ -18,10 +18,6 @@ export function SInterests() {
     e.preventDefault()
   }
 
-  // const styleLogic = () => {
-  //   return
-  // }
-
   const navigateTo = () => {
     navigate('/registration/dob')
   }

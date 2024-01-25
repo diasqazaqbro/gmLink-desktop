@@ -4,7 +4,7 @@ import sass from './GameCard.module.sass'
 
 export type CardProps = {
   /** Айдишка игры **/
-  id: string | number;
+  id?: string | number;
   /** URL изображение **/
   image: string;
   /** Название игры **/
@@ -17,7 +17,7 @@ export type CardProps = {
 
 export const GameCard: FC<CardProps>  = (props) => {
   const [active, setActive] = useState(false)
-  const { image, onClick, id, name } = props
+  const { image, onClick, name } = props
 
   const handleFavorites = () => {
     setActive(!active)

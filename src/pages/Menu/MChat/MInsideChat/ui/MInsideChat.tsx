@@ -1,16 +1,21 @@
-import { Link } from 'react-router-dom'
-import {useLayoutEffect, useState} from 'react'
-import Picker from '@emoji-mart/react'
+import { Link } from 'react-router-dom';
+import {useEffect, useState} from 'react';
+import Picker from '@emoji-mart/react';
 import data from '@emoji-mart/data'
 import sass from './MInsideChat.module.sass'
 import Back from './assets/arrow_back_ios.svg'
 import get from './assets/get.svg'
 import sent from './assets/sent.svg'
 
+interface Emoji {
+    unified: string;
+    native: string;
+}
+
 export function MInsideChat() { 
-    const [isPickerVisible, setPickerVisible] = useState(false)
-    const [currentEmoji, setCurrentEmoji] = useState(false)
-    const [message, setMessage] = useState('')
+    const [isPickerVisible, setPickerVisible] = useState<boolean>(false);
+    const [currentEmoji, setCurrentEmoji] = useState<Emoji | boolean>(false);
+    const [message, setMessage] = useState<string>('');
     
 
     const handleEmojiPickerClick = (e: { preventDefault: () => void }) => {
@@ -18,20 +23,21 @@ export function MInsideChat() {
         setPickerVisible(!isPickerVisible);
     }
 
-    useLayoutEffect 
-
-    const onEmojiClick = (emoji: boolean) => {
-        setMessage(prevInput => prevInput + emoji.native)
-        setCurrentEmoji(false)
-    }
-
-    const addEmoji = (e: any) => {
-        const sym = e.unified.split('_')
-        const codeArray: number[] = []
-        sym.forEach((el) => codeArray.push('0x' + el))  
-        let emoji = String.fromCodePoint(...codeArray)
-        setMessage(message + emoji)
-    }
+    useEffect(() => {
+        
+    }, []); 
+    
+    const onEmojiClick = (emoji: Emoji ) => {
+        setMessage(prevInput => prevInput + emoji.native);
+        setCurrentEmoji(currentEmoji);
+    }  
+    
+    const addEmoji = (e: Emoji) => {
+        const sym = e.unified.split('_');
+        const codeArray: number[] = sym.map((el: string) => parseInt(el, 16));
+        const emoji = String.fromCodePoint(...codeArray);
+        setMessage(message + emoji);
+    };
 
     return <>
         <div className={sass.background}>

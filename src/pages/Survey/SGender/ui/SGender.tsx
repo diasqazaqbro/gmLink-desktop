@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { useNavigate } from 'react-router-dom'
 import sass from './SGender.module.sass'
@@ -21,7 +21,7 @@ export function SGender() {
     navigate('/registration/interests')
   }
 
-  const toogleModal = (e) => {
+  const toogleModal = (e: FormEvent) => {
     e.preventDefault()
     setModalActive(!modalActive)
   }
@@ -46,7 +46,7 @@ export function SGender() {
     setSelectedGender('Other')
   }
 
-  const handleClearClick = (e) => {
+  const handleClearClick = (e: FormEvent) => {
     e.preventDefault()
     setOtherInput('')
   }
@@ -63,8 +63,7 @@ export function SGender() {
               placeholder='Enter if other'
               value={otherInput}
               className={sass.enter}
-              onChange={(e) => setOtherInput(e.target.value)}
-            />
+              onChange={(e) => setOtherInput(e.target.value)} type={''} />
             {otherInput && (
               <Delete
                 onClear={handleClearClick}

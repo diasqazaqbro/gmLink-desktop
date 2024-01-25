@@ -1,9 +1,10 @@
 import { ChangeEvent, useState } from "react";
 import sass from "./PinCode.module.sass";
+import { useNavigate } from "react-router-dom";
 
 export const PinCode = () => {
   const [inputs, setInputs] = useState(["", "", "", "", ""]);
-
+  const navigate = useNavigate()
   const onChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
     const value = e.target.value;
     const newInputs = [...inputs];
@@ -26,6 +27,11 @@ export const PinCode = () => {
           prevInput.focus();
         }
       }
+    }
+    // Здесь логика Например если пин код будет равен тому что пользователю пришло в смс то он пидор проходит дальше
+    const pinCode = newInputs.join("");
+    if (pinCode === "22222") {
+      navigate('/registration/name');
     }
   };
 

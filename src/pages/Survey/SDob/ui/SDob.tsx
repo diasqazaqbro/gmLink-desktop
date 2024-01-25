@@ -8,18 +8,13 @@ import { Contact } from '../../../../shared/ui/Contact/Contact'
 import { Button } from '../../../../shared/ui/Button/Button'
 
 export function SDob() {
-
   const [modalActive, setModalActive] = useState(false)
   const navigate = useNavigate()
 
-  const toogleModal = (e: FormEvent<HTMLFormElement>) => {
+  const toogleModal = (e: FormEvent) => {
     setModalActive(!modalActive)
     e.preventDefault()
   }
-
-  // const styleLogic = () => {
-  //   return
-  // }
 
   const navigateTo = () => {
     navigate('/registration/filling-out-profile')
@@ -30,7 +25,7 @@ export function SDob() {
       <div className={sass.container}>
         <Badges 
           routePath='/registration/interests'
-          toogleModal={toogleModal}
+          onClick={toogleModal}
         />
         <div className={sass.inner}>
           <div className={sass.text}>
