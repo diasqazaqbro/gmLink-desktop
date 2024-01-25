@@ -1,24 +1,30 @@
-import { FC} from 'react'
+import { FC, FocusEventHandler} from 'react'
 
 import cn from "classnames"
 
 import sass from './Enter.module.sass'
 
 interface EnterProps {
-  value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   type: string;
-  className: string;
+  id?: string;
+  onBlur?: FocusEventHandler;
+  name?: string;
+  className?: string;
 }
 
-export const Enter: FC<EnterProps> = ({ onChange, value, placeholder, type, className }) => {
+export const Enter: FC<EnterProps> = ({ onChange, value, placeholder, type, className, id, onBlur, name }) => {
 
   return (
     <input
       className={cn(className, sass.input, "input")}
       type={type} 
       autoComplete='off'
+      id={id}
+      onBlur={onBlur}
+      name={name}
       placeholder={placeholder}
       onChange={onChange}
       value={value}

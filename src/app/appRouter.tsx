@@ -23,6 +23,7 @@ import { MInsideChat } from "../pages/Menu/MChat/MInsideChat";
 import { VPhone } from "../pages/Verification/ui/Phone";
 import { VEmail } from "../pages/Verification/ui/Email/ui/VEmail";
 import { Login } from "../pages/Login";
+import { SPassword } from "../pages/Survey/SPassword";
 
 // type GuestGuardProps = {
 //   children: ReactElement;
@@ -84,6 +85,10 @@ export const appRouter = () =>
         {
           path: "/verification/email/:email",
           element: <VEmail />
+        },
+        {
+          path: "/registration/password",
+          element: <SPassword />
         },
         {
           path: "/registration/name",
