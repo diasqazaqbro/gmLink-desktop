@@ -19,13 +19,11 @@ export const SPhoto = () => {
       }
     }
   }
-
   const handleNextClick = () => {
     if (avatarSelected) {
       navigate('/registration/gender')
     }
   }
-
   const handleDeletePhoto = (index: number) => {
     const updatedImages = [...images]
     updatedImages.splice(index, 1)
@@ -37,9 +35,7 @@ export const SPhoto = () => {
 
   return (
     <div className={sass.background}>
-        <Badges 
-          routePath=''
-          className={sass.badge}
+        <Badges routePath={'/registration/password'} className={sass.badge}
         />
       <div className={sass.container}>
         <div className={sass.inner}>

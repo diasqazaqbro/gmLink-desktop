@@ -8,3 +8,13 @@
     justify-content: center
     align-items: center
     cursor: pointer
+    position: relative
+    z-index: 1000
+    &:hover
+      animation: circle 0.5s ease both
+
+@keyframes circle
+  0%
+    transform: rotate(0)
+  100%
+    transform: rotate(360deg)

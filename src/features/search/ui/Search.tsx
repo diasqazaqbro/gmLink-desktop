@@ -14,6 +14,7 @@ const Search = styled('div')(({ theme }) => ({
   width: '100%',
   [theme.breakpoints.up('sm')]: { 
   },
+  zIndex: '1000'
 }))
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
