@@ -1,10 +1,10 @@
-import ReactLoading from 'react-loading'
 import sass from './Loading.module.sass'
+import { HashLoader } from 'react-spinners'
 
 export const Loading = () => {
   return (
     <div className={sass.loading}>
-      <ReactLoading type={'balls'} color='#fff' />
+      <HashLoader color="#5571FF" />
     </div>
   )
 }
