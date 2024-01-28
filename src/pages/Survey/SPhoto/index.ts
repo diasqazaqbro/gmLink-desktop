@@ -1,0 +1,1 @@
+export { SPhoto } from './ui/SPhoto'

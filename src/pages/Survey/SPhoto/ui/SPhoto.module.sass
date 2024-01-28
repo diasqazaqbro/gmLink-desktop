@@ -1,0 +1,76 @@
+
+
+.container 
+  position: absolute 
+  top: 46.5%
+  left: 50.5%
+  margin-right: -50%
+  transform: translate(-50%, -50%)
+  z-index: 100
+
+.background
+  background: var(--color-second)
+  width: 381px
+  height: 841px
+  border-radius: 50px
+
+// -- Block --
+
+.inner 
+  padding: 0 40px 0 40px
+
+.badge
+  position: relative
+  top: 3.8rem
+  z-index: 100
+
+.inner_text
+  margin-bottom: 25px
+  h1
+    color: var(--color-white)
+    text-align: center
+    font-family: Asap
+    font-size: 27px
+    font-style: normal
+    font-weight: 500
+    line-height: normal
+    margin-bottom: 25px
+  p
+    color: rgba(255, 255, 255, 0.40)
+    text-align: center
+    font-family: Asap
+    font-size: 18px
+    font-style: normal
+    font-weight: 400
+    line-height: normal
+
+.select_grid
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  grid-gap: 15px
+  height: 240px
+
+.btn
+  display: flex
+  position: relative
+  top: 10rem
+  left: 1.2px
+  justify-content: center
+  align-items: center
+  margin-bottom: 100px
+  button
+    width: 295px
+    height: 40px
+    background: rgba(85, 113, 255, 0.50)
+    border-radius: 100px
+    color: rgba(255, 255, 255, 0.50)
+    font-size: 20px
+    font-weight: 400
+    line-height: normal
+    &.active
+      background: var(--color-primary)
+      color: var(--color-white)
+
+.inner_contact
+  position: relative
+  top: 9rem

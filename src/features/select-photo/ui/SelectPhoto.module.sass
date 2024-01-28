@@ -1,0 +1,46 @@
+.select_photo
+  width: 140px
+  height: 180px
+  border-radius: 10px
+  background: #1C1B1F
+
+.img_before
+  height: 86.808px
+  width: 83px
+  margin: 43px 33px 47px 28px
+
+.img_after
+  height: 100%
+  width: 140px
+  display: flex
+  justify-content: center
+  align-items: center
+  object-fit: fill
+  border-radius: 10px
+
+.add_photo 
+  width: 30px
+  height: 30px
+  background: var(--color-second)
+  position: relative
+  top: -2.7rem
+  left: 6.3rem
+  border-radius: 100%
+  z-index: 1000
+  &.rotated_x
+    animation: rotate-center 0.8s ease-in-out both
+  &.rotated_plus
+    animation: rotate-plus 0.8s ease-in-out both
+
+@keyframes rotate-center 
+  0% 
+    transform: rotate(0)
+  100% 
+    transform: rotate(405deg)
+
+@keyframes rotate-plus
+  0% 
+    transform: rotate(405deg)
+  100% 
+    transform: rotate(360deg)
+
