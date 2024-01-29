@@ -42,10 +42,11 @@ export const SPassword = () => {
 
   return (
     <div className={sass.background}>
+      <Badges 
+        routePath='/registration/name'
+        className={sass.badge}          
+      />
       <div className={sass.container}>
-        <Badges 
-          routePath='/registration/name'          
-        />
         <div className={sass.inner}>
           <div className={sass.inner_main}>
             <h1>Please create a strong password !</h1>

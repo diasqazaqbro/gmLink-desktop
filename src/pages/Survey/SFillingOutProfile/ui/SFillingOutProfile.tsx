@@ -32,39 +32,41 @@ export function SFillingOutProfile() {
   return <>
     <div className={sass.background}>
       {loading ? <Loading text='Wait a few seconds, the data is saved' /> : (
-        <div className={sass.container}>
-          <div className={sass.white}>
-            <img src={White} />
-          </div>
-            <Badges 
-              routePath='/registration/dob' 
-              onClick={toogleModal}
-            />
-          <div className={sass.inner}>
-            <div className={sass.text}>
-              <h1>Complete your profile by answering a few simple questions about yourself.</h1>
-              <p>Create a profile that will increase your chances of finding your dream partner.</p>
+        <>
+          <Badges 
+            routePath='/registration/dob' 
+            onClick={toogleModal}
+            className={sass.badge}
+          />
+          <div className={sass.container}>
+            <div className={sass.white}>
+              <img src={White} />
             </div>
-            <div className={sass.main}>
-              <img src={Main} alt="" />
-            </div>
-            <div className={sass.btn}>
-              <Button 
-                label='Next'
-                onClick={navigateTo}
-                className={sass.next}
-                disabled={false}
+            <div className={sass.inner}>
+              <div className={sass.text}>
+                <h1>Complete your profile by answering a few simple questions about yourself.</h1>
+                <p>Create a profile that will increase your chances of finding your dream partner.</p>
+              </div>
+              <div className={sass.main}>
+                <img src={Main} alt="" />
+              </div>
+              <div className={sass.btn}>
+                <Button 
+                  label='Next'
+                  onClick={navigateTo}
+                  className={sass.next}
+                  disabled={false}
+                />
+                <a href="">Skip</a>
+              </div>
+              <Contact 
+                label="Contact Us"
+                routePath={''}
               />
-              <a href="">Skip</a>
             </div>
-            <Contact 
-              label="Contact Us"
-              routePath={''}
-            />
           </div>
-        </div>
+        </>
       )}
-      
         <Modal active={modalActive} setActive={setModalActive}>
           <p>Hello, Dias</p>
         </Modal>

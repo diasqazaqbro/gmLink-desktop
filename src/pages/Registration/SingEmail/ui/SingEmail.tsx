@@ -19,11 +19,6 @@ export function SingEmail() {
     navigate(`/verification/email/${email}`)
   }
 
-  const toogleModal = (e) => {
-    setModalActive(!modalActive)
-    e.preventDefault()
-  }
-
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value)
   }
@@ -45,14 +40,15 @@ export function SingEmail() {
 
   return <>
   <div className={sass.background}>
+    <Badges 
+      routePath='/main'
+      onClick={() => setModalActive(!modalActive)}
+      className={sass.badge}
+    />
     <div className={sass.container}>
       <div className={sass.whiteBlock}>
         <img src={WhiteBlock} alt="" />
       </div>
-      <Badges 
-        routePath='/main'
-        toogleModal={toogleModal}
-      />
       <div className={sass.inner}>
         <h1 className={sass.title}>Please enter your Email</h1>
         <div className={sass.draw}>
@@ -66,7 +62,7 @@ export function SingEmail() {
       </div>
       <Contact 
         label='Contact Us'
-        routePath={undefined}
+        routePath=''
       />
     </div>
     <Modal active={modalActive} setActive={setModalActive}>

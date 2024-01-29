@@ -24,11 +24,12 @@ export function SInterests() {
 
   return <>
     <div className={sass.background}>
+      <Badges 
+        routePath='/registration/gender'
+        onClick={toogleModal}
+        className={sass.badge}
+      />
       <div className={sass.container}>
-        <Badges 
-          routePath='/registration/gender'
-          onClick={toogleModal}
-        />
         <div className={sass.inner}>
           <div className={sass.text}>
             <h1>What interests you first?</h1>

@@ -15,7 +15,6 @@ export function SingPhone () {
   const [phone, setPhone] = useState('')
 
   const navigateTo = () => {
-    // navigate(`/verification/phone/${phone}`)
     navigate(`/verification/phone/${phone}`)
   }
 
@@ -27,26 +26,22 @@ export function SingPhone () {
     setPhone('')
   }
 
-  const toogleModal = (e:React.MouseEvent<HTMLAnchorElement>) => {
-    setModalActive(!modalActive)
-    e.preventDefault()
-  }
-
   const handlePhoneChange = (event: ChangeEvent<HTMLInputElement>) => {
     const input = event.target.value.replace(/\D/g, '')
     setPhone(input)
   }
-  
+
   return <>
   <div className={sass.background}>
+    <Badges 
+      routePath='/main'
+      onClick={() => setModalActive(!modalActive)}
+      className={sass.badge}
+    />
     <div className={sass.container}>
       <div className={sass.whiteBlock}>
         <img src={WhiteBlock} alt="" />
       </div>
-      <Badges 
-        routePath='/main'
-        onClick={toogleModal}
-      />
       <div className={sass.inner}>
         <h1 className={sass.title}>Please enter your Phone</h1>
         <div className={sass.draw}>
@@ -68,7 +63,7 @@ export function SingPhone () {
         </form>
         <Contact 
           label="Contact Us"
-          routePath={undefined}
+          routePath=''
         />
       </div>
     </div>

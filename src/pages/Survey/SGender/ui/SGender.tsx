@@ -102,11 +102,12 @@ export function SGender() {
   return (
     <>
       <div className={sass.background}>
+        <Badges 
+          routePath='/registration/name'
+          onClick={toogleModal}
+          className={sass.badge}
+        />
         <div className={sass.container}>
-          <Badges 
-            routePath='/registration/name'
-            onClick={toogleModal}
-          />
           <div className={sass.inner}>
             <div className={sass.text}>
               <h1>Your gender...</h1>

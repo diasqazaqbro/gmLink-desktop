@@ -37,11 +37,12 @@ export function SName() {
   return (
     <>
       <div className={sass.background}>
+        <Badges 
+          routePath='/registration/sing-email' 
+          onClick={toogleModal}
+          className={sass.badge}
+        />
         <div className={sass.container}>
-          <Badges 
-            routePath='/registration/sing-email' 
-            onClick={toogleModal}
-          />
           <div className={sass.inner}>
             <div className={sass.text}>
               <h1>Let's get acquainted ! What is your name ?</h1>
