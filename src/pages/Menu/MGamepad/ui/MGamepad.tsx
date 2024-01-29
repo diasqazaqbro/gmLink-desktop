@@ -7,7 +7,7 @@ import { MainHeader } from '../../../../widgets/mainHeader/ui/mainHeader';
 import { Navigation } from '../../../../widgets/footerNavigation';
 import { Loading } from '../../../../shared/ui/Loading/Loading';
 
-const filterGame = (searchText, listOfGame) => {
+const filterGame = (searchText: string, listOfGame: Array<object>) => {
     if (!searchText) {
         return listOfGame;
     }
