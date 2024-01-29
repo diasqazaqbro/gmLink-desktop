@@ -44,7 +44,7 @@ export const SPassword = () => {
     <div className={sass.background}>
       <div className={sass.container}>
         <Badges 
-          routePath={''}          
+          routePath='/registration/name'          
         />
         <div className={sass.inner}>
           <div className={sass.inner_main}>

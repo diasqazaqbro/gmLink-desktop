@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom'
 import sass from './footerNavigation.module.sass'
 
 export const Navigation = () => {
-
   const location = useLocation() 
   const isChat = location.pathname === '/menu/mchat'
   const isHome = location.pathname === '/menu/mhome'

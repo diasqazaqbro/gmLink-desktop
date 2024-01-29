@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import sass from './SFillingOutProfile.module.sass'
 import White from './assets/White.svg'
@@ -7,9 +7,11 @@ import { Modal } from '../../../../shared/ui/Modal'
 import { Badges } from '../../../../shared/ui/Badges/Badges'
 import { Button } from '../../../../shared/ui/Button/Button'
 import { Contact } from '../../../../shared/ui/Contact/Contact'
+import { Loading } from '../../../../shared/ui/Loading/Loading'
 
 export function SFillingOutProfile() {
   const [modalActive, setModalActive] = useState(false)
+  const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
 
   const toogleModal = (e: FormEvent) => {
@@ -17,20 +19,27 @@ export function SFillingOutProfile() {
     e.preventDefault()
   }
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(!loading)
+    }, 5000)
+  }, [])
+
   const navigateTo = () => {
     navigate('/Menu/MGamepad')
   }
   
   return <>
     <div className={sass.background}>
-      <div className={sass.container}>
-        <div className={sass.white}>
-          <img src={White} />
-        </div>
-          <Badges 
-            routePath='/registration/dob' 
-            onClick={toogleModal}
-          />
+      {loading ? <Loading text='Wait a few seconds, the data is saved' /> : (
+        <div className={sass.container}>
+          <div className={sass.white}>
+            <img src={White} />
+          </div>
+            <Badges 
+              routePath='/registration/dob' 
+              onClick={toogleModal}
+            />
           <div className={sass.inner}>
             <div className={sass.text}>
               <h1>Complete your profile by answering a few simple questions about yourself.</h1>
@@ -54,6 +63,8 @@ export function SFillingOutProfile() {
             />
           </div>
         </div>
+      )}
+      
         <Modal active={modalActive} setActive={setModalActive}>
           <p>Hello, Dias</p>
         </Modal>
