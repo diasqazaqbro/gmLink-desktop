@@ -6,6 +6,7 @@ import { Modal } from '../../../../shared/ui/Modal'
 import { Badges } from '../../../../shared/ui/Badges/Badges'
 import { Contact } from '../../../../shared/ui/Contact/Contact'
 import { Button } from '../../../../shared/ui/Button/Button'
+import { DataPicker } from '../../../../features/data-picker'
 
 export function SDob() {
   const [modalActive, setModalActive] = useState(false)
@@ -34,15 +35,7 @@ export function SDob() {
             When is your birthday ?</h1>
             <p>Others will only see your age in your profile.</p>
           </div>
-          <div className={sass.data}>
-            <span>Day</span>
-            <span>Month</span>
-            <span>Year</span>
-          </div>
-          <div className={sass.dob}>
-            <div className={sass.line}></div>
-            <div className={sass.line2}></div>
-          </div>
+          <DataPicker />
           <div className={sass.btn}>
             <h3>This is data is protected.</h3>
             <Button 

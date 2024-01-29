@@ -19,7 +19,7 @@ export function SingPhone () {
   }
 
   const isValid = () => {
-    return phone.replace(/\D/g, '').length >= 11
+    return phone.replace(/\D/g, '').length === 11
   }
 
   const onClear = () => {
@@ -27,8 +27,11 @@ export function SingPhone () {
   }
 
   const handlePhoneChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const input = event.target.value.replace(/\D/g, '')
-    setPhone(input)
+    let input = event.target.value.replace(/\D/g, '');
+    if (input.length > 11) {
+      input = input.slice(0, 11);
+    }
+    setPhone(input);
   }
 
   return <>

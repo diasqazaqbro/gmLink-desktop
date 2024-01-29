@@ -103,7 +103,7 @@ export function SGender() {
     <>
       <div className={sass.background}>
         <Badges 
-          routePath='/registration/name'
+          routePath='/registration/photo'
           onClick={toogleModal}
           className={sass.badge}
         />
