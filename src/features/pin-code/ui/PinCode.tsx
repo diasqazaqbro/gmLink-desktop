@@ -1,8 +1,8 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, memo,  useState } from "react";
 import sass from "./PinCode.module.sass";
 import { useNavigate } from "react-router-dom";
 
-export const PinCode = () => {
+export const PinCode = memo(() => {
   const [inputs, setInputs] = useState(["", "", "", "", ""]);
   const navigate = useNavigate()
   const onChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
@@ -33,7 +33,7 @@ export const PinCode = () => {
     if (pinCode === "22222") {
       navigate('/registration/name');
     }
-  };
+  }
 
   return (
     <div className={sass.input__container}>
@@ -50,4 +50,4 @@ export const PinCode = () => {
       ))}
     </div>
   );
-};
+});

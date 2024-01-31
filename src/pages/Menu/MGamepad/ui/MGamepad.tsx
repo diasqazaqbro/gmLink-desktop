@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import Dota from '../../../../../public/images/dota2_social 2.png';
 import sass from './MGamepad.module.sass';
 import { GameCard } from '../../../../shared/ui/Game-card/GameCard';
@@ -7,43 +7,51 @@ import { MainHeader } from '../../../../widgets/mainHeader/ui/mainHeader';
 import { Navigation } from '../../../../widgets/footerNavigation';
 import { Loading } from '../../../../shared/ui/Loading/Loading';
 
-const filterGame = (searchText: string, listOfGame: Array<object>) => {
-    if (!searchText) {
-        return listOfGame;
-    }
-    return listOfGame.filter(({ name }) =>
-        name.toLowerCase().includes(searchText.toLowerCase())
-    );
-};
+interface Game {
+    id: number;
+    name: string;
+    image: string;
+    routePath: string;
+}
 
-export function MGamepad() {
-    const data = [
+export const MGamepad = memo(() => {
+    const dataRef = useRef<Game[]>([
         { id: 1, name: 'Dota 2', image: Dota, routePath: '' },
         { id: 2, name: 'Counter Strike 2', image: Dota, routePath: '' },
         { id: 3, name: 'Nigga', image: Dota, routePath: '' }
-    ];
-    const [gameList, setGameList] = useState(data);
-    const [searchTerm, setSearchTerm] = useState('');
-    const [loading, setLoading] = useState(true);
+    ]);
+
+    const [gameList, setGameList] = useState<Game[]>(dataRef.current);
+    const [searchTerm, setSearchTerm] = useState<string>('');
+    const [loading, setLoading] = useState<boolean>(true);
+
+    const filterGame = useCallback((searchText: string, listOfGame: Game[]) => {
+        if (!searchText) {
+            return listOfGame;
+        }
+        return listOfGame.filter(({ name }) =>
+            name.toLowerCase().includes(searchText.toLowerCase())
+        );
+    }, []);
 
     useEffect(() => {
         setTimeout(() => {
-            setLoading(!loading);
+            setLoading(false);
         }, 2600);
     }, []);
 
     useEffect(() => {
         const debounce = setTimeout(() => {
-            const filteredGame = filterGame(searchTerm, data);
+            const filteredGame = filterGame(searchTerm, dataRef.current);
             setGameList(filteredGame);
         }, 300);
 
         return () => clearTimeout(debounce);
-    }, [searchTerm, data]);
+    }, [searchTerm, filterGame]);
 
     return (
         <div className={sass.background}>
-            <MainHeader onChange={(e) => setSearchTerm(e.target.value)} />
+            <MainHeader onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)} />
             <div className={sass.inner}>
                 <div className={sass.inner__header}>
                     <h1>Your game</h1>
@@ -54,7 +62,7 @@ export function MGamepad() {
                         <>
                             {gameList.map((game) => (
                                 <GameCard
-                                    id={game.id}
+                                    key={game.id}
                                     image={game.image}
                                     name={game.name}
                                     routePath={game.routePath}
@@ -67,4 +75,4 @@ export function MGamepad() {
             <Navigation />
         </div>
     );
-}
+});

@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, memo, useCallback, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { useNavigate } from 'react-router-dom'
 import sass from './SGender.module.sass'
@@ -8,7 +8,7 @@ import { Button } from '../../../../shared/ui/Button/Button'
 import { Enter } from '../../../../shared/ui/Input/Enter/Enter'
 import { Delete } from '../../../../shared/ui/Input/Delete/Delete'
 
-export function SGender() {
+export const SGender = memo(() => {
   const [modalActive, setModalActive] = useState(false)
   const navigate = useNavigate()
   const [show, setShow] = useState(false)
@@ -26,11 +26,7 @@ export function SGender() {
     setModalActive(!modalActive)
   }
 
-  const styleLogic = () => {
-    return 
-  }
-
-  const handleGenderClick = (gender: string) => {
+  const handleGenderClick = useCallback((gender: string) => {
     setSelectedGender(gender)
     setShow(!show)
 
@@ -38,18 +34,18 @@ export function SGender() {
       setIsOtherSelected(false)
       setFormVisible(false)
     }
-  }
+  }, [])
 
-  const handleOtherClick = () => {
+  const handleOtherClick = useCallback(() => {
     setIsOtherSelected(true)
     setFormVisible(true)
     setSelectedGender('Other')
-  }
+  }, [])
 
-  const handleClearClick = (e: FormEvent) => {
+  const handleClearClick = useCallback((e: FormEvent) => {
     e.preventDefault()
     setOtherInput('')
-  }
+  }, [])
 
   const renderNextButton = () => {
     if (isOtherSelected) {
@@ -74,7 +70,7 @@ export function SGender() {
             <Button 
               onClick={navigateTo}
               label='Next'
-              className={`${sass.next} ${styleLogic()}`} />
+              className={`${sass.next}`} />
           </div>
         </form>
       )
@@ -88,7 +84,7 @@ export function SGender() {
               <Button 
                 onClick={navigateTo}
                 label='Next'
-                className={`${sass.next} ${styleLogic()}`}
+                className={`${sass.next}`}
               />
             </CSSTransition>
           </div>
@@ -148,20 +144,4 @@ export function SGender() {
       </div>
     </>
   )
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+})

@@ -1,4 +1,4 @@
-import { FC, FocusEventHandler} from 'react'
+import { FC, FocusEventHandler, memo} from 'react'
 
 import cn from "classnames"
 
@@ -15,7 +15,7 @@ interface EnterProps {
   className?: string;
 }
 
-export const Enter: FC<EnterProps> = ({ onChange, value, placeholder, type, className, id, onBlur, name }) => {
+export const Enter: FC<EnterProps> = memo(({ onChange, value, placeholder, type, className, id, onBlur, name }) => {
 
   return (
     <input
@@ -30,4 +30,4 @@ export const Enter: FC<EnterProps> = ({ onChange, value, placeholder, type, clas
       value={value}
     />
   );
-}
+})

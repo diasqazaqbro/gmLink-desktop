@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { SelectPhoto } from '../../../../features/select-photo'
 import { Badges } from '../../../../shared/ui/Badges/Badges'
 import { Button } from '../../../../shared/ui/Button/Button'
@@ -6,32 +6,32 @@ import { Contact } from '../../../../shared/ui/Contact/Contact'
 import sass from './SPhoto.module.sass'
 import { useNavigate } from 'react-router-dom'
 
-export const SPhoto = () => {
+export const SPhoto = memo(() => {
   const [images, setImages] = useState<File[]>([]);
   const [avatarSelected, setAvatarSelected] = useState<boolean>(false);
   const navigate = useNavigate()
 
-  const handleAddPhoto = (image: File) => {
+  const handleAddPhoto = useCallback((image: File) => {
     if (images.length < 4) {
       setImages([image, ...images])
       if (!avatarSelected) {
         setAvatarSelected(!avatarSelected)
       }
     }
-  }
+  }, [])
   const handleNextClick = () => {
     if (avatarSelected) {
       navigate('/registration/gender')
     }
   }
-  const handleDeletePhoto = (index: number) => {
+  const handleDeletePhoto = useCallback((index: number) => {
     const updatedImages = [...images]
     updatedImages.splice(index, 1)
     setImages(updatedImages)
     if (updatedImages.length === 0) {
       setAvatarSelected(false)
     }
-  }
+  }, [])
 
   return (
     <div className={sass.background}>
@@ -61,4 +61,4 @@ export const SPhoto = () => {
       </div>
     </div>
   )
-}
+})

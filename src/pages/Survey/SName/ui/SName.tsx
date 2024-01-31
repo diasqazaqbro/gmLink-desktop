@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent } from 'react'
+import { useState, ChangeEvent, FormEvent, useCallback, memo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import sass from './SName.module.sass'
 import Main from './assets/main.svg'
@@ -8,7 +8,7 @@ import { Input } from '../../../../shared/ui/Input/Input'
 import { Badges } from '../../../../shared/ui/Badges/Badges'
 import { Contact } from '../../../../shared/ui/Contact/Contact'
 
-export function SName() {
+export const SName = memo(() => {
   const [modalActive, setModalActive] = useState(false)
   const [name, setName] = useState('')
   const navigate = useNavigate()
@@ -22,9 +22,9 @@ export function SName() {
     e.preventDefault();
   }
 
-  const styleLogic = () => {
+  const styleLogic = useCallback(() => {
     return isValid() ? sass.active : ''
-  }
+  }, [])
 
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value)
@@ -77,4 +77,4 @@ export function SName() {
       </div>
     </>
   )
-}
+})

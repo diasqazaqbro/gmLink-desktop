@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent } from 'react'
+import { useState, ChangeEvent, FormEvent, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import sass from './SingPhone.module.sass'
 import Main from './assets/enter__email-main.svg'
@@ -26,13 +26,13 @@ export function SingPhone () {
     setPhone('')
   }
 
-  const handlePhoneChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handlePhoneChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     let input = event.target.value.replace(/\D/g, '');
     if (input.length > 11) {
       input = input.slice(0, 11);
     }
     setPhone(input);
-  }
+  }, [])
 
   return <>
   <div className={sass.background}>

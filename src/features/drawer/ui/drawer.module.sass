@@ -1,0 +1,35 @@
+.drawer_active 
+  position: absolute
+  z-index: 10100
+  height: 300px
+  transition-duration: 500ms
+  transform: translate3d(0px, 100%, 0px)
+  visibility: visible
+  top: 4rem
+  left: 0rem
+  height: 12.5rem
+  width: 381px
+
+.drawer_not_active
+  position: absolute
+  transform: translate3d(0px, 100%, 0px)
+  visibility: hidden
+  opacity: 0
+  top: 16rem
+  left: 0rem
+  height: 17rem
+  width: 382px
+  &.drawer_container
+    height: 0
+    width: 0
+
+.drawer_container 
+  transform: translateZ(0)!important
+  transition: all
+  border-top-left-radius: 25px
+  border-top-right-radius: 25px
+  background: var(--color-primary)
+  height: 400px
+  position: relative
+  z-index: 10000
+  width: 100%

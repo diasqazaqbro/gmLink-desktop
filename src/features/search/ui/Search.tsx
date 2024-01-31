@@ -1,7 +1,7 @@
 import SearchIcon from '@mui/icons-material/Search'
 import InputBase from '@mui/material/InputBase'
 import { styled } from '@mui/material/styles'
-import { FC } from 'react'
+import { FC, ChangeEvent } from 'react'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -45,7 +45,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }))
 
 interface SearchBarProps {
-  onChange?: () => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const SearchBar: FC<SearchBarProps> = (props) => {

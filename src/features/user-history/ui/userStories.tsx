@@ -1,15 +1,15 @@
-// import { FC, MouseEventHandler } from 'react';
+import { FC, MouseEventHandler, memo } from 'react';
 import { Avatar, Stack } from '@mui/material';
 import sass from './userStories.module.sass'
 import categoryItems from '../api/categoryItem'
 
-// interface PropsStories {
-//   image?: string;
-//   onClick?: MouseEventHandler; 
-// }
+interface PropsStories {
+  // image?: string;
+  onClick?: MouseEventHandler; 
+}
 
-export const UserHistory = () => {
-  // const { image, onClick } = props
+export const UserHistory: FC<PropsStories> = memo((props) => {
+  const { onClick } = props
   // const [isCreditsPopUpOpen, setCreditsPopUpOpen] = useState(false);
 
 // Гуляют ковбой с индианкой. Развел он её на интимную близость, отводит в прерии за кактус. В процессе занятия любовью, ковбой чувствует, как неимоверно сильно хочет ссать.
@@ -30,7 +30,7 @@ export const UserHistory = () => {
     return (
       <>
         <div className={sass.container__stories}>
-          <button className={sass.category_outer_circle}>
+          <button onClick={onClick} className={sass.category_outer_circle}>
             <div className={sass.category_inner_circle}>
             <Stack >
               <Avatar
@@ -46,4 +46,4 @@ export const UserHistory = () => {
       </>
     )
   })
-}
+})

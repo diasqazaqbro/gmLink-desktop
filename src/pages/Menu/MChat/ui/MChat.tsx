@@ -4,10 +4,15 @@ import { MainHeader } from '../../../../widgets/mainHeader/ui/mainHeader'
 import { UserHistory } from '../../../../features/user-history'
 import { Filter } from '../../../../features/filter'
 import { Navigation } from '../../../../widgets/footerNavigation'
+import { useState } from 'react';
+import { Modal } from '../../../../shared/ui/Modal';
+import { DrawerComponent } from '../../../../features/drawer/ui/drawer';
 
 // должен быть анекдот
 
 export function MChat() {
+    const [viewStories, setViewStories] = useState(false)
+    const [viewFilter, setViewFilter] = useState(false)
 
     return <>
     <div className={sass.background}>
@@ -18,14 +23,20 @@ export function MChat() {
                 </div>
                 <div className={sass.stories}>
                     <ScrollingCarousel >
-                        {[<UserHistory key={1} />]}
+                        {[<UserHistory onClick={() => setViewStories(!viewStories)} key={1} />]}
                     </ScrollingCarousel>
                 </div>
                 <div className={sass.inner__title}>
                     <h1>Messages</h1>
-                    <Filter />
+                    <Filter onClick={() => setViewFilter(!viewFilter)} />
                 </div>
+                <DrawerComponent active={viewFilter} setActive={() => setViewFilter(!viewFilter)} />
             </div>
+            <Modal active={viewStories} setActive={() => setViewStories(!viewStories)}>
+                <div>
+                    <h1 style={{ color: 'white' }}>здесь типа сторисы</h1>
+                </div>
+            </Modal>
             <Navigation />
         </div>
     </>

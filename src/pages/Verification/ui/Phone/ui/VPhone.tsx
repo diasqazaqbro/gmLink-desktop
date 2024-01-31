@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { memo, useEffect, useState, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
 import { PinCode } from '../../../../../features/pin-code'
 import { Badges } from '../../../../../shared/ui/Badges/Badges'
@@ -6,33 +6,35 @@ import { Contact } from '../../../../../shared/ui/Contact/Contact'
 import sass from './VPhone.module.sass'
 import { Modal } from '../../../../../shared/ui/Modal'
 
-export const VPhone = () => {
+export const VPhone = memo(() => {
   const { phoneNumber } = useParams<{ phoneNumber: string }>();
   const [timer, setTimer] = useState(60)
   const [showResend, setShowResend] = useState(false);
   const [modalActive, setModalActive] = useState(false);
 
+  const handleResendClick = useCallback(() => {
+    setTimer(60);
+    setShowResend(false);
+  }, []);
+
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setTimer((prevCountdown) => (prevCountdown > 0 ? prevCountdown - 1 : 0));
-
-      if (timer === 0) {
-        setShowResend(true);
-        clearInterval(intervalId); 
-      }
+      setTimer(prevCountdown => {
+        if (prevCountdown <= 0) {
+          setShowResend(true);
+          clearInterval(intervalId);
+          return 0;
+        } else {
+          return prevCountdown - 1;
+        }
+      });
     }, 1000);
 
     return () => clearInterval(intervalId);
-  }, [timer]);
+  }, []); 
 
-  const handleResendClick = () => {
-    setTimer(60);
-    setShowResend(false);
-  };
-
-  const toogleModal = (e:React.MouseEvent<HTMLAnchorElement>) => {
+  const toggleModal = () => {
     setModalActive(!modalActive);
-    e.preventDefault();
   }
 
   return (
@@ -41,7 +43,7 @@ export const VPhone = () => {
         <div className={sass.container}>
           <Badges 
             routePath='/registration/sign-phone'
-            onClick={toogleModal}
+            onClick={toggleModal}
           />
           <div className={sass.inner}>
             <div className={sass.text}>
@@ -69,4 +71,4 @@ export const VPhone = () => {
       </Modal>
     </>
   )
-}
+})
