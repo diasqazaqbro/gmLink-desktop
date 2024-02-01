@@ -11,11 +11,13 @@ import { Delete } from '../../../../shared/ui/Input/Delete/Delete'
 export const SGender = memo(() => {
   const [modalActive, setModalActive] = useState(false)
   const navigate = useNavigate()
-  const [show, setShow] = useState(false)
-  const [selectedGender, setSelectedGender] = useState('')
-  const [isOtherSelected, setIsOtherSelected] = useState(false)
-  const [formVisible, setFormVisible] = useState(false)
-  const [otherInput, setOtherInput] = useState('')
+  const [formData, setFormData] = useState({
+    show: false,
+    selectedGender: '',
+    isOtherSelected: false,
+    formVisible: false,
+    otherInput: ''
+  })
 
   const navigateTo = () => {
     navigate('/registration/interests')
@@ -26,41 +28,50 @@ export const SGender = memo(() => {
     setModalActive(!modalActive)
   }
 
-  const handleGenderClick = useCallback((gender: string) => {
-    setSelectedGender(gender)
-    setShow(!show)
+  const handleGenderClick = (gender: string) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      selectedGender: gender,
+      show: !prevData.show,
+      isOtherSelected: false,
+      formVisible: false
+    }))
+  }
 
-    if (isOtherSelected) {
-      setIsOtherSelected(false)
-      setFormVisible(false)
-    }
-  }, [])
-
-  const handleOtherClick = useCallback(() => {
-    setIsOtherSelected(true)
-    setFormVisible(true)
-    setSelectedGender('Other')
-  }, [])
+  const handleOtherClick = () => {
+    setFormData((prevData) => ({
+      ...prevData,
+      isOtherSelected: true,
+      formVisible: true,
+      selectedGender: 'Other'
+    }))
+  }
 
   const handleClearClick = useCallback((e: FormEvent) => {
     e.preventDefault()
-    setOtherInput('')
+    setFormData((prevData) => ({
+      ...prevData,
+      otherInput: ''
+    }))
   }, [])
 
-  const renderNextButton = () => {
-    if (isOtherSelected) {
+  const renderNextButton = useCallback(() => {
+    if (formData.isOtherSelected) {
       return (
         <form
           action=''
-          className={`${sass.input} ${formVisible ? sass.formVisible : ''}`}
+          className={`${sass.input} ${formData.formVisible ? sass.formVisible : ''}`}
         >
           <div className={sass.et}>
             <Enter 
               placeholder='Enter if other'
-              value={otherInput}
+              value={formData.otherInput}
               className={sass.enter}
-              onChange={(e) => setOtherInput(e.target.value)} type={''} />
-            {otherInput && (
+              onChange={(e) => setFormData((prevData) => ({
+                ...prevData,
+                otherInput: e.target.value
+              }))} type={''} />
+            {formData.otherInput && (
               <Delete
                 onClear={handleClearClick}
               />
@@ -74,13 +85,13 @@ export const SGender = memo(() => {
           </div>
         </form>
       )
-    } else if (selectedGender === 'Male' || selectedGender === 'Female' || selectedGender === 'Other') {
+    } else if (formData.selectedGender === 'Male' || formData.selectedGender === 'Female' || formData.selectedGender === 'Other') {
       return (
         <form 
           className={sass.input}
         >
           <div className={sass.btn}>
-            <CSSTransition in={show} timeout={10000000} classNames='alert' unmountOnExit>
+            <CSSTransition in={formData.show} timeout={10000000} classNames='alert' unmountOnExit>
               <Button 
                 onClick={navigateTo}
                 label='Next'
@@ -93,7 +104,7 @@ export const SGender = memo(() => {
     } else {
       return null
     }
-  };
+  }, [formData, handleClearClick]);
 
   return (
     <>
@@ -111,13 +122,13 @@ export const SGender = memo(() => {
             </div>
             <div className={sass.choice}>
               <button
-                className={`${sass.male} ${selectedGender === 'Male' ? sass.active : ''}`}
+                className={`${sass.male} ${formData.selectedGender === 'Male' ? sass.active : ''}`}
                 onClick={() => handleGenderClick('Male')}
               >
                 Male
               </button>
               <button
-                className={`${sass.female} ${selectedGender === 'Female' ? sass.active : ''}`}
+                className={`${sass.female} ${formData.selectedGender === 'Female' ? sass.active : ''}`}
                 onClick={() => handleGenderClick('Female')}
               >
                 Female
@@ -126,7 +137,7 @@ export const SGender = memo(() => {
             <div className={sass.choice2}>
               <span>or</span>
               <button
-                className={`${sass.other} ${selectedGender === 'Other' ? sass.active : ''}`}
+                className={`${sass.other} ${formData.selectedGender === 'Other' ? sass.active : ''}`}
                 onClick={handleOtherClick}
               >
                 Other

@@ -20,60 +20,55 @@ export const DrawerComponent: FC<DrawerProps> = (props) => {
   });
 
   useEffect(() => {
-    if (!drawRef.current || !containerRef.current) return;
-
-    const draw = drawRef.current;
-    const container = containerRef.current;
-
     const onMouseDown = (e: MouseEvent) => {
+      if (!drawRef.current) return;
       isClicked.current = true;
       coords.current.startY = e.clientY;
     };
+
     const onMouseUp = () => {
+      if (!drawRef.current) return;
       isClicked.current = false;
-      coords.current.lastY = draw.offsetTop;
+      coords.current.lastY = drawRef.current.offsetTop;
 
-      if (draw.offsetTop >= 1 && draw.offsetTop <= 374) {
-        draw.style.top = '0px'; 
-        if (setActive) setActive(false);
-      }
-
-      if (draw.offsetTop >= 395) {
-        draw.style.top = '0px';
+      if (coords.current.lastY >= 1 && coords.current.lastY <= 5000) {
+        drawRef.current.style.top = '0px'
         if (setActive) setActive(false);
       }
     };
+
     const onMouseMove = (e: MouseEvent) => {
-      if (!isClicked.current) return;
+      if (!isClicked.current || !drawRef.current) return;
 
       const nextY = e.clientY - coords.current.startY + coords.current.lastY;
 
       if (nextY > coords.current.lastY) {
-        draw.style.top = `${nextY}px`;
+        drawRef.current.style.top = `${nextY}px`;
       }
     };
 
-    draw.addEventListener('mousedown', onMouseDown);
-    draw.addEventListener('mouseup', onMouseUp);
-    container.addEventListener('mousemove', onMouseMove);
+    const container = containerRef.current;
+    container?.addEventListener('mousedown', onMouseDown);
+    document.addEventListener('mouseup', onMouseUp);
+    container?.addEventListener('mousemove', onMouseMove);
 
-    const cleanup = () => {
-      draw.removeEventListener('mousedown', onMouseDown);
-      draw.removeEventListener('mouseup', onMouseUp);
-      container.removeEventListener('mousemove', onMouseMove);
+    return () => {
+      container?.removeEventListener('mousedown', onMouseDown);
+      document.removeEventListener('mouseup', onMouseUp);
+      container?.removeEventListener('mousemove', onMouseMove);
     };
-
-    return cleanup;
   }, [setActive]);
 
   const handleDrawerClick = () => {
-    if (setActive) setActive(true);
+    if (setActive) { 
+      setActive(true);
+    }
   };
 
   return (
     <div
       className={`${active ? sass.drawer_active : sass.drawer_not_active}`}
-      onClick={handleDrawerClick}
+      onClick={handleDrawerClick} 
       ref={containerRef}
     >
       <div
@@ -86,4 +81,5 @@ export const DrawerComponent: FC<DrawerProps> = (props) => {
     </div>
   );
 };
+
 
