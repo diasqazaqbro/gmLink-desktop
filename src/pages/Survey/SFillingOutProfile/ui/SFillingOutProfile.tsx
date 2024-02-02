@@ -48,7 +48,7 @@ export function SFillingOutProfile() {
                 <p>Create a profile that will increase your chances of finding your dream partner.</p>
               </div>
               <div className={sass.main}>
-                <img src={Main} alt="" loading='lazy' />
+                <img src={Main} alt="main" loading='lazy' />
               </div>
               <div className={sass.btn}>
                 <Button 

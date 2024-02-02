@@ -32,13 +32,14 @@ export const UserHistory: FC<PropsStories> = memo((props) => {
         <div className={sass.container__stories}>
           <button onClick={onClick} className={sass.category_outer_circle}>
             <div className={sass.category_inner_circle}>
-            <Stack >
-              <Avatar
-                alt="Remy Sharp"
-                src={categoryItem.image}
-                sx={{ width: '100%', height: 58 }}
-              />
-            </Stack>
+              <Stack >
+                <Avatar
+                  alt="Remy Sharp"
+                  loading='lazy'
+                  src={categoryItem.image}
+                  sx={{ width: '100%', height: 58 }}
+                />
+              </Stack>
             </div>
           </button>
           <div className={sass.category_name}>{categoryItem.name}</div>  

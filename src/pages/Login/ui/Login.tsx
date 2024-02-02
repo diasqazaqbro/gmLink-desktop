@@ -11,7 +11,7 @@ export const Login = () => {
       <div className={sass.container}>
         <div className={sass.inner}>
           <div className={sass.logo}>
-            <Logo /> 
+            <Logo /> {/* БЛЯ, надеюсь я не единственный далбаеб? мне кажется что лого похожа на попу (ЧЕ ЗА ХУЙНЯ АРТЕМ ГДЕ ТЫ ЛОГО ИСКАЛ) */}
             <h1>GameLink</h1>
           </div>
           <LoginForm />

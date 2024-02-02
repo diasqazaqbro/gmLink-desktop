@@ -49,7 +49,7 @@ export const SName = memo(() => {
               <p>Other users will see you under this name. You can change it in the future</p>
             </div>
             <div className={sass.main}>
-              <img src={Main} alt="" loading='lazy' />
+              <img src={Main} alt="main" loading='lazy'/>
             </div>
             <form
               action=""

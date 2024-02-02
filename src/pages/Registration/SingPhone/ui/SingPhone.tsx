@@ -43,7 +43,7 @@ export function SingPhone () {
     />
     <div className={sass.container}>
       <div className={sass.whiteBlock}>
-        <img src={WhiteBlock} alt="" />
+        <img src={WhiteBlock} alt="" loading='lazy' />
       </div>
       <div className={sass.inner}>
         <h1 className={sass.title}>Please enter your Phone</h1>
