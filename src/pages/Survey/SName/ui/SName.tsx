@@ -24,7 +24,7 @@ export const SName = memo(() => {
 
   const styleLogic = useCallback(() => {
     return isValid() ? sass.active : ''
-  }, [])
+  }, [isValid])
 
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value)
@@ -49,7 +49,7 @@ export const SName = memo(() => {
               <p>Other users will see you under this name. You can change it in the future</p>
             </div>
             <div className={sass.main}>
-              <img src={Main} alt="" />
+              <img src={Main} alt="" loading='lazy' />
             </div>
             <form
               action=""
@@ -67,7 +67,7 @@ export const SName = memo(() => {
             </form>
             <Contact 
               label='Contact Us'
-              routePath={''}
+              routePath='/report'
             />
           </div>
         </div>

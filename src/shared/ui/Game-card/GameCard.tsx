@@ -18,7 +18,6 @@ export type CardProps = {
 
 export const GameCard: FC<CardProps> = (props) => {
   const [active, setActive] = useState(false)
-  // const [games, setGames] = useState([])
   const { onClick, image, id, name } = props
 
   // useEffect(() => {
@@ -44,6 +43,7 @@ export const GameCard: FC<CardProps> = (props) => {
               objectFit: 'cover',
               borderRadius: '10px'
             }}
+            loading='lazy'
           />
         </button>
         <div className={sass.card_item__description}>

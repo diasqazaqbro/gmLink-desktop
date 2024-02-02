@@ -1,6 +1,6 @@
 import { FormEvent, memo, useCallback, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import sass from './SGender.module.sass'
 import { Modal } from '../../../../shared/ui/Modal'
 import { Badges } from '../../../../shared/ui/Badges/Badges'
@@ -145,7 +145,7 @@ export const SGender = memo(() => {
             </div>
             {renderNextButton()}
             <div className={sass.sgContact}>
-              <a href=''>Contact Us</a>
+              <Link to='/report'>Contact Us</Link>
             </div>
           </div>
         </div>

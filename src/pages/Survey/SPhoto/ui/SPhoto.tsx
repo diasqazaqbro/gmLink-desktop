@@ -18,7 +18,7 @@ export const SPhoto = memo(() => {
         setAvatarSelected(!avatarSelected)
       }
     }
-  }, [])
+  }, [images])
   const handleNextClick = () => {
     if (avatarSelected) {
       navigate('/registration/gender')
@@ -31,7 +31,7 @@ export const SPhoto = memo(() => {
     if (updatedImages.length === 0) {
       setAvatarSelected(false)
     }
-  }, [])
+  }, [images])
 
   return (
     <div className={sass.background}>
@@ -56,7 +56,7 @@ export const SPhoto = memo(() => {
           <div className={sass.btn}>
             <Button label='Next' disabled={!avatarSelected} className={`${avatarSelected ? sass.active : ''}`} onClick={handleNextClick}/>
           </div>
-          <Contact label='Contact Us' routePath='' className={sass.inner_contact}/>
+          <Contact label='Contact Us' routePath='/report' className={sass.inner_contact}/>
         </div>
       </div>
     </div>

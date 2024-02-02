@@ -1,0 +1,73 @@
+.form
+  margin: 0px 17px 0 17px
+  overflow: scroll
+  background: var(--color-second)
+  padding: 24px 21px 31px 21px
+  position: relative
+  z-index: 10000
+  height: 650px
+  border-radius: 20px
+  .report
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 24px
+    h1
+      position: relative
+      left: -16px
+      color: var(--color-white)
+      text-align: center
+      font-family: Asap
+      font-size: 30px
+      font-weight: 600
+      line-height: normal
+  label
+    color: var(--color-white)
+    text-align: center
+    font-family: Asap
+    font-size: 20px
+    font-weight: 500
+    line-height: normal
+    position: relative
+    top: -0.5rem
+  textarea
+    height: 42px
+    width: 100%
+    border-radius: 18px
+    outline: none
+    resize: none  
+    border: none
+    background: #2F2D2D
+    color: var(--color-white)
+    font-family: Asap
+    font-size: 16px 
+    margin-bottom: 20px
+    &[type=reason]
+      padding: 11px 11px 11px 20px
+    &[type=title]
+      padding: 11px 11px 70px 20px
+    &[type=desc]
+      padding: 11px 11px 75px 20px
+    &[type=contact]
+      padding: 11px 11px 11px 20px
+    &::-webkit-scrollbar
+      width: 1px
+      background: transparent
+  h3
+    position: absolute
+    color: rgba(255, 255, 255, 0.50)
+    font-family: Asap
+    font-size: 12px
+    font-weight: 500
+    line-height: normal
+    margin-left: 6px
+  &::-webkit-scrollbar
+    width: 1px
+    background: transparent
+
+.error
+  position: relative
+  margin-bottom: 0
+  top: -1.5rem
+  left: 0.3rem
+  color: #ce3f3f

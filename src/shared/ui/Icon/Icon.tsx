@@ -80,3 +80,16 @@ export const Badge = () => {
     </svg>
   )
 }
+
+export const BadgeReport = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+      <mask id="mask0_1_3161" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="25">
+        <rect width="25" height="25" fill="#D9D9D9"/>
+      </mask>
+      <g mask="url(#mask0_1_3161)">
+        <path d="M11.1238 22.2096C10.7332 22.6001 10.1001 22.6001 9.70956 22.2096L0.707107 13.2071C0.316583 12.8166 0.316583 12.1835 0.707107 11.7929L9.70956 2.79048C10.1001 2.39996 10.7332 2.39996 11.1238 2.79048L11.5585 3.22523C11.949 3.61575 11.949 4.24891 11.5585 4.63944L4.40502 11.7929C4.0145 12.1835 4.0145 12.8166 4.40502 13.2071L11.5585 20.3606C11.949 20.7512 11.949 21.3843 11.5585 21.7749L11.1238 22.2096Z" fill="white"/>
+      </g>
+    </svg>
+  )
+}

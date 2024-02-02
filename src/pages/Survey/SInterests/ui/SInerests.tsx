@@ -37,7 +37,7 @@ export function SInterests() {
           </div>
           <div className={sass.cards}>
             <div className={sass.card}>
-              <img src={Cup} alt="" className={sass.cup}/>
+              <img src={Cup} alt="" className={sass.cup} loading='lazy' />
               <div className={sass.cardText}>
                 <h1>Assemble a team</h1>
                 <p className={sass.text1}>Find people to conquer new heights in games.</p>
@@ -90,7 +90,7 @@ export function SInterests() {
           />
           <Contact 
             label="Contact Us"
-            routePath={''}
+            routePath={'/report'}
           />
         </div>
       </div>

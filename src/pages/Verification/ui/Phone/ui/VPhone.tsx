@@ -61,7 +61,7 @@ export const VPhone = memo(() => {
               <a href="">Didn’t receive code?</a>
             </div>
             <div className={sass.contact}>
-              <Contact label='Contact Us' routePath={''} />
+              <Contact label='Contact Us' routePath='/report' />
             </div>
           </div>
         </div>

@@ -52,7 +52,7 @@ export function SingEmail() {
       <div className={sass.inner}>
         <h1 className={sass.title}>Please enter your Email</h1>
         <div className={sass.draw}>
-          <img src={Main} alt="" />
+          <img src={Main} alt="" loading='lazy' />
         </div>
         <form className={sass.auth} onSubmit={handleSubmit} >
           <Input className={sass.enter} onChange={handleEmailChange} onClear={() => setEmail('')} placeholder='Enter your email' value={email} type='email' >
@@ -62,7 +62,7 @@ export function SingEmail() {
       </div>
       <Contact 
         label='Contact Us'
-        routePath=''
+        routePath='/report'
       />
     </div>
     <Modal active={modalActive} setActive={setModalActive}>

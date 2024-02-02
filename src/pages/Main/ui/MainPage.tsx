@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import sass from './MainPage.module.sass';
 import Logo from './assets/Logo.svg'
 import People from './assets/mP--people.svg'
@@ -69,7 +69,7 @@ export function MainPage() {
           </ul>
           <div className={sass.brInContact}></div>
           <div className={sass.contact}>
-            <a href="" className={sass.contactUs}>Contact Us</a>
+            <Link to="/report" className={sass.contactUs}>Contact Us</Link>
           </div>
         </div>
       </div>

@@ -40,7 +40,7 @@ export function SFillingOutProfile() {
           />
           <div className={sass.container}>
             <div className={sass.white}>
-              <img src={White} />
+              <img src={White} loading='lazy' />
             </div>
             <div className={sass.inner}>
               <div className={sass.text}>
@@ -48,7 +48,7 @@ export function SFillingOutProfile() {
                 <p>Create a profile that will increase your chances of finding your dream partner.</p>
               </div>
               <div className={sass.main}>
-                <img src={Main} alt="" />
+                <img src={Main} alt="" loading='lazy' />
               </div>
               <div className={sass.btn}>
                 <Button 
@@ -61,7 +61,7 @@ export function SFillingOutProfile() {
               </div>
               <Contact 
                 label="Contact Us"
-                routePath={''}
+                routePath='/report'
               />
             </div>
           </div>

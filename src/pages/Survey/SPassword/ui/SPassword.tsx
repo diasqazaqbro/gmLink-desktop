@@ -65,7 +65,7 @@ export const SPassword = () => {
             </div>
           </form>
           {showDivBlock ? <h1 className={sass.password_check}>Password don't match</h1> : null}
-          <Contact label='Contact Us' routePath={''} />
+          <Contact label='Contact Us' routePath='/report' />
         </div>
       </div>
     </div>

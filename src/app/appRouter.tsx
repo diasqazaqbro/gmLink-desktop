@@ -25,6 +25,7 @@ import { VEmail } from "../pages/Verification/ui/Email/ui/VEmail";
 import { Login } from "../pages/Login";
 import { SPassword } from "../pages/Survey/SPassword";
 import { SPhoto } from "../pages/Survey/SPhoto";
+import { Report } from "../pages/Report";
 
 // type GuestGuardProps = {
 //   children: ReactElement;
@@ -62,6 +63,10 @@ export const appRouter = () =>
         {
           path: "/login",
           element: <Login />
+        },
+        {
+          path: '/report',
+          element: <Report />
         },
         {
           path: "/main",

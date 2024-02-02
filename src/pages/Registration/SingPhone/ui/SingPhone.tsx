@@ -48,7 +48,7 @@ export function SingPhone () {
       <div className={sass.inner}>
         <h1 className={sass.title}>Please enter your Phone</h1>
         <div className={sass.draw}>
-          <img src={Main} alt="" />
+          <img src={Main} alt="" loading='lazy' />
         </div>
         <form 
             action="" 
@@ -66,7 +66,7 @@ export function SingPhone () {
         </form>
         <Contact 
           label="Contact Us"
-          routePath=''
+          routePath='/report'
         />
       </div>
     </div>
