@@ -25,18 +25,17 @@ const GameContent: React.FC<ContentProps> = (props) => {
   const { onClick } = props
 
   return (
-  <>
-    <div className={sass.head_content}>
-      <a onClick={onClick}>
-        <BadgeReport />
-      </a>
-      <h1>Filter</h1>
-      <h2></h2>
-    </div>
-    <div className={sass.main_content}>
-      <CheckBox />
-    </div>
-  </>
-    
+    <>
+      <div className={sass.head_content}>
+        <a onClick={onClick}>
+          <BadgeReport />
+        </a>
+        <h1>Filter</h1>
+        <h2></h2>
+      </div>
+      <div className={sass.main_content}>
+        <CheckBox />
+      </div>
+    </>
   )
 }

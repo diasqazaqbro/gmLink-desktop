@@ -77,7 +77,7 @@ export const DrawerComponent: FC<DrawerProps> = (props) => {
         ref={drawRef}
         onClick={e => e.stopPropagation()}
       >
-        <DrawerContent onClick={() => setActive(!active)} />
+        <DrawerContent onClick={() => setActive && setActive(!active)} />
       </div>
     </div>
   );
