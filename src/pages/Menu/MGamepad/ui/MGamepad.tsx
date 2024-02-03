@@ -6,6 +6,7 @@ import { Filter } from '../../../../features/filter';
 import { MainHeader } from '../../../../widgets/mainHeader/ui/mainHeader';
 import { Navigation } from '../../../../widgets/footerNavigation';
 import { Loading } from '../../../../shared/ui/Loading/Loading';
+import { DrawerComponent } from '../../../../features/drawer';
 
 interface Game {
     id: number;
@@ -20,7 +21,7 @@ export const MGamepad = memo(() => {
         { id: 2, name: 'Counter Strike 2', image: Dota, routePath: '' },
         { id: 3, name: 'Nigga', image: Dota, routePath: '' }
     ]);
-
+    const [viewFilter, setViewFilter] = useState(false)
     const [gameList, setGameList] = useState<Game[]>(dataRef.current);
     const [searchTerm, setSearchTerm] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(true);
@@ -55,7 +56,7 @@ export const MGamepad = memo(() => {
             <div className={sass.inner}>
                 <div className={sass.inner__header}>
                     <h1>Your game</h1>
-                    <Filter />
+                    <Filter onClick={() => setViewFilter(!viewFilter)}/>
                 </div>
                 <ul className={sass.cards}>
                     {loading ? <Loading /> : (
@@ -72,6 +73,7 @@ export const MGamepad = memo(() => {
                     )}
                 </ul>
             </div>
+            <DrawerComponent active={viewFilter} setActive={() => setViewFilter(!viewFilter)} />
             <Navigation />
         </div>
     );

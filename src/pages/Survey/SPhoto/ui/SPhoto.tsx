@@ -35,8 +35,7 @@ export const SPhoto = memo(() => {
 
   return (
     <div className={sass.background}>
-        <Badges routePath={'/registration/password'} className={sass.badge}
-        />
+        <Badges routePath={'/registration/password'} className={sass.badge} />
       <div className={sass.container}>
         <div className={sass.inner}>
           <div className={sass.inner_text}>

@@ -1,3 +1,4 @@
+import { DrawerContent } from '../../../widgets/DrawerContent';
 import sass from './drawer.module.sass';
 import { FC, useEffect, useRef } from "react";
 
@@ -31,8 +32,8 @@ export const DrawerComponent: FC<DrawerProps> = (props) => {
       isClicked.current = false;
       coords.current.lastY = drawRef.current.offsetTop;
 
-      if (coords.current.lastY >= 1 && coords.current.lastY <= 5000) {
-        drawRef.current.style.top = '0px'
+      if (coords.current.lastY >= 1 && coords.current.lastY <= -5000) {
+        drawRef.current.style.top = '0rem'
         if (setActive) setActive(false);
       }
     };
@@ -42,7 +43,7 @@ export const DrawerComponent: FC<DrawerProps> = (props) => {
 
       const nextY = e.clientY - coords.current.startY + coords.current.lastY;
 
-      if (nextY > coords.current.lastY) {
+      if (nextY < coords.current.lastY) {
         drawRef.current.style.top = `${nextY}px`;
       }
     };
@@ -76,10 +77,11 @@ export const DrawerComponent: FC<DrawerProps> = (props) => {
         ref={drawRef}
         onClick={e => e.stopPropagation()}
       >
-        {/* Drawer content */}
+        <DrawerContent onClick={() => setActive(!active)} />
       </div>
     </div>
   );
 };
+
 
 

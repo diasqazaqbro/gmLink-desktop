@@ -33,17 +33,13 @@ export const VPhone = memo(() => {
     return () => clearInterval(intervalId);
   }, []); 
 
-  const toggleModal = () => {
-    setModalActive(!modalActive);
-  }
-
   return (
     <>
       <div className={sass.background}>
         <div className={sass.container}>
           <Badges 
             routePath='/registration/sign-phone'
-            onClick={toggleModal}
+            onClick={() => setModalActive(!modalActive)}
           />
           <div className={sass.inner}>
             <div className={sass.text}>
@@ -66,7 +62,7 @@ export const VPhone = memo(() => {
           </div>
         </div>
       </div>
-      <Modal active={modalActive} setActive={setModalActive}>
+      <Modal active={modalActive} setActive={() => setModalActive(!modalActive)}>
         <p className={sass.modal__inner}>ПОШЕЛ НАХУЙ ДАНИК</p>
       </Modal>
     </>
